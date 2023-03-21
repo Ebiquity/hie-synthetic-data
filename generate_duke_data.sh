@@ -1,0 +1,1 @@
+./run_synthea -p 100  --exporter.baseDirectory="./output_duke/" "North Carolina"  "Durham" -d "./src/main/resources/modules/"

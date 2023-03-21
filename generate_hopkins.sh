@@ -1,0 +1,1 @@
+./run_synthea -p 100  --exporter.baseDirectory="./output_hopkins/" Maryland "Baltimore" -d "./src/main/resources/modules/"
