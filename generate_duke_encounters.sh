@@ -1,2 +1,5 @@
+. ./synthetic.config
+cd $SYNTHEA_DIR
 ./run_synthea -p 100000  --exporter.baseDirectory="./output_duke/" "North Carolina"  "Durham" -d "./src/main/resources/modules/"
-python3 /knacc2_local/jclavin/hie-synthetic-data/ConvertDukeEncounters.py
+cd $SYTHEA_RDF_DIR
+python3 ConvertDukeEncounters.py

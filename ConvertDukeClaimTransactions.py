@@ -5,9 +5,9 @@ configure = ConfigParser()
 configure.read('synthetic.config')
 
 MODEL_PATH = configure.get('default', 'MODEL_PATH')
-CSV_DIR = configure.get('default', 'CSV_DIR_UCSF')
+CSV_DIR = configure.get('default', 'CSV_DIR_DUKE')
 DEST_PATH = configure.get('default', 'DEST_PATH')
 
 builder = GraphBuilder(CSV_DIR, MODEL_PATH)
-builder.convertEncounter()
-builder.serialize(destination=Path(DEST_PATH)/"ucsf_to_k_state_encounters.ttl")
+builder.convertClaimTransaction()
+builder.serialize(destination=Path(DEST_PATH)/"duke_to_wake_claim_transactions.ttl")

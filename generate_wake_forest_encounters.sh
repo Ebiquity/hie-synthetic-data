@@ -1,2 +1,5 @@
+. ./synthetic.config
+cd $SYNTHEA_DIR
 ./run_synthea -p 100000  --exporter.baseDirectory="./output_wake_forest/" "North Carolina" "Winston-Salem" -d "./src/main/resources/modules/"
-python3 /knacc2_local/jclavin/hie-synthetic-data/ConvertWakeEncounters.py
+cd $SYTHEA_RDF_DIR
+python3 ConvertWakeEncounters.py
