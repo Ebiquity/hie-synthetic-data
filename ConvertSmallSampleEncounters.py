@@ -5,9 +5,9 @@ configure = ConfigParser()
 configure.read('synthetic.config')
 
 MODEL_PATH = configure.get('default', 'MODEL_PATH')
-CSV_DIR = configure.get('default', 'CSV_DIR_K_STATE')
+CSV_DIR = configure.get('default', 'CSV_DIR_SMALL_SAMPLE')
 DEST_PATH = configure.get('default', 'DEST_PATH')
 
 builder = GraphBuilder(CSV_DIR, MODEL_PATH)
 builder.convertEncounter()
-builder.serialize(destination=Path(DEST_PATH)/"k_state_to_ucsf.ttl")
+builder.serialize(destination=Path(DEST_PATH)/"small_sample_encounter.ttl")

@@ -6,5 +6,5 @@ CSV_DIR = "/knacc2_local/synthea/output_small_sample/csv"
 DEST_PATH = "/knacc2_local/jclavin/hie/apps/hie/priv/data"
 
 builder = GraphBuilder(CSV_DIR, MODEL_PATH)
-builder.convertEncounter()
-builder.serialize(destination=Path(DEST_PATH)/"small_sample_encounter.ttl")
+builder.convertClaimTransaction()
+builder.serialize(destination=Path(DEST_PATH)/"small_sample_claim_transactions.ttl")

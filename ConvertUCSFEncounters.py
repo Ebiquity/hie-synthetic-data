@@ -1,9 +1,12 @@
 from pathlib import Path
 from synthea_rdf.graph import GraphBuilder
+from configparser import ConfigParser
+configure = ConfigParser()
+configure.read('synthetic.config')
 
-MODEL_PATH = "/knacc2_local/jclavin/synthea-rdf/synthea_ontology/synthea_ontology.ttl"
-CSV_DIR = "/knacc2_local/synthea/output_ucsf/csv"
-DEST_PATH = "/knacc2_local/jclavin/hie/apps/hie/priv/data"
+MODEL_PATH = configure.get('default', 'MODEL_PATH')
+CSV_DIR = configure.get('default', 'CSV_DIR_UCSF')
+DEST_PATH = configure.get('default', 'DEST_PATH')
 
 builder = GraphBuilder(CSV_DIR, MODEL_PATH)
 builder.convertEncounter()
