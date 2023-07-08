@@ -10,4 +10,4 @@ DEST_PATH = configure.get('default', 'DEST_PATH')
 
 builder = GraphBuilder(CSV_DIR, MODEL_PATH)
 builder.convertEncounter()
-builder.serialize(destination=Path(DEST_PATH)/"k_state_to_ucsf.ttl")
+builder.serialize(destination=Path(DEST_PATH)/"k_state_to_ucsf_encounters.ttl")

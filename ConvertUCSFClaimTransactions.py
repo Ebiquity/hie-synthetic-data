@@ -9,5 +9,5 @@ CSV_DIR = configure.get('default', 'CSV_DIR_UCSF')
 DEST_PATH = configure.get('default', 'DEST_PATH')
 
 builder = GraphBuilder(CSV_DIR, MODEL_PATH)
-builder.convertEncounter()
-builder.serialize(destination=Path(DEST_PATH)/"ucsf_to_k_state_encounters.ttl")
+builder.convertClaimTransaction()
+builder.serialize(destination=Path(DEST_PATH)/"ucsf_to_k_state_claim_transactions.ttl")
