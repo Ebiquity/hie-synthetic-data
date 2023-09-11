@@ -6,7 +6,7 @@ configure = ConfigParser()
 configure.read('synthetic.config')
 
 MODEL_PATH = configure.get('default', 'MODEL_PATH')
-CSV_DIR = configure.get('default', 'CSV_DIR_K_STATE')
+CSV_DIR = configure.get('default', 'CSV_DIR_HOPKINS')
 DEST_PATH = configure.get('default', 'DEST_PATH')
 SYNTHEA_RDF_DIR = configure.get('default', 'SYNTHEA_RDF_DIR')
 
@@ -18,7 +18,7 @@ default_skip = ["allergies.csv",
   "claims_transactions.csv", 
   "conditions.csv", 
   "devices.csv", 
-  "claims.csv", 
+  "encounters.csv", 
   "imaging_studies.csv", 
   "immunizations.csv", 
   "medications.csv", 
