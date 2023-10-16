@@ -1,0 +1,3284 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea> a owl:Ontology ;
+    owl:versionIRI <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea/0.2> .
+
+syn:address a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Patient syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:patientDataProperty,
+        syn:providerDataProperty .
+
+syn:amountCovered a owl:DatatypeProperty ;
+    rdfs:comment "The monetary amount paid to Organizations during the entire simulation." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:amountUncovered a owl:DatatypeProperty ;
+    rdfs:comment "The monetary amount not paid to Organizations during the entire simulation, and covered out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:baseCost a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Medication syn:Procedure ) ] ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:medicationDataProperty,
+        syn:procedureDataProperty .
+
+syn:baseEncounterCost a owl:DatatypeProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:encounterDataProperty .
+
+syn:birthdate a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:birthplace a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:bodySiteDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:chargeId a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:city a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Patient syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:patientDataProperty,
+        syn:providerDataProperty .
+
+syn:claimId a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:cost a owl:DatatypeProperty ;
+    rdfs:domain syn:Immunization ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:immunizationDataProperty .
+
+syn:coveredEncounters a owl:DatatypeProperty ;
+    rdfs:comment "The number of Encounters paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:coveredImmunizations a owl:DatatypeProperty ;
+    rdfs:comment "The number of Immunizations paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:coveredMedications a owl:DatatypeProperty ;
+    rdfs:comment "The number of Medications paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:coveredProcedures a owl:DatatypeProperty ;
+    rdfs:comment "The number of Procedures paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:currentIllnessDate a owl:DatatypeProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:date a owl:DatatypeProperty ;
+    rdfs:domain syn:Supply ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:supplyDataProperty .
+
+syn:dateTime a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:ImagingStudy syn:Immunization syn:Observation ) ] ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty,
+        syn:immunizationDataProperty,
+        syn:observationDataProperty .
+
+syn:departmentId a owl:DatatypeProperty ;
+    rdfs:comment "Placeholder for department." ;
+    rdfs:domain syn:Claim ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:description a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:Device syn:Encounter syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:dispense a owl:DatatypeProperty ;
+    rdfs:domain syn:Medication ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:medicationDataProperty .
+
+syn:encounterClass a owl:DatatypeProperty ;
+    rdfs:comment "The class of the encounter, such as ambulatory, emergency, inpatient, wellness, or urgentcare" ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:encounterDataProperty .
+
+syn:encounterId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:Device syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:imagingStudyDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:endYear a owl:DatatypeProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:payerTransitionDataProperty .
+
+syn:ethnicity a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:first a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:gender a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Patient syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty,
+        syn:providerDataProperty .
+
+syn:hasAllergy a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Allergy ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasCarePlan a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:CarePlan ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasClaim a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Claim ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasClaimTransaction a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Patient syn:Provider ) ] ;
+    rdfs:range syn:ClaimTransaction ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasCovered a owl:ObjectProperty ;
+    rdfs:domain syn:Payer ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasDiagnosed a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:Condition ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasEmployed a owl:ObjectProperty ;
+    rdfs:domain syn:Organization ;
+    rdfs:range syn:Provider ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasEncounter a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasFiled a owl:ObjectProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range syn:Claim ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasHistoryOf a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Condition syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasMeasured a owl:ObjectProperty ;
+    rdfs:domain syn:Device ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasOrdered a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:CarePlan syn:Device syn:ImagingStudy syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPatient a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPatientRecord a owl:ObjectProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPayerRecord a owl:ObjectProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range syn:Payer ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPayerTransitionHistory a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Patient syn:Provider ) ] ;
+    rdfs:range syn:PayerTransition ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPerformed a owl:ObjectProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPlaceOfService a owl:ObjectProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range syn:Organization ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPrescribed a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Immunization syn:Medication ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasTransaction a owl:ObjectProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range syn:ClaimTransaction ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:healthcareCoverage a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:healthcareExpense a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:id a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:CarePlan syn:Claim syn:ClaimTransaction syn:Encounter syn:ImagingStudy syn:Organization syn:Patient syn:Payer syn:Provider ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:carePlanDataProperty,
+        syn:claimDataProperty,
+        syn:claimTransactionDataProperty,
+        syn:encounterDataProperty,
+        syn:imagingStudyDataProperty,
+        syn:organizationDataProperty,
+        syn:patientDataProperty,
+        syn:payerDataProperty,
+        syn:providerDataProperty .
+
+syn:income a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:isAbout a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:ImagingStudy syn:Observation ) ] ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isAffiliatedWith a owl:ObjectProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range syn:Organization ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isAssociatedWith a owl:ObjectProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Patient syn:Provider ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isCoveredBy a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication ) ] ;
+    rdfs:range syn:Payer ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isDiagnosedDuring a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:Condition ) ] ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isFiledBy a owl:ObjectProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range syn:Provider ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isMeasuredBy a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Device ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isOrderedDuring a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:CarePlan syn:Device syn:ImagingStudy syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isOrderedFor a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Procedure syn:Supply ) ] ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPerformedAt a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range syn:Organization ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPerformedBy a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range syn:Provider ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPrescribedDuring a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Immunization syn:Medication ) ] ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPrescribedFor a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Immunization syn:Medication ) ] ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isResponsibleFor a owl:ObjectProperty ;
+    rdfs:domain syn:Organization ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isTransactionFor a owl:ObjectProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range syn:Claim ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:last a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:memberMonths a owl:DatatypeProperty ;
+    rdfs:comment "The total number of months that patients were enrolled with this Payer during the simulation and paid monthly premiums (if any)." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:modalityDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:name a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Payer syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:payerDataProperty,
+        syn:providerDataProperty .
+
+syn:organizationId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Provider ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:encounterDataProperty,
+        syn:providerDataProperty .
+
+syn:patientDepartmentId a owl:DatatypeProperty ;
+    rdfs:comment "Placeholder for patient department." ;
+    rdfs:domain syn:Claim ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:patientId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Claim syn:ClaimTransaction syn:Condition syn:Device syn:Encounter syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:PayerTransition syn:Procedure syn:Supply ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:claimDataProperty,
+        syn:claimTransactionDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:imagingStudyDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:payerTransitionDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:payerCoverage a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication ) ] ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:encounterDataProperty,
+        syn:medicationDataProperty .
+
+syn:payerId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication syn:PayerTransition ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:encounterDataProperty,
+        syn:medicationDataProperty,
+        syn:payerTransitionDataProperty .
+
+syn:placeOfService a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:providerId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Claim syn:ClaimTransaction syn:Encounter ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimDataProperty,
+        syn:claimTransactionDataProperty,
+        syn:encounterDataProperty .
+
+syn:qolsAvg a owl:DatatypeProperty ;
+    rdfs:comment "The average Quality of Life Scores (QOLS) for all patients enrolled with this Payer during the entire simulation." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:quantity a owl:DatatypeProperty ;
+    rdfs:domain syn:Supply ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:supplyDataProperty .
+
+syn:race a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:reasonDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:CarePlan ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:carePlanDataProperty .
+
+syn:revenue a owl:DatatypeProperty ;
+    rdfs:comment "The monetary revenue of the Payer during the entire simulation." ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Payer ) ] ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:payerDataProperty .
+
+syn:serviceDate a owl:DatatypeProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:sopDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:speciality a owl:DatatypeProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:providerDataProperty .
+
+syn:ssn a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:startDate a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition ) ] ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty .
+
+syn:startDateTime a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Device syn:Encounter syn:Medication syn:Procedure ) ] ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:subPropertyOf syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:medicationDataProperty,
+        syn:procedureDataProperty .
+
+syn:startYear a owl:DatatypeProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:payerTransitionDataProperty .
+
+syn:state a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:system a owl:DatatypeProperty ;
+    rdfs:comment "Terminology system of the Allergy code. RxNorm if this is a medication allergy, otherwise SNOMED-CT." ;
+    rdfs:domain syn:Allergy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:allergyDataProperty .
+
+syn:totalClaimCost a owl:DatatypeProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:encounterDataProperty .
+
+syn:totalCost a owl:DatatypeProperty ;
+    rdfs:domain syn:Medication ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:medicationDataProperty .
+
+syn:type a owl:DatatypeProperty ;
+    rdfs:domain syn:Observation ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:observationDataProperty .
+
+syn:uncoveredEncounters a owl:DatatypeProperty ;
+    rdfs:comment "The number of Encounters not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uncoveredImmunizations a owl:DatatypeProperty ;
+    rdfs:comment "The number of Immunizations not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uncoveredMedications a owl:DatatypeProperty ;
+    rdfs:comment "The number of Medications not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uncoveredProcedures a owl:DatatypeProperty ;
+    rdfs:comment "The number of Procedures not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uniqueCustomers a owl:DatatypeProperty ;
+    rdfs:comment "The number of unique patients enrolled with this Payer during the entire simulation." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:utilization a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Provider ) ] ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:providerDataProperty .
+
+syn:value a owl:DatatypeProperty ;
+    rdfs:domain syn:Observation ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:observationDataProperty .
+
+syn:bodySiteCode a owl:DatatypeProperty ;
+    rdfs:comment "A SNOMED Body Structures code describing what part of the body the images in the series were taken of." ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:encounter_000bcc6d-5cf8-69ad-5ee6-29c8bf4cb3a2 syn:hasPrescribed syn:immunization_99 .
+
+syn:encounter_0295602f-26b0-3c77-a367-c50feec0523d syn:hasPrescribed syn:immunization_134 .
+
+syn:encounter_060edd38-74aa-71b9-0967-617c5c5024f5 syn:hasPrescribed syn:immunization_47 .
+
+syn:encounter_0732c0bf-968d-878d-5921-0a37eb045747 syn:hasPrescribed syn:immunization_145 .
+
+syn:encounter_09f142c5-e1b1-c50e-c671-0481fb66ca6d syn:hasPrescribed syn:immunization_57 .
+
+syn:encounter_0b34ac32-0eae-4312-2d6a-63161a230904 syn:hasPrescribed syn:immunization_50 .
+
+syn:encounter_104b5efc-1d37-3d30-dc18-4aaef66553ee syn:hasPrescribed syn:immunization_140 .
+
+syn:encounter_113bb86e-5978-d9fd-342f-a3046c5714f9 syn:hasPrescribed syn:immunization_121 .
+
+syn:encounter_132b2de0-b390-8aa6-42be-a6b388c7b3d8 syn:hasPrescribed syn:immunization_67 .
+
+syn:encounter_143711ce-cc49-499b-bb06-6c586139b601 syn:hasPrescribed syn:immunization_155 .
+
+syn:encounter_18b5a230-3d4e-d0a0-b99c-118677fa2eed syn:hasPrescribed syn:immunization_53 .
+
+syn:encounter_1992fd73-a92e-d117-5616-7e31a810ff4f syn:hasPrescribed syn:immunization_51 .
+
+syn:encounter_1a2fa07b-17ab-2f0a-267b-778fe39c56fa syn:hasPrescribed syn:immunization_48 .
+
+syn:encounter_1dc4dd62-4d61-e3c2-745b-d527c6231adb syn:hasPrescribed syn:immunization_100 .
+
+syn:encounter_21883282-0225-4501-09bd-5cdf6445091d syn:hasPrescribed syn:immunization_39 .
+
+syn:encounter_32545bd4-ad99-ae98-3f86-f9b8bbd05b51 syn:hasPrescribed syn:immunization_124 .
+
+syn:encounter_3334f464-1146-d039-5a21-ca6820828e01 syn:hasPrescribed syn:immunization_98 .
+
+syn:encounter_34908694-1908-68c5-7990-f39943c08838 syn:hasPrescribed syn:immunization_104 .
+
+syn:encounter_349bc408-9fc4-2968-3bdc-3f2c3f0763f6 syn:hasPrescribed syn:immunization_52 .
+
+syn:encounter_34c12ac7-1849-44d9-a290-f30dac5b5dc8 syn:hasPrescribed syn:immunization_179 .
+
+syn:encounter_35ee05d7-000d-e364-76ad-f0a04a13d58a syn:hasPrescribed syn:immunization_3 .
+
+syn:encounter_38930dc0-b2c0-5205-a6f7-bccb9e73bcbb syn:hasPrescribed syn:immunization_103 .
+
+syn:encounter_3cd3d1b0-3804-178e-31c2-df9b320dbada syn:hasPrescribed syn:immunization_55 .
+
+syn:encounter_42db5a7e-6eb3-ae84-6940-11aef9de79bd syn:hasPrescribed syn:immunization_180 .
+
+syn:encounter_43b6acf0-6975-e838-2ca8-a2d919f0aea3 syn:hasPrescribed syn:immunization_91 .
+
+syn:encounter_475b1280-9afa-ae8b-a1ba-16ffe0186f58 syn:hasPrescribed syn:immunization_137 .
+
+syn:encounter_4840ba86-dc5b-2d44-1fe8-9fa3842e1b9b syn:hasPrescribed syn:immunization_49 .
+
+syn:encounter_4bcd1ce6-a7fe-2ce1-f413-48e1fda87099 syn:hasPrescribed syn:immunization_125 .
+
+syn:encounter_4c2acbcd-17d1-f7a9-7650-30ccb6291a9a syn:hasPrescribed syn:immunization_128 .
+
+syn:encounter_55008edd-1035-dd34-8c25-e2bb3225d485 syn:hasPrescribed syn:immunization_56 .
+
+syn:encounter_5accb95a-ba5c-5213-1a36-f8a479acd809 syn:hasPrescribed syn:immunization_181 .
+
+syn:encounter_5c3c2023-0ab1-e4e0-8e0d-26e6e04a1c26 syn:hasPrescribed syn:immunization_139 .
+
+syn:encounter_5e041e73-8b45-0794-a72b-d66f1437b4b6 syn:hasPrescribed syn:immunization_164 .
+
+syn:encounter_626ef53a-1e04-e2dc-1845-3abcc36779d2 syn:hasPrescribed syn:immunization_173 .
+
+syn:encounter_643bc557-cf56-f0d1-9c3c-724964d99860 syn:hasPrescribed syn:immunization_122 .
+
+syn:encounter_64c3a138-a41d-cfc0-00f7-49a20761a51e syn:hasPrescribed syn:immunization_78 .
+
+syn:encounter_692a062b-9e4c-d04d-e7b6-33061a9e3eda syn:hasPrescribed syn:immunization_80 .
+
+syn:encounter_6ad96826-b23a-cfe8-78c7-efc9b6cfc197 syn:hasPrescribed syn:immunization_142 .
+
+syn:encounter_745ae8ec-f583-1f58-d158-30ec356fbf5e syn:hasPrescribed syn:immunization_183 .
+
+syn:encounter_74a574c0-3419-26a8-9f40-bc70c5f48993 syn:hasPrescribed syn:immunization_136 .
+
+syn:encounter_7779adf1-0a58-18c7-d98b-d1b167f6ce0a syn:hasPrescribed syn:immunization_117 .
+
+syn:encounter_7e4536b1-3ff2-45e4-b478-9b29ae2cd8de syn:hasPrescribed syn:immunization_174 .
+
+syn:encounter_7f949394-7935-a5ac-0d12-87a376d8c5c2 syn:hasPrescribed syn:immunization_92 .
+
+syn:encounter_858b1300-8919-fe03-42a9-cadbc4b00983 syn:hasPrescribed syn:immunization_115 .
+
+syn:encounter_8acbcf2e-6789-704d-d18f-b9d7155c73c5 syn:hasPrescribed syn:immunization_160 .
+
+syn:encounter_9150241a-ad58-e9ad-a601-a4ce7d07108a syn:hasPrescribed syn:immunization_144 .
+
+syn:encounter_91ad9286-4d3d-9e3a-45bf-587b44436331 syn:hasPrescribed syn:immunization_182 .
+
+syn:encounter_92b3b28c-84dd-a13d-445b-dc4cb618298e syn:hasPrescribed syn:immunization_54 .
+
+syn:encounter_92b3b7df-7680-6ebe-6b4c-431488d45d1f syn:hasPrescribed syn:immunization_79 .
+
+syn:encounter_9450c157-698f-0fab-f73f-519485c64245 syn:hasPrescribed syn:immunization_135 .
+
+syn:encounter_95efebd0-83e4-469b-24a5-3e3fe187d5b2 syn:hasPrescribed syn:immunization_114 .
+
+syn:encounter_97cf6af0-accf-1a41-e6d8-98829ddd43cb syn:hasPrescribed syn:immunization_138 .
+
+syn:encounter_9dea18ec-9437-aa93-235c-cd79ce81d955 syn:hasPrescribed syn:immunization_132 .
+
+syn:encounter_9f2f2f8b-19af-253b-5ed5-992d5eb6480b syn:hasPrescribed syn:immunization_167 .
+
+syn:encounter_a6f51069-c4cd-0a2e-5aa0-4ce72f1af3b1 syn:hasPrescribed syn:immunization_143 .
+
+syn:encounter_a81c9262-4b2a-fe99-e54e-b2b13c3dc2dc syn:hasPrescribed syn:immunization_170 .
+
+syn:encounter_af6f4183-7588-2e44-3438-d396094b3768 syn:hasPrescribed syn:immunization_2 .
+
+syn:encounter_b051dc67-577b-5a0f-3c50-babb4cccc357 syn:hasPrescribed syn:immunization_119 .
+
+syn:encounter_b3d69fe6-e2d9-0bf7-fd3d-c6efe5aadc51 syn:hasPrescribed syn:immunization_113 .
+
+syn:encounter_b4d7f33b-99e3-f172-e02e-1edb11dce051 syn:hasPrescribed syn:immunization_156 .
+
+syn:encounter_b664c4a9-3429-db4d-fbc8-9a8726e3b895 syn:hasPrescribed syn:immunization_175 .
+
+syn:encounter_b77e9b4e-d7c7-e124-b21f-4f87216b63d9 syn:hasPrescribed syn:immunization_165 .
+
+syn:encounter_bb956678-d9b3-812f-b2b5-a21bd3e89dc5 syn:hasPrescribed syn:immunization_116 .
+
+syn:encounter_bd39b3d6-9988-9262-6912-e7d934f89856 syn:hasPrescribed syn:immunization_157 .
+
+syn:encounter_bfb21404-5bd1-8f2e-c4cf-bee84d0851c1 syn:hasPrescribed syn:immunization_95 .
+
+syn:encounter_c3646bd8-0323-aa77-6157-60ac062281df syn:hasPrescribed syn:immunization_96 .
+
+syn:encounter_c50174dd-0ce6-a586-2918-d1918070ade9 syn:hasPrescribed syn:immunization_169 .
+
+syn:encounter_c5fc4a11-07fb-ebdd-caa1-c47234aa5063 syn:hasPrescribed syn:immunization_161 .
+
+syn:encounter_c9af5e74-ecb1-c225-0dca-3ca231b79eb2 syn:hasPrescribed syn:immunization_159 .
+
+syn:encounter_d20d5d4c-d4dc-0abb-be40-cbda73b9fe70 syn:hasPrescribed syn:immunization_77 .
+
+syn:encounter_d31cad7d-7355-6724-2ccc-c96ac3687e8e syn:hasPrescribed syn:immunization_168 .
+
+syn:encounter_d323ff42-f760-8112-3171-23b96a5a5936 syn:hasPrescribed syn:immunization_171 .
+
+syn:encounter_d3b2c754-5265-3c88-02e0-61ee9aaa518c syn:hasPrescribed syn:immunization_120 .
+
+syn:encounter_d657401f-31c6-02da-c8eb-5ff4fe5db610 syn:hasPrescribed syn:immunization_1 .
+
+syn:encounter_d8e0cd80-0a36-e418-0828-151ecc7bb750 syn:hasPrescribed syn:immunization_118 .
+
+syn:encounter_dad2d085-a47f-4c76-92ca-570197a44def syn:hasPrescribed syn:immunization_82 .
+
+syn:encounter_dbbc0c5c-0b43-8f39-cba3-335948fd8bbd syn:hasPrescribed syn:immunization_141 .
+
+syn:encounter_dfbde33f-5e68-cb06-f097-e6476c26c6c2 syn:hasPrescribed syn:immunization_162 .
+
+syn:encounter_e1399214-58e2-0f09-5077-634d284223f0 syn:hasPrescribed syn:immunization_176 .
+
+syn:encounter_e2579c4d-78a9-268d-c4c3-94a84c251faf syn:hasPrescribed syn:immunization_40 .
+
+syn:encounter_e4ca4f1d-31eb-d0a3-a5fe-febc15958ff7 syn:hasPrescribed syn:immunization_177 .
+
+syn:encounter_e93e555f-59dd-d805-0bb6-ee2d5c1d085c syn:hasPrescribed syn:immunization_0 .
+
+syn:encounter_e94aa523-9eef-e067-6588-e3ab8a61af2d syn:hasPrescribed syn:immunization_178 .
+
+syn:encounter_e9fdcb2f-9c36-9de9-1ac5-4eae94098e74 syn:hasPrescribed syn:immunization_81 .
+
+syn:encounter_ead270b3-8ffd-1773-9d8d-70d4243ffc70 syn:hasPrescribed syn:immunization_172 .
+
+syn:encounter_ebf9bd80-d1e4-edba-4e77-fb33cd3842b2 syn:hasPrescribed syn:immunization_158 .
+
+syn:encounter_ee1f91aa-75b1-c65b-0c71-bdaf3aad2848 syn:hasPrescribed syn:immunization_133 .
+
+syn:encounter_f3e3b0fa-9d57-2e58-8a95-10479b8b929a syn:hasPrescribed syn:immunization_97 .
+
+syn:encounter_f4ae9b5e-82b5-f204-9be2-9c1fcdc0d401 syn:hasPrescribed syn:immunization_46 .
+
+syn:encounter_f573050c-3ba8-fe37-ec16-914bdc544dd7 syn:hasPrescribed syn:immunization_163 .
+
+syn:encounter_f70953df-b324-3847-0098-bf9eae88f912 syn:hasPrescribed syn:immunization_166 .
+
+syn:encounter_f81895ad-4752-32f6-8576-729a0b45f4dd syn:hasPrescribed syn:immunization_123 .
+
+syn:instanceUid a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:modalityCode a owl:DatatypeProperty ;
+    rdfs:comment "A DICOM-DCM code describing the method used to take the images." ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-DCM> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:procedureCode a owl:DatatypeProperty ;
+    rdfs:comment "SNOMED-CT or other code for the service." ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:ClaimTransaction syn:ImagingStudy ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty,
+        syn:imagingStudyDataProperty .
+
+syn:seriesUid a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:sopCode a owl:DatatypeProperty ;
+    rdfs:comment "A DICOM-SOP code describing the Subject-Object Pair (SOP) that constitutes the image." ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-SOP> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:udi a owl:DatatypeProperty ;
+    rdfs:domain syn:Device ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI> ;
+    rdfs:subPropertyOf syn:deviceDataProperty .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-DCM> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-SOP> a rdfs:Datatype .
+
+syn:encounter_086caab2-4aa5-dd3e-bdf9-ee7cc93fc510 syn:hasPrescribed syn:immunization_70,
+        syn:immunization_71 .
+
+syn:encounter_1e14eece-b3bb-201a-6f6c-eb566c858564 syn:hasPrescribed syn:immunization_148,
+        syn:immunization_149 .
+
+syn:encounter_493e30e8-eff2-8c75-57d3-84cb7b3a3761 syn:hasPrescribed syn:immunization_126,
+        syn:immunization_127 .
+
+syn:encounter_4ece3c7e-dc22-5e7c-c318-2aa9493494c8 syn:hasPrescribed syn:immunization_108,
+        syn:immunization_109 .
+
+syn:encounter_8d1fd869-d1e3-7f1f-a6d4-2dd3244c87eb syn:hasPrescribed syn:immunization_87,
+        syn:immunization_88 .
+
+syn:encounter_8fb326c6-2e75-e088-7f50-f2d77db21d52 syn:hasPrescribed syn:immunization_101,
+        syn:immunization_102 .
+
+syn:encounter_9236a754-6320-ae98-3453-9438bba54b16 syn:hasPrescribed syn:immunization_146,
+        syn:immunization_147 .
+
+syn:encounter_a43305b2-037e-842f-3d36-fec32fdd80ca syn:hasPrescribed syn:immunization_68,
+        syn:immunization_69 .
+
+syn:encounter_cacea9ea-07dd-2e64-10a6-6dd0fac02fed syn:hasPrescribed syn:immunization_150,
+        syn:immunization_151 .
+
+syn:encounter_d9b19fcc-0475-8daa-97c0-61f8c1c1af61 syn:hasPrescribed syn:immunization_89,
+        syn:immunization_90 .
+
+syn:encounter_daa500b9-f094-22c4-e67f-65c2df99cf74 syn:hasPrescribed syn:immunization_93,
+        syn:immunization_94 .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> a rdfs:Datatype .
+
+syn:immunization_0 a syn:Immunization ;
+    syn:code "8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-07-29T06:16:50"^^xsd:dateTime ;
+    syn:description "Hep B  adolescent or pediatric"^^rdf:PlainLiteral ;
+    syn:encounterId "e93e555f-59dd-d805-0bb6-ee2d5c1d085c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_e93e555f-59dd-d805-0bb6-ee2d5c1d085c ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_1 a syn:Immunization ;
+    syn:code "8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-11-26T01:57:11"^^xsd:dateTime ;
+    syn:description "Hep B  adolescent or pediatric"^^rdf:PlainLiteral ;
+    syn:encounterId "d657401f-31c6-02da-c8eb-5ff4fe5db610"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d657401f-31c6-02da-c8eb-5ff4fe5db610 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_10 a syn:Immunization ;
+    syn:code "119"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-03-04T01:57:11"^^xsd:dateTime ;
+    syn:description "rotavirus  monovalent"^^rdf:PlainLiteral ;
+    syn:encounterId "9860e51c-2a55-10ee-44e0-3f44e655d9ac"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9860e51c-2a55-10ee-44e0-3f44e655d9ac ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_100 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2013-12-07T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "1dc4dd62-4d61-e3c2-745b-d527c6231adb"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_1dc4dd62-4d61-e3c2-745b-d527c6231adb ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_101 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-09-24T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "8fb326c6-2e75-e088-7f50-f2d77db21d52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8fb326c6-2e75-e088-7f50-f2d77db21d52 ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_102 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-09-24T20:33:24"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "8fb326c6-2e75-e088-7f50-f2d77db21d52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8fb326c6-2e75-e088-7f50-f2d77db21d52 ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_103 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-04-11T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "38930dc0-b2c0-5205-a6f7-bccb9e73bcbb"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_38930dc0-b2c0-5205-a6f7-bccb9e73bcbb ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_104 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-05-23T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "34908694-1908-68c5-7990-f39943c08838"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_34908694-1908-68c5-7990-f39943c08838 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_105 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-09-30T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "81924055-9293-34fb-d5df-b1670d33455a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_81924055-9293-34fb-d5df-b1670d33455a ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_106 a syn:Immunization ;
+    syn:code "113"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-09-30T20:33:24"^^xsd:dateTime ;
+    syn:description "Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "81924055-9293-34fb-d5df-b1670d33455a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_81924055-9293-34fb-d5df-b1670d33455a ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_107 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-09-30T20:33:24"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "81924055-9293-34fb-d5df-b1670d33455a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_81924055-9293-34fb-d5df-b1670d33455a ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_108 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-03-10T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "4ece3c7e-dc22-5e7c-c318-2aa9493494c8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_4ece3c7e-dc22-5e7c-c318-2aa9493494c8 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_109 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-03-10T03:24:17"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "4ece3c7e-dc22-5e7c-c318-2aa9493494c8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_4ece3c7e-dc22-5e7c-c318-2aa9493494c8 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_11 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-03-04T01:57:11"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "9860e51c-2a55-10ee-44e0-3f44e655d9ac"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9860e51c-2a55-10ee-44e0-3f44e655d9ac ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_110 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-03-15T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "a231569f-489d-6553-3f90-2f0b7861a21d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a231569f-489d-6553-3f90-2f0b7861a21d ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_111 a syn:Immunization ;
+    syn:code "113"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-03-15T03:24:17"^^xsd:dateTime ;
+    syn:description "Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "a231569f-489d-6553-3f90-2f0b7861a21d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a231569f-489d-6553-3f90-2f0b7861a21d ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_112 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-03-15T03:24:17"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "a231569f-489d-6553-3f90-2f0b7861a21d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a231569f-489d-6553-3f90-2f0b7861a21d ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_113 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-10-06T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "b3d69fe6-e2d9-0bf7-fd3d-c6efe5aadc51"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_b3d69fe6-e2d9-0bf7-fd3d-c6efe5aadc51 ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_114 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-08-02T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "95efebd0-83e4-469b-24a5-3e3fe187d5b2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_95efebd0-83e4-469b-24a5-3e3fe187d5b2 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_115 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-10-12T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "858b1300-8919-fe03-42a9-cadbc4b00983"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_858b1300-8919-fe03-42a9-cadbc4b00983 ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_116 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-03-19T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "bb956678-d9b3-812f-b2b5-a21bd3e89dc5"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bb956678-d9b3-812f-b2b5-a21bd3e89dc5 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_117 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-10-17T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "7779adf1-0a58-18c7-d98b-d1b167f6ce0a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_7779adf1-0a58-18c7-d98b-d1b167f6ce0a ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_118 a syn:Immunization ;
+    syn:code "207"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-09-18T20:33:24"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  100 mcg/0.5mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "d8e0cd80-0a36-e418-0828-151ecc7bb750"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d8e0cd80-0a36-e418-0828-151ecc7bb750 ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_119 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-09-02T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "b051dc67-577b-5a0f-3c50-babb4cccc357"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_b051dc67-577b-5a0f-3c50-babb4cccc357 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_12 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-03-04T01:57:11"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "9860e51c-2a55-10ee-44e0-3f44e655d9ac"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9860e51c-2a55-10ee-44e0-3f44e655d9ac ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_120 a syn:Immunization ;
+    syn:code "207"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-10-16T20:33:24"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  100 mcg/0.5mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "d3b2c754-5265-3c88-02e0-61ee9aaa518c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d3b2c754-5265-3c88-02e0-61ee9aaa518c ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_121 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-03-24T03:24:17"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "113bb86e-5978-d9fd-342f-a3046c5714f9"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_113bb86e-5978-d9fd-342f-a3046c5714f9 ;
+    syn:isPrescribedFor syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff ;
+    syn:patientId "d188fc4e-2709-c302-8821-90094aaec0ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_122 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-10-23T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "643bc557-cf56-f0d1-9c3c-724964d99860"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_643bc557-cf56-f0d1-9c3c-724964d99860 ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_123 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-10-29T20:33:24"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "f81895ad-4752-32f6-8576-729a0b45f4dd"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f81895ad-4752-32f6-8576-729a0b45f4dd ;
+    syn:isPrescribedFor syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c ;
+    syn:patientId "25989468-0831-d2b3-cdb4-21589cc7042c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_124 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-06-08T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "32545bd4-ad99-ae98-3f86-f9b8bbd05b51"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_32545bd4-ad99-ae98-3f86-f9b8bbd05b51 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_125 a syn:Immunization ;
+    syn:code "114"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-01-28T17:00:00"^^xsd:dateTime ;
+    syn:description "meningococcal polysaccharide (groups A  C  Y and W-135) diphtheria toxoid conjugate vaccine (MCV4P)"^^rdf:PlainLiteral ;
+    syn:encounterId "4bcd1ce6-a7fe-2ce1-f413-48e1fda87099"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_4bcd1ce6-a7fe-2ce1-f413-48e1fda87099 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_126 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-07-03T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "493e30e8-eff2-8c75-57d3-84cb7b3a3761"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_493e30e8-eff2-8c75-57d3-84cb7b3a3761 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_127 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-07-03T02:12:46"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "493e30e8-eff2-8c75-57d3-84cb7b3a3761"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_493e30e8-eff2-8c75-57d3-84cb7b3a3761 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_128 a syn:Immunization ;
+    syn:code "33"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-05-28T19:04:11"^^xsd:dateTime ;
+    syn:description "pneumococcal polysaccharide vaccine  23 valent"^^rdf:PlainLiteral ;
+    syn:encounterId "4c2acbcd-17d1-f7a9-7650-30ccb6291a9a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_4c2acbcd-17d1-f7a9-7650-30ccb6291a9a ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_129 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-07-09T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "9a327f85-02fb-e71a-8da2-50fcaf8c242b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9a327f85-02fb-e71a-8da2-50fcaf8c242b ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_13 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-03-04T01:57:11"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "9860e51c-2a55-10ee-44e0-3f44e655d9ac"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9860e51c-2a55-10ee-44e0-3f44e655d9ac ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_130 a syn:Immunization ;
+    syn:code "113"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-07-09T02:12:46"^^xsd:dateTime ;
+    syn:description "Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "9a327f85-02fb-e71a-8da2-50fcaf8c242b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9a327f85-02fb-e71a-8da2-50fcaf8c242b ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_131 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-07-09T02:12:46"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "9a327f85-02fb-e71a-8da2-50fcaf8c242b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9a327f85-02fb-e71a-8da2-50fcaf8c242b ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_132 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-06-14T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "9dea18ec-9437-aa93-235c-cd79ce81d955"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9dea18ec-9437-aa93-235c-cd79ce81d955 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_133 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-07-14T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "ee1f91aa-75b1-c65b-0c71-bdaf3aad2848"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_ee1f91aa-75b1-c65b-0c71-bdaf3aad2848 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_134 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-07-20T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "0295602f-26b0-3c77-a367-c50feec0523d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_0295602f-26b0-3c77-a367-c50feec0523d ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_135 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-07-26T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "9450c157-698f-0fab-f73f-519485c64245"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9450c157-698f-0fab-f73f-519485c64245 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_136 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-08-01T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "74a574c0-3419-26a8-9f40-bc70c5f48993"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_74a574c0-3419-26a8-9f40-bc70c5f48993 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_137 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-08-06T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "475b1280-9afa-ae8b-a1ba-16ffe0186f58"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_475b1280-9afa-ae8b-a1ba-16ffe0186f58 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_138 a syn:Immunization ;
+    syn:code "207"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-04-15T02:12:46"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  100 mcg/0.5mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "97cf6af0-accf-1a41-e6d8-98829ddd43cb"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_97cf6af0-accf-1a41-e6d8-98829ddd43cb ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_139 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-06-19T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "5c3c2023-0ab1-e4e0-8e0d-26e6e04a1c26"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_5c3c2023-0ab1-e4e0-8e0d-26e6e04a1c26 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_14 a syn:Immunization ;
+    syn:code "49"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-05-06T01:57:11"^^xsd:dateTime ;
+    syn:description "Hib (PRP-OMP)"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea28a5-1012-a796-7722-cb43051224c3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea28a5-1012-a796-7722-cb43051224c3 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_140 a syn:Immunization ;
+    syn:code "207"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-05-13T02:12:46"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  100 mcg/0.5mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "104b5efc-1d37-3d30-dc18-4aaef66553ee"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_104b5efc-1d37-3d30-dc18-4aaef66553ee ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_141 a syn:Immunization ;
+    syn:code "187"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-02-17T04:40:08"^^xsd:dateTime ;
+    syn:description "zoster vaccine recombinant"^^rdf:PlainLiteral ;
+    syn:encounterId "dbbc0c5c-0b43-8f39-cba3-335948fd8bbd"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_dbbc0c5c-0b43-8f39-cba3-335948fd8bbd ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_142 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-08-12T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "6ad96826-b23a-cfe8-78c7-efc9b6cfc197"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_6ad96826-b23a-cfe8-78c7-efc9b6cfc197 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_143 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2013-10-29T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "a6f51069-c4cd-0a2e-5aa0-4ce72f1af3b1"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a6f51069-c4cd-0a2e-5aa0-4ce72f1af3b1 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_144 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-06-25T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "9150241a-ad58-e9ad-a601-a4ce7d07108a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9150241a-ad58-e9ad-a601-a4ce7d07108a ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_145 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-07-01T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "0732c0bf-968d-878d-5921-0a37eb045747"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_0732c0bf-968d-878d-5921-0a37eb045747 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_146 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-07-07T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "9236a754-6320-ae98-3453-9438bba54b16"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9236a754-6320-ae98-3453-9438bba54b16 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_147 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-07-07T12:23:18"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "9236a754-6320-ae98-3453-9438bba54b16"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9236a754-6320-ae98-3453-9438bba54b16 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_148 a syn:Immunization ;
+    syn:code "115"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-04-02T21:35:37"^^xsd:dateTime ;
+    syn:description "tetanus toxoid  reduced diphtheria toxoid  and acellular pertussis vaccine  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "1e14eece-b3bb-201a-6f6c-eb566c858564"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_1e14eece-b3bb-201a-6f6c-eb566c858564 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_149 a syn:Immunization ;
+    syn:code "114"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-04-02T21:35:37"^^xsd:dateTime ;
+    syn:description "meningococcal polysaccharide (groups A  C  Y and W-135) diphtheria toxoid conjugate vaccine (MCV4P)"^^rdf:PlainLiteral ;
+    syn:encounterId "1e14eece-b3bb-201a-6f6c-eb566c858564"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_1e14eece-b3bb-201a-6f6c-eb566c858564 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_15 a syn:Immunization ;
+    syn:code "119"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-05-06T01:57:11"^^xsd:dateTime ;
+    syn:description "rotavirus  monovalent"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea28a5-1012-a796-7722-cb43051224c3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea28a5-1012-a796-7722-cb43051224c3 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_150 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-07-01T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "cacea9ea-07dd-2e64-10a6-6dd0fac02fed"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cacea9ea-07dd-2e64-10a6-6dd0fac02fed ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_151 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-07-01T01:40:40"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "cacea9ea-07dd-2e64-10a6-6dd0fac02fed"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cacea9ea-07dd-2e64-10a6-6dd0fac02fed ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_152 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-07-12T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "8f8c3b2e-3511-ef83-64de-822a94292d00"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8f8c3b2e-3511-ef83-64de-822a94292d00 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_153 a syn:Immunization ;
+    syn:code "113"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-07-12T12:23:18"^^xsd:dateTime ;
+    syn:description "Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "8f8c3b2e-3511-ef83-64de-822a94292d00"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8f8c3b2e-3511-ef83-64de-822a94292d00 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_154 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-07-12T12:23:18"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "8f8c3b2e-3511-ef83-64de-822a94292d00"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8f8c3b2e-3511-ef83-64de-822a94292d00 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_155 a syn:Immunization ;
+    syn:code "33"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-08-01T00:02:05"^^xsd:dateTime ;
+    syn:description "pneumococcal polysaccharide vaccine  23 valent"^^rdf:PlainLiteral ;
+    syn:encounterId "143711ce-cc49-499b-bb06-6c586139b601"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_143711ce-cc49-499b-bb06-6c586139b601 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_156 a syn:Immunization ;
+    syn:code "52"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-12-02T01:40:40"^^xsd:dateTime ;
+    syn:description "Hep A  adult"^^rdf:PlainLiteral ;
+    syn:encounterId "b4d7f33b-99e3-f172-e02e-1edb11dce051"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_b4d7f33b-99e3-f172-e02e-1edb11dce051 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_157 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-07-18T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "bd39b3d6-9988-9262-6912-e7d934f89856"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bd39b3d6-9988-9262-6912-e7d934f89856 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_158 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-07-24T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "ebf9bd80-d1e4-edba-4e77-fb33cd3842b2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_ebf9bd80-d1e4-edba-4e77-fb33cd3842b2 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_159 a syn:Immunization ;
+    syn:code "113"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-05-05T01:40:40"^^xsd:dateTime ;
+    syn:description "Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "c9af5e74-ecb1-c225-0dca-3ca231b79eb2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_c9af5e74-ecb1-c225-0dca-3ca231b79eb2 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_16 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-05-06T01:57:11"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea28a5-1012-a796-7722-cb43051224c3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea28a5-1012-a796-7722-cb43051224c3 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_160 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-07-30T12:23:18"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "8acbcf2e-6789-704d-d18f-b9d7155c73c5"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8acbcf2e-6789-704d-d18f-b9d7155c73c5 ;
+    syn:isPrescribedFor syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f ;
+    syn:patientId "3a9ffb2d-0247-4b5f-8e96-ef970086e85f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_161 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-07-07T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "c5fc4a11-07fb-ebdd-caa1-c47234aa5063"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_c5fc4a11-07fb-ebdd-caa1-c47234aa5063 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_162 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-07-12T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "dfbde33f-5e68-cb06-f097-e6476c26c6c2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_dfbde33f-5e68-cb06-f097-e6476c26c6c2 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_163 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-05-09T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "f573050c-3ba8-fe37-ec16-914bdc544dd7"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f573050c-3ba8-fe37-ec16-914bdc544dd7 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_164 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-08-18T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "5e041e73-8b45-0794-a72b-d66f1437b4b6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_5e041e73-8b45-0794-a72b-d66f1437b4b6 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_165 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-05-15T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "b77e9b4e-d7c7-e124-b21f-4f87216b63d9"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_b77e9b4e-d7c7-e124-b21f-4f87216b63d9 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_166 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-07-18T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "f70953df-b324-3847-0098-bf9eae88f912"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f70953df-b324-3847-0098-bf9eae88f912 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_167 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-03-11T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "9f2f2f8b-19af-253b-5ed5-992d5eb6480b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9f2f2f8b-19af-253b-5ed5-992d5eb6480b ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_168 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-07-24T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "d31cad7d-7355-6724-2ccc-c96ac3687e8e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d31cad7d-7355-6724-2ccc-c96ac3687e8e ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_169 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-10-07T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "c50174dd-0ce6-a586-2918-d1918070ade9"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_c50174dd-0ce6-a586-2918-d1918070ade9 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_17 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-05-06T01:57:11"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea28a5-1012-a796-7722-cb43051224c3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea28a5-1012-a796-7722-cb43051224c3 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_170 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-07-30T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "a81c9262-4b2a-fe99-e54e-b2b13c3dc2dc"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a81c9262-4b2a-fe99-e54e-b2b13c3dc2dc ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_171 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-08-24T02:12:46"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "d323ff42-f760-8112-3171-23b96a5a5936"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d323ff42-f760-8112-3171-23b96a5a5936 ;
+    syn:isPrescribedFor syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b ;
+    syn:patientId "a7aa2ede-8b37-f1c9-7105-19b86273c87b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_172 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-06-01T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "ead270b3-8ffd-1773-9d8d-70d4243ffc70"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_ead270b3-8ffd-1773-9d8d-70d4243ffc70 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_173 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-11-23T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "626ef53a-1e04-e2dc-1845-3abcc36779d2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_626ef53a-1e04-e2dc-1845-3abcc36779d2 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_174 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-10-18T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "7e4536b1-3ff2-45e4-b478-9b29ae2cd8de"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_7e4536b1-3ff2-45e4-b478-9b29ae2cd8de ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_175 a syn:Immunization ;
+    syn:code "113"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-06-12T05:39:50"^^xsd:dateTime ;
+    syn:description "Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed"^^rdf:PlainLiteral ;
+    syn:encounterId "b664c4a9-3429-db4d-fbc8-9a8726e3b895"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_b664c4a9-3429-db4d-fbc8-9a8726e3b895 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_176 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-07-14T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "e1399214-58e2-0f09-5077-634d284223f0"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_e1399214-58e2-0f09-5077-634d284223f0 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_177 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-06-18T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "e4ca4f1d-31eb-d0a3-a5fe-febc15958ff7"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_e4ca4f1d-31eb-d0a3-a5fe-febc15958ff7 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_178 a syn:Immunization ;
+    syn:code "212"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-04-06T01:40:40"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  vector non-replicating  recombinant spike protein-Ad26  preservative free  0.5 mL"^^rdf:PlainLiteral ;
+    syn:encounterId "e94aa523-9eef-e067-6588-e3ab8a61af2d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_e94aa523-9eef-e067-6588-e3ab8a61af2d ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_179 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-12-10T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "34c12ac7-1849-44d9-a290-f30dac5b5dc8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_34c12ac7-1849-44d9-a290-f30dac5b5dc8 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_18 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-05-06T01:57:11"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea28a5-1012-a796-7722-cb43051224c3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea28a5-1012-a796-7722-cb43051224c3 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_180 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-08-10T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "42db5a7e-6eb3-ae84-6940-11aef9de79bd"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_42db5a7e-6eb3-ae84-6940-11aef9de79bd ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_181 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-08-16T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "5accb95a-ba5c-5213-1a36-f8a479acd809"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_5accb95a-ba5c-5213-1a36-f8a479acd809 ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_182 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-08-05T05:39:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "91ad9286-4d3d-9e3a-45bf-587b44436331"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_91ad9286-4d3d-9e3a-45bf-587b44436331 ;
+    syn:isPrescribedFor syn:patient_785f2e06-f264-46b2-515a-928124ec0885 ;
+    syn:patientId "785f2e06-f264-46b2-515a-928124ec0885"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_183 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-08-22T01:40:40"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "745ae8ec-f583-1f58-d158-30ec356fbf5e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_745ae8ec-f583-1f58-d158-30ec356fbf5e ;
+    syn:isPrescribedFor syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf ;
+    syn:patientId "a96eca46-0cf9-53ed-1ece-9155117f8abf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_19 a syn:Immunization ;
+    syn:code "49"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-01-06T06:16:50"^^xsd:dateTime ;
+    syn:description "Hib (PRP-OMP)"^^rdf:PlainLiteral ;
+    syn:encounterId "77eb265e-3288-4063-05f3-87c0fac55512"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_77eb265e-3288-4063-05f3-87c0fac55512 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_2 a syn:Immunization ;
+    syn:code "8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-09-02T06:16:50"^^xsd:dateTime ;
+    syn:description "Hep B  adolescent or pediatric"^^rdf:PlainLiteral ;
+    syn:encounterId "af6f4183-7588-2e44-3438-d396094b3768"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_af6f4183-7588-2e44-3438-d396094b3768 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_20 a syn:Immunization ;
+    syn:code "119"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-01-06T06:16:50"^^xsd:dateTime ;
+    syn:description "rotavirus  monovalent"^^rdf:PlainLiteral ;
+    syn:encounterId "77eb265e-3288-4063-05f3-87c0fac55512"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_77eb265e-3288-4063-05f3-87c0fac55512 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_21 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-01-06T06:16:50"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "77eb265e-3288-4063-05f3-87c0fac55512"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_77eb265e-3288-4063-05f3-87c0fac55512 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_22 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-01-06T06:16:50"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "77eb265e-3288-4063-05f3-87c0fac55512"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_77eb265e-3288-4063-05f3-87c0fac55512 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_23 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-01-06T06:16:50"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "77eb265e-3288-4063-05f3-87c0fac55512"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_77eb265e-3288-4063-05f3-87c0fac55512 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_24 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-08-05T01:57:11"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "cd6330fa-ef93-5053-7f23-e2da67029e4b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cd6330fa-ef93-5053-7f23-e2da67029e4b ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_25 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-08-05T01:57:11"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "cd6330fa-ef93-5053-7f23-e2da67029e4b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cd6330fa-ef93-5053-7f23-e2da67029e4b ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_26 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-08-05T01:57:11"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "cd6330fa-ef93-5053-7f23-e2da67029e4b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cd6330fa-ef93-5053-7f23-e2da67029e4b ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_27 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-08-05T01:57:11"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "cd6330fa-ef93-5053-7f23-e2da67029e4b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cd6330fa-ef93-5053-7f23-e2da67029e4b ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_28 a syn:Immunization ;
+    syn:code "8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-08-05T01:57:11"^^xsd:dateTime ;
+    syn:description "Hep B  adolescent or pediatric"^^rdf:PlainLiteral ;
+    syn:encounterId "cd6330fa-ef93-5053-7f23-e2da67029e4b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_cd6330fa-ef93-5053-7f23-e2da67029e4b ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_29 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-04-07T06:16:50"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "bdbfd957-70e9-2c38-0a4f-2aadbccf933a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bdbfd957-70e9-2c38-0a4f-2aadbccf933a ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_3 a syn:Immunization ;
+    syn:code "8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-12-31T01:57:11"^^xsd:dateTime ;
+    syn:description "Hep B  adolescent or pediatric"^^rdf:PlainLiteral ;
+    syn:encounterId "35ee05d7-000d-e364-76ad-f0a04a13d58a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_35ee05d7-000d-e364-76ad-f0a04a13d58a ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_30 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-04-07T06:16:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "bdbfd957-70e9-2c38-0a4f-2aadbccf933a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bdbfd957-70e9-2c38-0a4f-2aadbccf933a ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_31 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-04-07T06:16:50"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "bdbfd957-70e9-2c38-0a4f-2aadbccf933a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bdbfd957-70e9-2c38-0a4f-2aadbccf933a ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_32 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-04-07T06:16:50"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "bdbfd957-70e9-2c38-0a4f-2aadbccf933a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bdbfd957-70e9-2c38-0a4f-2aadbccf933a ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_33 a syn:Immunization ;
+    syn:code "8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-04-07T06:16:50"^^xsd:dateTime ;
+    syn:description "Hep B  adolescent or pediatric"^^rdf:PlainLiteral ;
+    syn:encounterId "bdbfd957-70e9-2c38-0a4f-2aadbccf933a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bdbfd957-70e9-2c38-0a4f-2aadbccf933a ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_34 a syn:Immunization ;
+    syn:code "49"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-02-03T01:57:11"^^xsd:dateTime ;
+    syn:description "Hib (PRP-OMP)"^^rdf:PlainLiteral ;
+    syn:encounterId "adc7d650-0b1c-c234-d6d5-469e59846f55"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_adc7d650-0b1c-c234-d6d5-469e59846f55 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_35 a syn:Immunization ;
+    syn:code "21"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-02-03T01:57:11"^^xsd:dateTime ;
+    syn:description "varicella"^^rdf:PlainLiteral ;
+    syn:encounterId "adc7d650-0b1c-c234-d6d5-469e59846f55"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_adc7d650-0b1c-c234-d6d5-469e59846f55 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_36 a syn:Immunization ;
+    syn:code "3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-02-03T01:57:11"^^xsd:dateTime ;
+    syn:description "MMR"^^rdf:PlainLiteral ;
+    syn:encounterId "adc7d650-0b1c-c234-d6d5-469e59846f55"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_adc7d650-0b1c-c234-d6d5-469e59846f55 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_37 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-02-03T01:57:11"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "adc7d650-0b1c-c234-d6d5-469e59846f55"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_adc7d650-0b1c-c234-d6d5-469e59846f55 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_38 a syn:Immunization ;
+    syn:code "83"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-02-03T01:57:11"^^xsd:dateTime ;
+    syn:description "Hep A  ped/adol  2 dose"^^rdf:PlainLiteral ;
+    syn:encounterId "adc7d650-0b1c-c234-d6d5-469e59846f55"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_adc7d650-0b1c-c234-d6d5-469e59846f55 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_39 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-05-05T01:57:11"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "21883282-0225-4501-09bd-5cdf6445091d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_21883282-0225-4501-09bd-5cdf6445091d ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_4 a syn:Immunization ;
+    syn:code "49"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-11-04T06:16:50"^^xsd:dateTime ;
+    syn:description "Hib (PRP-OMP)"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea70f9-de20-7024-8f5e-efd9d9b536ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea70f9-de20-7024-8f5e-efd9d9b536ff ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_40 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-11-03T01:57:11"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "e2579c4d-78a9-268d-c4c3-94a84c251faf"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_e2579c4d-78a9-268d-c4c3-94a84c251faf ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_41 a syn:Immunization ;
+    syn:code "49"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-10-06T06:16:50"^^xsd:dateTime ;
+    syn:description "Hib (PRP-OMP)"^^rdf:PlainLiteral ;
+    syn:encounterId "8724fa87-62f1-e3ce-cc47-10fab3aea6c6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8724fa87-62f1-e3ce-cc47-10fab3aea6c6 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_42 a syn:Immunization ;
+    syn:code "21"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-10-06T06:16:50"^^xsd:dateTime ;
+    syn:description "varicella"^^rdf:PlainLiteral ;
+    syn:encounterId "8724fa87-62f1-e3ce-cc47-10fab3aea6c6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8724fa87-62f1-e3ce-cc47-10fab3aea6c6 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_43 a syn:Immunization ;
+    syn:code "3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-10-06T06:16:50"^^xsd:dateTime ;
+    syn:description "MMR"^^rdf:PlainLiteral ;
+    syn:encounterId "8724fa87-62f1-e3ce-cc47-10fab3aea6c6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8724fa87-62f1-e3ce-cc47-10fab3aea6c6 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_44 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-10-06T06:16:50"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "8724fa87-62f1-e3ce-cc47-10fab3aea6c6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8724fa87-62f1-e3ce-cc47-10fab3aea6c6 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_45 a syn:Immunization ;
+    syn:code "83"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-10-06T06:16:50"^^xsd:dateTime ;
+    syn:description "Hep A  ped/adol  2 dose"^^rdf:PlainLiteral ;
+    syn:encounterId "8724fa87-62f1-e3ce-cc47-10fab3aea6c6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8724fa87-62f1-e3ce-cc47-10fab3aea6c6 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_46 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-08-25T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "f4ae9b5e-82b5-f204-9be2-9c1fcdc0d401"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f4ae9b5e-82b5-f204-9be2-9c1fcdc0d401 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_47 a syn:Immunization ;
+    syn:code "83"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-05-03T01:57:11"^^xsd:dateTime ;
+    syn:description "Hep A  ped/adol  2 dose"^^rdf:PlainLiteral ;
+    syn:encounterId "060edd38-74aa-71b9-0967-617c5c5024f5"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_060edd38-74aa-71b9-0967-617c5c5024f5 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_48 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-08-31T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "1a2fa07b-17ab-2f0a-267b-778fe39c56fa"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_1a2fa07b-17ab-2f0a-267b-778fe39c56fa ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_49 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-01-05T06:16:50"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "4840ba86-dc5b-2d44-1fe8-9fa3842e1b9b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_4840ba86-dc5b-2d44-1fe8-9fa3842e1b9b ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_5 a syn:Immunization ;
+    syn:code "119"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-11-04T06:16:50"^^xsd:dateTime ;
+    syn:description "rotavirus  monovalent"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea70f9-de20-7024-8f5e-efd9d9b536ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea70f9-de20-7024-8f5e-efd9d9b536ff ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_50 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-09-05T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "0b34ac32-0eae-4312-2d6a-63161a230904"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_0b34ac32-0eae-4312-2d6a-63161a230904 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_51 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-11-01T01:57:11"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "1992fd73-a92e-d117-5616-7e31a810ff4f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_1992fd73-a92e-d117-5616-7e31a810ff4f ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_52 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-07-06T06:16:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "349bc408-9fc4-2968-3bdc-3f2c3f0763f6"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_349bc408-9fc4-2968-3bdc-3f2c3f0763f6 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_53 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-09-11T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "18b5a230-3d4e-d0a0-b99c-118677fa2eed"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_18b5a230-3d4e-d0a0-b99c-118677fa2eed ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_54 a syn:Immunization ;
+    syn:code "83"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-01-04T06:16:50"^^xsd:dateTime ;
+    syn:description "Hep A  ped/adol  2 dose"^^rdf:PlainLiteral ;
+    syn:encounterId "92b3b28c-84dd-a13d-445b-dc4cb618298e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_92b3b28c-84dd-a13d-445b-dc4cb618298e ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_55 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-10-31T01:57:11"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "3cd3d1b0-3804-178e-31c2-df9b320dbada"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_3cd3d1b0-3804-178e-31c2-df9b320dbada ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_56 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-09-17T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "55008edd-1035-dd34-8c25-e2bb3225d485"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_55008edd-1035-dd34-8c25-e2bb3225d485 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_57 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-07-04T06:16:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "09f142c5-e1b1-c50e-c671-0481fb66ca6d"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_09f142c5-e1b1-c50e-c671-0481fb66ca6d ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_58 a syn:Immunization ;
+    syn:code "21"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-11-06T01:57:11"^^xsd:dateTime ;
+    syn:description "varicella"^^rdf:PlainLiteral ;
+    syn:encounterId "223814c0-499b-938b-43cc-748a2e395a30"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_223814c0-499b-938b-43cc-748a2e395a30 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_59 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-11-06T01:57:11"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "223814c0-499b-938b-43cc-748a2e395a30"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_223814c0-499b-938b-43cc-748a2e395a30 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_6 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-11-04T06:16:50"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea70f9-de20-7024-8f5e-efd9d9b536ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea70f9-de20-7024-8f5e-efd9d9b536ff ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_60 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-11-06T01:57:11"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "223814c0-499b-938b-43cc-748a2e395a30"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_223814c0-499b-938b-43cc-748a2e395a30 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_61 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-11-06T01:57:11"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "223814c0-499b-938b-43cc-748a2e395a30"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_223814c0-499b-938b-43cc-748a2e395a30 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_62 a syn:Immunization ;
+    syn:code "3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-11-06T01:57:11"^^xsd:dateTime ;
+    syn:description "MMR"^^rdf:PlainLiteral ;
+    syn:encounterId "223814c0-499b-938b-43cc-748a2e395a30"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_223814c0-499b-938b-43cc-748a2e395a30 ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_63 a syn:Immunization ;
+    syn:code "115"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-09-23T12:03:47"^^xsd:dateTime ;
+    syn:description "Tdap"^^rdf:PlainLiteral ;
+    syn:encounterId "da784066-5803-df35-f05b-b3140445df5e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_da784066-5803-df35-f05b-b3140445df5e ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_64 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-09-23T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "da784066-5803-df35-f05b-b3140445df5e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_da784066-5803-df35-f05b-b3140445df5e ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_65 a syn:Immunization ;
+    syn:code "62"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-09-23T12:03:47"^^xsd:dateTime ;
+    syn:description "HPV  quadrivalent"^^rdf:PlainLiteral ;
+    syn:encounterId "da784066-5803-df35-f05b-b3140445df5e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_da784066-5803-df35-f05b-b3140445df5e ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_66 a syn:Immunization ;
+    syn:code "114"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-09-23T12:03:47"^^xsd:dateTime ;
+    syn:description "meningococcal MCV4P"^^rdf:PlainLiteral ;
+    syn:encounterId "da784066-5803-df35-f05b-b3140445df5e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_da784066-5803-df35-f05b-b3140445df5e ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_67 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-07-03T06:16:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "132b2de0-b390-8aa6-42be-a6b388c7b3d8"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_132b2de0-b390-8aa6-42be-a6b388c7b3d8 ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_68 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-09-28T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "a43305b2-037e-842f-3d36-fec32fdd80ca"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a43305b2-037e-842f-3d36-fec32fdd80ca ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_69 a syn:Immunization ;
+    syn:code "62"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-09-28T12:03:47"^^xsd:dateTime ;
+    syn:description "HPV  quadrivalent"^^rdf:PlainLiteral ;
+    syn:encounterId "a43305b2-037e-842f-3d36-fec32fdd80ca"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_a43305b2-037e-842f-3d36-fec32fdd80ca ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_7 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-11-04T06:16:50"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea70f9-de20-7024-8f5e-efd9d9b536ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea70f9-de20-7024-8f5e-efd9d9b536ff ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_70 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-10-04T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "086caab2-4aa5-dd3e-bdf9-ee7cc93fc510"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_086caab2-4aa5-dd3e-bdf9-ee7cc93fc510 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_71 a syn:Immunization ;
+    syn:code "62"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-10-04T12:03:47"^^xsd:dateTime ;
+    syn:description "HPV  quadrivalent"^^rdf:PlainLiteral ;
+    syn:encounterId "086caab2-4aa5-dd3e-bdf9-ee7cc93fc510"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_086caab2-4aa5-dd3e-bdf9-ee7cc93fc510 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_72 a syn:Immunization ;
+    syn:code "21"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-07-09T06:16:50"^^xsd:dateTime ;
+    syn:description "varicella"^^rdf:PlainLiteral ;
+    syn:encounterId "bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_73 a syn:Immunization ;
+    syn:code "10"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-07-09T06:16:50"^^xsd:dateTime ;
+    syn:description "IPV"^^rdf:PlainLiteral ;
+    syn:encounterId "bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_74 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-07-09T06:16:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_75 a syn:Immunization ;
+    syn:code "20"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-07-09T06:16:50"^^xsd:dateTime ;
+    syn:description "DTaP"^^rdf:PlainLiteral ;
+    syn:encounterId "bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_76 a syn:Immunization ;
+    syn:code "3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-07-09T06:16:50"^^xsd:dateTime ;
+    syn:description "MMR"^^rdf:PlainLiteral ;
+    syn:encounterId "bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_77 a syn:Immunization ;
+    syn:code "207"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-12-20T12:03:47"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  100 mcg/0.5mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "d20d5d4c-d4dc-0abb-be40-cbda73b9fe70"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d20d5d4c-d4dc-0abb-be40-cbda73b9fe70 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_78 a syn:Immunization ;
+    syn:code "207"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-01-17T12:03:47"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  100 mcg/0.5mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "64c3a138-a41d-cfc0-00f7-49a20761a51e"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_64c3a138-a41d-cfc0-00f7-49a20761a51e ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_79 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-07-15T06:16:50"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "92b3b7df-7680-6ebe-6b4c-431488d45d1f"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_92b3b7df-7680-6ebe-6b4c-431488d45d1f ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_8 a syn:Immunization ;
+    syn:code "133"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-11-04T06:16:50"^^xsd:dateTime ;
+    syn:description "Pneumococcal conjugate PCV 13"^^rdf:PlainLiteral ;
+    syn:encounterId "f8ea70f9-de20-7024-8f5e-efd9d9b536ff"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f8ea70f9-de20-7024-8f5e-efd9d9b536ff ;
+    syn:isPrescribedFor syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 ;
+    syn:patientId "56e4e3af-a286-db1b-4a41-be6397224602"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_80 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-10-10T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "692a062b-9e4c-d04d-e7b6-33061a9e3eda"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_692a062b-9e4c-d04d-e7b6-33061a9e3eda ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_81 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-10-16T12:03:47"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "e9fdcb2f-9c36-9de9-1ac5-4eae94098e74"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_e9fdcb2f-9c36-9de9-1ac5-4eae94098e74 ;
+    syn:isPrescribedFor syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b ;
+    syn:patientId "872a85df-bc53-db58-0192-a899e31f4a0b"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_82 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2013-12-07T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "dad2d085-a47f-4c76-92ca-570197a44def"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_dad2d085-a47f-4c76-92ca-570197a44def ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_83 a syn:Immunization ;
+    syn:code "115"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-12-13T10:14:48"^^xsd:dateTime ;
+    syn:description "Tdap"^^rdf:PlainLiteral ;
+    syn:encounterId "f58a5137-1d9c-56c3-f873-05f06f6a61ad"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f58a5137-1d9c-56c3-f873-05f06f6a61ad ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_84 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-12-13T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "f58a5137-1d9c-56c3-f873-05f06f6a61ad"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f58a5137-1d9c-56c3-f873-05f06f6a61ad ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_85 a syn:Immunization ;
+    syn:code "62"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-12-13T10:14:48"^^xsd:dateTime ;
+    syn:description "HPV  quadrivalent"^^rdf:PlainLiteral ;
+    syn:encounterId "f58a5137-1d9c-56c3-f873-05f06f6a61ad"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f58a5137-1d9c-56c3-f873-05f06f6a61ad ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_86 a syn:Immunization ;
+    syn:code "114"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2014-12-13T10:14:48"^^xsd:dateTime ;
+    syn:description "meningococcal MCV4P"^^rdf:PlainLiteral ;
+    syn:encounterId "f58a5137-1d9c-56c3-f873-05f06f6a61ad"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f58a5137-1d9c-56c3-f873-05f06f6a61ad ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_87 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-12-19T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "8d1fd869-d1e3-7f1f-a6d4-2dd3244c87eb"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8d1fd869-d1e3-7f1f-a6d4-2dd3244c87eb ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_88 a syn:Immunization ;
+    syn:code "62"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2015-12-19T10:14:48"^^xsd:dateTime ;
+    syn:description "HPV  quadrivalent"^^rdf:PlainLiteral ;
+    syn:encounterId "8d1fd869-d1e3-7f1f-a6d4-2dd3244c87eb"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_8d1fd869-d1e3-7f1f-a6d4-2dd3244c87eb ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_89 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-12-24T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "d9b19fcc-0475-8daa-97c0-61f8c1c1af61"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d9b19fcc-0475-8daa-97c0-61f8c1c1af61 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_9 a syn:Immunization ;
+    syn:code "49"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2018-03-04T01:57:11"^^xsd:dateTime ;
+    syn:description "Hib (PRP-OMP)"^^rdf:PlainLiteral ;
+    syn:encounterId "9860e51c-2a55-10ee-44e0-3f44e655d9ac"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_9860e51c-2a55-10ee-44e0-3f44e655d9ac ;
+    syn:isPrescribedFor syn:patient_1756e09b-e45b-88fb-286a-df8697316573 ;
+    syn:patientId "1756e09b-e45b-88fb-286a-df8697316573"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_90 a syn:Immunization ;
+    syn:code "62"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2016-12-24T10:14:48"^^xsd:dateTime ;
+    syn:description "HPV  quadrivalent"^^rdf:PlainLiteral ;
+    syn:encounterId "d9b19fcc-0475-8daa-97c0-61f8c1c1af61"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_d9b19fcc-0475-8daa-97c0-61f8c1c1af61 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_91 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2017-12-30T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "43b6acf0-6975-e838-2ca8-a2d919f0aea3"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_43b6acf0-6975-e838-2ca8-a2d919f0aea3 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_92 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2019-01-05T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "7f949394-7935-a5ac-0d12-87a376d8c5c2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_7f949394-7935-a5ac-0d12-87a376d8c5c2 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_93 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-01-11T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "daa500b9-f094-22c4-e67f-65c2df99cf74"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_daa500b9-f094-22c4-e67f-65c2df99cf74 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_94 a syn:Immunization ;
+    syn:code "114"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2020-01-11T10:14:48"^^xsd:dateTime ;
+    syn:description "meningococcal MCV4P"^^rdf:PlainLiteral ;
+    syn:encounterId "daa500b9-f094-22c4-e67f-65c2df99cf74"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_daa500b9-f094-22c4-e67f-65c2df99cf74 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_95 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-01-16T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "bfb21404-5bd1-8f2e-c4cf-bee84d0851c1"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_bfb21404-5bd1-8f2e-c4cf-bee84d0851c1 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_96 a syn:Immunization ;
+    syn:code "208"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-05-29T10:14:48"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  30 mcg/0.3mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "c3646bd8-0323-aa77-6157-60ac062281df"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_c3646bd8-0323-aa77-6157-60ac062281df ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_97 a syn:Immunization ;
+    syn:code "208"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2021-06-19T10:14:48"^^xsd:dateTime ;
+    syn:description "SARS-COV-2 (COVID-19) vaccine  mRNA  spike protein  LNP  preservative free  30 mcg/0.3mL dose"^^rdf:PlainLiteral ;
+    syn:encounterId "f3e3b0fa-9d57-2e58-8a95-10479b8b929a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_f3e3b0fa-9d57-2e58-8a95-10479b8b929a ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_98 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2022-01-22T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "3334f464-1146-d039-5a21-ca6820828e01"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_3334f464-1146-d039-5a21-ca6820828e01 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+syn:immunization_99 a syn:Immunization ;
+    syn:code "140"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+    syn:cost "136.0"^^xsd:float ;
+    syn:dateTime "2023-01-28T10:14:48"^^xsd:dateTime ;
+    syn:description "Influenza  seasonal  injectable  preservative free"^^rdf:PlainLiteral ;
+    syn:encounterId "000bcc6d-5cf8-69ad-5ee6-29c8bf4cb3a2"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:isPrescribedDuring syn:encounter_000bcc6d-5cf8-69ad-5ee6-29c8bf4cb3a2 ;
+    syn:isPrescribedFor syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 ;
+    syn:patientId "1dedb4f7-aa01-d959-ced2-4d6f2616ba67"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC> a rdfs:Datatype .
+
+syn:reasonCode a owl:DatatypeProperty ;
+    rdfs:domain syn:CarePlan ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:carePlanDataProperty .
+
+syn:encounter_81924055-9293-34fb-d5df-b1670d33455a syn:hasPrescribed syn:immunization_105,
+        syn:immunization_106,
+        syn:immunization_107 .
+
+syn:encounter_8f8c3b2e-3511-ef83-64de-822a94292d00 syn:hasPrescribed syn:immunization_152,
+        syn:immunization_153,
+        syn:immunization_154 .
+
+syn:encounter_9a327f85-02fb-e71a-8da2-50fcaf8c242b syn:hasPrescribed syn:immunization_129,
+        syn:immunization_130,
+        syn:immunization_131 .
+
+syn:encounter_a231569f-489d-6553-3f90-2f0b7861a21d syn:hasPrescribed syn:immunization_110,
+        syn:immunization_111,
+        syn:immunization_112 .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> a rdfs:Datatype .
+
+syn:encounter_da784066-5803-df35-f05b-b3140445df5e syn:hasPrescribed syn:immunization_63,
+        syn:immunization_64,
+        syn:immunization_65,
+        syn:immunization_66 .
+
+syn:encounter_f58a5137-1d9c-56c3-f873-05f06f6a61ad syn:hasPrescribed syn:immunization_83,
+        syn:immunization_84,
+        syn:immunization_85,
+        syn:immunization_86 .
+
+syn:payerTransitionDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:claimTransactionType a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:conditionDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:encounter_223814c0-499b-938b-43cc-748a2e395a30 syn:hasPrescribed syn:immunization_58,
+        syn:immunization_59,
+        syn:immunization_60,
+        syn:immunization_61,
+        syn:immunization_62 .
+
+syn:encounter_77eb265e-3288-4063-05f3-87c0fac55512 syn:hasPrescribed syn:immunization_19,
+        syn:immunization_20,
+        syn:immunization_21,
+        syn:immunization_22,
+        syn:immunization_23 .
+
+syn:encounter_8724fa87-62f1-e3ce-cc47-10fab3aea6c6 syn:hasPrescribed syn:immunization_41,
+        syn:immunization_42,
+        syn:immunization_43,
+        syn:immunization_44,
+        syn:immunization_45 .
+
+syn:encounter_9860e51c-2a55-10ee-44e0-3f44e655d9ac syn:hasPrescribed syn:immunization_10,
+        syn:immunization_11,
+        syn:immunization_12,
+        syn:immunization_13,
+        syn:immunization_9 .
+
+syn:encounter_adc7d650-0b1c-c234-d6d5-469e59846f55 syn:hasPrescribed syn:immunization_34,
+        syn:immunization_35,
+        syn:immunization_36,
+        syn:immunization_37,
+        syn:immunization_38 .
+
+syn:encounter_bd6bccf7-ad6a-f36f-b3f7-bbf228b11e1b syn:hasPrescribed syn:immunization_72,
+        syn:immunization_73,
+        syn:immunization_74,
+        syn:immunization_75,
+        syn:immunization_76 .
+
+syn:encounter_bdbfd957-70e9-2c38-0a4f-2aadbccf933a syn:hasPrescribed syn:immunization_29,
+        syn:immunization_30,
+        syn:immunization_31,
+        syn:immunization_32,
+        syn:immunization_33 .
+
+syn:encounter_cd6330fa-ef93-5053-7f23-e2da67029e4b syn:hasPrescribed syn:immunization_24,
+        syn:immunization_25,
+        syn:immunization_26,
+        syn:immunization_27,
+        syn:immunization_28 .
+
+syn:encounter_f8ea28a5-1012-a796-7722-cb43051224c3 syn:hasPrescribed syn:immunization_14,
+        syn:immunization_15,
+        syn:immunization_16,
+        syn:immunization_17,
+        syn:immunization_18 .
+
+syn:encounter_f8ea70f9-de20-7024-8f5e-efd9d9b536ff syn:hasPrescribed syn:immunization_4,
+        syn:immunization_5,
+        syn:immunization_6,
+        syn:immunization_7,
+        syn:immunization_8 .
+
+syn:allergyDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:deviceDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:immunizationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:organizationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:procedureDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:supplyDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+xsd:date a rdfs:Datatype .
+
+syn:claimDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:observationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:carePlanDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:claimTransactionDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:providerDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:PayerTransition a owl:Class ;
+    rdfs:comment "Payer Transition data (i.e. changes in health insurance)." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:medicationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:Condition a owl:Class ;
+    rdfs:comment "Patient conditions or diagnoses." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:patient_785f2e06-f264-46b2-515a-928124ec0885 syn:hasHistoryOf syn:immunization_163,
+        syn:immunization_165,
+        syn:immunization_167,
+        syn:immunization_169,
+        syn:immunization_172,
+        syn:immunization_173,
+        syn:immunization_174,
+        syn:immunization_175,
+        syn:immunization_177,
+        syn:immunization_179,
+        syn:immunization_182 .
+
+syn:patient_d188fc4e-2709-c302-8821-90094aaec0ff syn:hasHistoryOf syn:immunization_103,
+        syn:immunization_104,
+        syn:immunization_108,
+        syn:immunization_109,
+        syn:immunization_110,
+        syn:immunization_111,
+        syn:immunization_112,
+        syn:immunization_114,
+        syn:immunization_116,
+        syn:immunization_119,
+        syn:immunization_121 .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> a rdfs:Datatype .
+
+syn:Allergy a owl:Class ;
+    rdfs:comment "Patient allergy data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange [ a rdfs:Datatype ;
+                    owl:unionOf ( <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> ) ] ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Device a owl:Class ;
+    rdfs:comment "Patient-affixed permanent and semi-permanent devices." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:code ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI> ;
+                        owl:onProperty syn:udi ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        syn:Synthea .
+
+syn:Procedure a owl:Class ;
+    rdfs:comment "Patient procedure data including surgeries." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Supply a owl:Class ;
+    rdfs:comment "Supplies used in the provision of care." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:code a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:Device syn:Encounter syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> ) ],
+        rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:encounterDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:Observation a owl:Class ;
+    rdfs:comment "Patient observations including vital signs and lab reports." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Class ;
+                        owl:unionOf ( [ a owl:Restriction ;
+                                    owl:hasValue "numeric" ;
+                                    owl:onProperty syn:code ] [ a owl:Restriction ;
+                                    owl:hasValue "text" ;
+                                    owl:onProperty syn:code ] ) ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC> ;
+                        owl:onProperty syn:code ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        syn:Synthea .
+
+syn:imagingStudyDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:patient_25989468-0831-d2b3-cdb4-21589cc7042c syn:hasHistoryOf syn:immunization_100,
+        syn:immunization_101,
+        syn:immunization_102,
+        syn:immunization_105,
+        syn:immunization_106,
+        syn:immunization_107,
+        syn:immunization_113,
+        syn:immunization_115,
+        syn:immunization_117,
+        syn:immunization_118,
+        syn:immunization_120,
+        syn:immunization_122,
+        syn:immunization_123 .
+
+syn:CarePlan a owl:Class ;
+    rdfs:comment "Patient care plan data, including goals." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:code ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:reasonCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:reasonCode ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Claim a owl:Class ;
+    rdfs:comment "Patient claim data." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:Organization a owl:Class ;
+    rdfs:comment "Provider organizations including hospitals." ;
+    rdfs:subClassOf syn:Synthea .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> a rdfs:Datatype .
+
+syn:ClaimTransaction a owl:Class ;
+    rdfs:comment "Transactions per line item per claim." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( [ a owl:Restriction ;
+                        owl:hasValue "ADJUSTMENT" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "CHARGE" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "PAYMENT" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "TRANSFERIN" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "TRANSFEROUT" ;
+                        owl:onProperty syn:claimTransactionType ] ) ],
+        syn:Synthea .
+
+syn:patientDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:patient_a7aa2ede-8b37-f1c9-7105-19b86273c87b syn:hasHistoryOf syn:immunization_126,
+        syn:immunization_127,
+        syn:immunization_129,
+        syn:immunization_130,
+        syn:immunization_131,
+        syn:immunization_133,
+        syn:immunization_134,
+        syn:immunization_135,
+        syn:immunization_136,
+        syn:immunization_137,
+        syn:immunization_138,
+        syn:immunization_140,
+        syn:immunization_142,
+        syn:immunization_164,
+        syn:immunization_171 .
+
+syn:patient_a96eca46-0cf9-53ed-1ece-9155117f8abf syn:hasHistoryOf syn:immunization_143,
+        syn:immunization_150,
+        syn:immunization_151,
+        syn:immunization_156,
+        syn:immunization_159,
+        syn:immunization_161,
+        syn:immunization_162,
+        syn:immunization_166,
+        syn:immunization_168,
+        syn:immunization_170,
+        syn:immunization_176,
+        syn:immunization_178,
+        syn:immunization_180,
+        syn:immunization_181,
+        syn:immunization_183 .
+
+syn:payerDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:patient_872a85df-bc53-db58-0192-a899e31f4a0b syn:hasHistoryOf syn:immunization_46,
+        syn:immunization_48,
+        syn:immunization_50,
+        syn:immunization_53,
+        syn:immunization_56,
+        syn:immunization_63,
+        syn:immunization_64,
+        syn:immunization_65,
+        syn:immunization_66,
+        syn:immunization_68,
+        syn:immunization_69,
+        syn:immunization_70,
+        syn:immunization_71,
+        syn:immunization_77,
+        syn:immunization_78,
+        syn:immunization_80,
+        syn:immunization_81 .
+
+syn:Medication a owl:Class ;
+    rdfs:comment "Patient medication data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Synthea a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Claim syn:ClaimTransaction syn:Condition syn:Device syn:Encounter syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Organization syn:Patient syn:Payer syn:PayerTransition syn:Procedure syn:Provider syn:Supply ) ] .
+
+syn:patient_1dedb4f7-aa01-d959-ced2-4d6f2616ba67 syn:hasHistoryOf syn:immunization_82,
+        syn:immunization_83,
+        syn:immunization_84,
+        syn:immunization_85,
+        syn:immunization_86,
+        syn:immunization_87,
+        syn:immunization_88,
+        syn:immunization_89,
+        syn:immunization_90,
+        syn:immunization_91,
+        syn:immunization_92,
+        syn:immunization_93,
+        syn:immunization_94,
+        syn:immunization_95,
+        syn:immunization_96,
+        syn:immunization_97,
+        syn:immunization_98,
+        syn:immunization_99 .
+
+syn:syntheaDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+syn:ImagingStudy a owl:Class ;
+    rdfs:comment "Patient imaging metadata." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:bodySiteCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+                        owl:onProperty syn:instanceUid ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-DCM> ;
+                        owl:onProperty syn:modalityCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:procedureCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+                        owl:onProperty syn:seriesUid ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-SOP> ;
+                        owl:onProperty syn:sopCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        syn:Synthea .
+
+syn:Provider a owl:Class ;
+    rdfs:comment "Clinicians that provide patient care." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:patient_3a9ffb2d-0247-4b5f-8e96-ef970086e85f syn:hasHistoryOf syn:immunization_124,
+        syn:immunization_125,
+        syn:immunization_128,
+        syn:immunization_132,
+        syn:immunization_139,
+        syn:immunization_141,
+        syn:immunization_144,
+        syn:immunization_145,
+        syn:immunization_146,
+        syn:immunization_147,
+        syn:immunization_148,
+        syn:immunization_149,
+        syn:immunization_152,
+        syn:immunization_153,
+        syn:immunization_154,
+        syn:immunization_155,
+        syn:immunization_157,
+        syn:immunization_158,
+        syn:immunization_160 .
+
+syn:Payer a owl:Class ;
+    rdfs:comment "Payer organization data." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:Encounter a owl:Class ;
+    rdfs:comment "Patient encounter data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Patient a owl:Class ;
+    rdfs:comment "Patient demographic data." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:patient_1756e09b-e45b-88fb-286a-df8697316573 syn:hasHistoryOf syn:immunization_1,
+        syn:immunization_10,
+        syn:immunization_11,
+        syn:immunization_12,
+        syn:immunization_13,
+        syn:immunization_14,
+        syn:immunization_15,
+        syn:immunization_16,
+        syn:immunization_17,
+        syn:immunization_18,
+        syn:immunization_24,
+        syn:immunization_25,
+        syn:immunization_26,
+        syn:immunization_27,
+        syn:immunization_28,
+        syn:immunization_3,
+        syn:immunization_34,
+        syn:immunization_35,
+        syn:immunization_36,
+        syn:immunization_37,
+        syn:immunization_38,
+        syn:immunization_39,
+        syn:immunization_40,
+        syn:immunization_47,
+        syn:immunization_51,
+        syn:immunization_55,
+        syn:immunization_58,
+        syn:immunization_59,
+        syn:immunization_60,
+        syn:immunization_61,
+        syn:immunization_62,
+        syn:immunization_9 .
+
+syn:patient_56e4e3af-a286-db1b-4a41-be6397224602 syn:hasHistoryOf syn:immunization_0,
+        syn:immunization_19,
+        syn:immunization_2,
+        syn:immunization_20,
+        syn:immunization_21,
+        syn:immunization_22,
+        syn:immunization_23,
+        syn:immunization_29,
+        syn:immunization_30,
+        syn:immunization_31,
+        syn:immunization_32,
+        syn:immunization_33,
+        syn:immunization_4,
+        syn:immunization_41,
+        syn:immunization_42,
+        syn:immunization_43,
+        syn:immunization_44,
+        syn:immunization_45,
+        syn:immunization_49,
+        syn:immunization_5,
+        syn:immunization_52,
+        syn:immunization_54,
+        syn:immunization_57,
+        syn:immunization_6,
+        syn:immunization_67,
+        syn:immunization_7,
+        syn:immunization_72,
+        syn:immunization_73,
+        syn:immunization_74,
+        syn:immunization_75,
+        syn:immunization_76,
+        syn:immunization_79,
+        syn:immunization_8 .
+
+syn:Immunization a owl:Class ;
+    rdfs:comment "Patient immunization data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( syn:Allergy syn:CarePlan syn:Claim syn:ClaimTransaction syn:Condition syn:Device syn:Encounter syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Organization syn:Patient syn:Payer syn:PayerTransition syn:Procedure syn:Provider syn:Supply ) .
+
