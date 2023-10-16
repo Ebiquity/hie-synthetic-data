@@ -1,0 +1,1127 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea> a owl:Ontology ;
+    owl:versionIRI <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea/0.2> .
+
+syn:address a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Patient syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:patientDataProperty,
+        syn:providerDataProperty .
+
+syn:amountCovered a owl:DatatypeProperty ;
+    rdfs:comment "The monetary amount paid to Organizations during the entire simulation." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:amountUncovered a owl:DatatypeProperty ;
+    rdfs:comment "The monetary amount not paid to Organizations during the entire simulation, and covered out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:baseCost a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Medication syn:Procedure ) ] ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:medicationDataProperty,
+        syn:procedureDataProperty .
+
+syn:baseEncounterCost a owl:DatatypeProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:encounterDataProperty .
+
+syn:birthdate a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:birthplace a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:bodySiteDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:chargeId a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:city a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Patient syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:patientDataProperty,
+        syn:providerDataProperty .
+
+syn:claimId a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:cost a owl:DatatypeProperty ;
+    rdfs:domain syn:Immunization ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:immunizationDataProperty .
+
+syn:coveredEncounters a owl:DatatypeProperty ;
+    rdfs:comment "The number of Encounters paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:coveredImmunizations a owl:DatatypeProperty ;
+    rdfs:comment "The number of Immunizations paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:coveredMedications a owl:DatatypeProperty ;
+    rdfs:comment "The number of Medications paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:coveredProcedures a owl:DatatypeProperty ;
+    rdfs:comment "The number of Procedures paid for by this Payer." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:currentIllnessDate a owl:DatatypeProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:date a owl:DatatypeProperty ;
+    rdfs:domain syn:Supply ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:supplyDataProperty .
+
+syn:dateTime a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:ImagingStudy syn:Immunization syn:Observation ) ] ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty,
+        syn:immunizationDataProperty,
+        syn:observationDataProperty .
+
+syn:departmentId a owl:DatatypeProperty ;
+    rdfs:comment "Placeholder for department." ;
+    rdfs:domain syn:Claim ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:description a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:Device syn:Encounter syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:dispense a owl:DatatypeProperty ;
+    rdfs:domain syn:Medication ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:medicationDataProperty .
+
+syn:encounterClass a owl:DatatypeProperty ;
+    rdfs:comment "The class of the encounter, such as ambulatory, emergency, inpatient, wellness, or urgentcare" ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:encounterDataProperty .
+
+syn:encounterId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:Device syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:imagingStudyDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:endYear a owl:DatatypeProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:payerTransitionDataProperty .
+
+syn:ethnicity a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:first a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:gender a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Patient syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty,
+        syn:providerDataProperty .
+
+syn:hasAllergy a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Allergy ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasCarePlan a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:CarePlan ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasClaim a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Claim ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasClaimTransaction a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Patient syn:Provider ) ] ;
+    rdfs:range syn:ClaimTransaction ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasCovered a owl:ObjectProperty ;
+    rdfs:domain syn:Payer ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasDiagnosed a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:Condition ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasEmployed a owl:ObjectProperty ;
+    rdfs:domain syn:Organization ;
+    rdfs:range syn:Provider ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasEncounter a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasFiled a owl:ObjectProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range syn:Claim ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasHistoryOf a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Condition syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasMeasured a owl:ObjectProperty ;
+    rdfs:domain syn:Device ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasOrdered a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:CarePlan syn:Device syn:ImagingStudy syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPatient a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPatientRecord a owl:ObjectProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPayerRecord a owl:ObjectProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range syn:Payer ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPayerTransitionHistory a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Patient syn:Provider ) ] ;
+    rdfs:range syn:PayerTransition ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPerformed a owl:ObjectProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPlaceOfService a owl:ObjectProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range syn:Organization ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasPrescribed a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Immunization syn:Medication ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:hasTransaction a owl:ObjectProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range syn:ClaimTransaction ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:healthcareCoverage a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:healthcareExpense a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:id a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:CarePlan syn:Claim syn:ClaimTransaction syn:Encounter syn:ImagingStudy syn:Organization syn:Patient syn:Payer syn:Provider ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:carePlanDataProperty,
+        syn:claimDataProperty,
+        syn:claimTransactionDataProperty,
+        syn:encounterDataProperty,
+        syn:imagingStudyDataProperty,
+        syn:organizationDataProperty,
+        syn:patientDataProperty,
+        syn:payerDataProperty,
+        syn:providerDataProperty .
+
+syn:income a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:isAbout a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:ImagingStudy syn:Observation ) ] ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isAffiliatedWith a owl:ObjectProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range syn:Organization ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isAssociatedWith a owl:ObjectProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( syn:Patient syn:Provider ) ] ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isCoveredBy a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication ) ] ;
+    rdfs:range syn:Payer ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isDiagnosedDuring a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:Condition ) ] ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isFiledBy a owl:ObjectProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range syn:Provider ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isMeasuredBy a owl:ObjectProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range syn:Device ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isOrderedDuring a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:CarePlan syn:Device syn:ImagingStudy syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isOrderedFor a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Procedure syn:Supply ) ] ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPerformedAt a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range syn:Organization ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPerformedBy a owl:ObjectProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range syn:Provider ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPrescribedDuring a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Immunization syn:Medication ) ] ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isPrescribedFor a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Immunization syn:Medication ) ] ;
+    rdfs:range syn:Patient ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isResponsibleFor a owl:ObjectProperty ;
+    rdfs:domain syn:Organization ;
+    rdfs:range syn:Encounter ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:isTransactionFor a owl:ObjectProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range syn:Claim ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+syn:last a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:memberMonths a owl:DatatypeProperty ;
+    rdfs:comment "The total number of months that patients were enrolled with this Payer during the simulation and paid monthly premiums (if any)." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:modalityDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:name a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Payer syn:Provider ) ] ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:payerDataProperty,
+        syn:providerDataProperty .
+
+syn:organizationId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Provider ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:encounterDataProperty,
+        syn:providerDataProperty .
+
+syn:patientDepartmentId a owl:DatatypeProperty ;
+    rdfs:comment "Placeholder for patient department." ;
+    rdfs:domain syn:Claim ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:patientId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Claim syn:ClaimTransaction syn:Condition syn:Device syn:Encounter syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:PayerTransition syn:Procedure syn:Supply ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:claimDataProperty,
+        syn:claimTransactionDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:imagingStudyDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:payerTransitionDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:payerCoverage a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication ) ] ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:encounterDataProperty,
+        syn:medicationDataProperty .
+
+syn:payerId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Encounter syn:Medication syn:PayerTransition ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:encounterDataProperty,
+        syn:medicationDataProperty,
+        syn:payerTransitionDataProperty .
+
+syn:payer_0133f751-9229-3cfd-815f-b6d4979bdd6a a syn:Payer ;
+    syn:amountCovered "192058.11"^^xsd:float ;
+    syn:amountUncovered "158773.76"^^xsd:float ;
+    syn:coveredEncounters "81"^^xsd:int ;
+    syn:coveredImmunizations "31"^^xsd:int ;
+    syn:coveredMedications "56"^^xsd:int ;
+    syn:coveredProcedures "172"^^xsd:int ;
+    syn:id "0133f751-9229-3cfd-815f-b6d4979bdd6a"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "276"^^xsd:int ;
+    syn:name "Aetna"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.8173617934482252"^^xsd:float ;
+    syn:revenue "22361.4"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "5"^^xsd:int .
+
+syn:payer_26aab0cd-6aba-3e1b-ac5b-05c8867e762c a syn:Payer ;
+    syn:amountCovered "147907.08"^^xsd:float ;
+    syn:amountUncovered "159083.43"^^xsd:float ;
+    syn:coveredEncounters "154"^^xsd:int ;
+    syn:coveredImmunizations "72"^^xsd:int ;
+    syn:coveredMedications "338"^^xsd:int ;
+    syn:coveredProcedures "160"^^xsd:int ;
+    syn:id "26aab0cd-6aba-3e1b-ac5b-05c8867e762c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "456"^^xsd:int ;
+    syn:name "Humana"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.7615100335558869"^^xsd:float ;
+    syn:revenue "154926.0"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "2"^^xsd:int .
+
+syn:payer_734afbd6-4794-363b-9bc0-6a3981533ed5 a syn:Payer ;
+    syn:amountCovered "796428.99"^^xsd:float ;
+    syn:amountUncovered "134210.12"^^xsd:float ;
+    syn:coveredEncounters "142"^^xsd:int ;
+    syn:coveredImmunizations "34"^^xsd:int ;
+    syn:coveredMedications "90"^^xsd:int ;
+    syn:coveredProcedures "414"^^xsd:int ;
+    syn:id "734afbd6-4794-363b-9bc0-6a3981533ed5"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "336"^^xsd:int ;
+    syn:name "Anthem"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.8335353534557914"^^xsd:float ;
+    syn:revenue "36542.63"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "4"^^xsd:int .
+
+syn:payer_8fa6c185-e44e-3e34-8bd8-39be8694f4ce a syn:Payer ;
+    syn:amountCovered "1473793.94"^^xsd:float ;
+    syn:amountUncovered "331663.4"^^xsd:float ;
+    syn:coveredEncounters "257"^^xsd:int ;
+    syn:coveredImmunizations "60"^^xsd:int ;
+    syn:coveredMedications "164"^^xsd:int ;
+    syn:coveredProcedures "587"^^xsd:int ;
+    syn:id "8fa6c185-e44e-3e34-8bd8-39be8694f4ce"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "696"^^xsd:int ;
+    syn:name "Cigna Health"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.8388838607644359"^^xsd:float ;
+    syn:revenue "91514.7"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "4"^^xsd:int .
+
+syn:payer_a735bf55-83e9-331a-899d-a82a60b9f60c a syn:Payer ;
+    syn:amountCovered "212126.22"^^xsd:float ;
+    syn:amountUncovered "4991.09"^^xsd:float ;
+    syn:coveredEncounters "296"^^xsd:int ;
+    syn:coveredImmunizations "17"^^xsd:int ;
+    syn:coveredMedications "234"^^xsd:int ;
+    syn:coveredProcedures "230"^^xsd:int ;
+    syn:id "a735bf55-83e9-331a-899d-a82a60b9f60c"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "144"^^xsd:int ;
+    syn:name "Medicare"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.7548614202518915"^^xsd:float ;
+    syn:revenue "23473.8"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "2"^^xsd:int .
+
+syn:payer_b046940f-1664-3047-bca7-dfa76be352a4 a syn:Payer ;
+    syn:amountCovered "50835.03"^^xsd:float ;
+    syn:amountUncovered "0.0"^^xsd:float ;
+    syn:coveredEncounters "0"^^xsd:int ;
+    syn:coveredImmunizations "0"^^xsd:int ;
+    syn:coveredMedications "0"^^xsd:int ;
+    syn:coveredProcedures "0"^^xsd:int ;
+    syn:id "b046940f-1664-3047-bca7-dfa76be352a4"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "120"^^xsd:int ;
+    syn:name "Blue Cross Blue Shield"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.0"^^xsd:float ;
+    syn:revenue "17100.0"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "2"^^xsd:int .
+
+syn:payer_d18ef2e6-ef40-324c-be54-34a5ee865625 a syn:Payer ;
+    syn:amountCovered "0.0"^^xsd:float ;
+    syn:amountUncovered "0.0"^^xsd:float ;
+    syn:coveredEncounters "0"^^xsd:int ;
+    syn:coveredImmunizations "0"^^xsd:int ;
+    syn:coveredMedications "0"^^xsd:int ;
+    syn:coveredProcedures "0"^^xsd:int ;
+    syn:id "d18ef2e6-ef40-324c-be54-34a5ee865625"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "0"^^xsd:int ;
+    syn:name "Dual Eligible"^^rdf:PlainLiteral ;
+    syn:qolsAvg "NaN"^^xsd:float ;
+    syn:revenue "0.0"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "0"^^xsd:int .
+
+syn:payer_d31fccc3-1767-390d-966a-22a5156f4219 a syn:Payer ;
+    syn:amountCovered "11373.58"^^xsd:float ;
+    syn:amountUncovered "17652.73"^^xsd:float ;
+    syn:coveredEncounters "33"^^xsd:int ;
+    syn:coveredImmunizations "49"^^xsd:int ;
+    syn:coveredMedications "6"^^xsd:int ;
+    syn:coveredProcedures "22"^^xsd:int ;
+    syn:id "d31fccc3-1767-390d-966a-22a5156f4219"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "192"^^xsd:int ;
+    syn:name "UnitedHealthcare"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.9375"^^xsd:float ;
+    syn:revenue "91546.0"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "1"^^xsd:int .
+
+syn:payer_df166300-5a78-3502-a46a-832842197811 a syn:Payer ;
+    syn:amountCovered "1623685.69"^^xsd:float ;
+    syn:amountUncovered "21324.23"^^xsd:float ;
+    syn:coveredEncounters "275"^^xsd:int ;
+    syn:coveredImmunizations "90"^^xsd:int ;
+    syn:coveredMedications "43"^^xsd:int ;
+    syn:coveredProcedures "640"^^xsd:int ;
+    syn:id "df166300-5a78-3502-a46a-832842197811"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "744"^^xsd:int ;
+    syn:name "Medicaid"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.9859275912372656"^^xsd:float ;
+    syn:revenue "7500.0"^^xsd:float ;
+    syn:uncoveredEncounters "0"^^xsd:int ;
+    syn:uncoveredImmunizations "0"^^xsd:int ;
+    syn:uncoveredMedications "0"^^xsd:int ;
+    syn:uncoveredProcedures "0"^^xsd:int ;
+    syn:uniqueCustomers "5"^^xsd:int .
+
+syn:payer_e03e23c9-4df1-3eb6-a62d-f70f02301496 a syn:Payer ;
+    syn:amountCovered "0.0"^^xsd:float ;
+    syn:amountUncovered "1449340.33"^^xsd:float ;
+    syn:coveredEncounters "0"^^xsd:int ;
+    syn:coveredImmunizations "0"^^xsd:int ;
+    syn:coveredMedications "0"^^xsd:int ;
+    syn:coveredProcedures "0"^^xsd:int ;
+    syn:id "e03e23c9-4df1-3eb6-a62d-f70f02301496"^^<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    syn:memberMonths "1404"^^xsd:int ;
+    syn:name "NO_INSURANCE"^^rdf:PlainLiteral ;
+    syn:qolsAvg "0.9891880752091032"^^xsd:float ;
+    syn:revenue "0.0"^^xsd:float ;
+    syn:uncoveredEncounters "319"^^xsd:int ;
+    syn:uncoveredImmunizations "182"^^xsd:int ;
+    syn:uncoveredMedications "83"^^xsd:int ;
+    syn:uncoveredProcedures "548"^^xsd:int ;
+    syn:uniqueCustomers "6"^^xsd:int .
+
+syn:placeOfService a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:providerId a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Claim syn:ClaimTransaction syn:Encounter ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> ;
+    rdfs:subPropertyOf syn:claimDataProperty,
+        syn:claimTransactionDataProperty,
+        syn:encounterDataProperty .
+
+syn:qolsAvg a owl:DatatypeProperty ;
+    rdfs:comment "The average Quality of Life Scores (QOLS) for all patients enrolled with this Payer during the entire simulation." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:quantity a owl:DatatypeProperty ;
+    rdfs:domain syn:Supply ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:supplyDataProperty .
+
+syn:race a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:reasonDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:CarePlan ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:carePlanDataProperty .
+
+syn:revenue a owl:DatatypeProperty ;
+    rdfs:comment "The monetary revenue of the Payer during the entire simulation." ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Payer ) ] ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:payerDataProperty .
+
+syn:serviceDate a owl:DatatypeProperty ;
+    rdfs:domain syn:Claim ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:claimDataProperty .
+
+syn:sopDescription a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:speciality a owl:DatatypeProperty ;
+    rdfs:domain syn:Provider ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:providerDataProperty .
+
+syn:ssn a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:startDate a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition ) ] ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty .
+
+syn:startDateTime a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Device syn:Encounter syn:Medication syn:Procedure ) ] ;
+    rdfs:range xsd:dateTimeStamp ;
+    rdfs:subPropertyOf syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:medicationDataProperty,
+        syn:procedureDataProperty .
+
+syn:startYear a owl:DatatypeProperty ;
+    rdfs:domain syn:PayerTransition ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf syn:payerTransitionDataProperty .
+
+syn:state a owl:DatatypeProperty ;
+    rdfs:domain syn:Patient ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:patientDataProperty .
+
+syn:system a owl:DatatypeProperty ;
+    rdfs:comment "Terminology system of the Allergy code. RxNorm if this is a medication allergy, otherwise SNOMED-CT." ;
+    rdfs:domain syn:Allergy ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:allergyDataProperty .
+
+syn:totalClaimCost a owl:DatatypeProperty ;
+    rdfs:domain syn:Encounter ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:encounterDataProperty .
+
+syn:totalCost a owl:DatatypeProperty ;
+    rdfs:domain syn:Medication ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf syn:medicationDataProperty .
+
+syn:type a owl:DatatypeProperty ;
+    rdfs:domain syn:Observation ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:observationDataProperty .
+
+syn:uncoveredEncounters a owl:DatatypeProperty ;
+    rdfs:comment "The number of Encounters not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uncoveredImmunizations a owl:DatatypeProperty ;
+    rdfs:comment "The number of Immunizations not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uncoveredMedications a owl:DatatypeProperty ;
+    rdfs:comment "The number of Medications not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uncoveredProcedures a owl:DatatypeProperty ;
+    rdfs:comment "The number of Procedures not paid for by this Payer, and paid out of pocket by patients." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:uniqueCustomers a owl:DatatypeProperty ;
+    rdfs:comment "The number of unique patients enrolled with this Payer during the entire simulation." ;
+    rdfs:domain syn:Payer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:payerDataProperty .
+
+syn:utilization a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Organization syn:Provider ) ] ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf syn:organizationDataProperty,
+        syn:providerDataProperty .
+
+syn:value a owl:DatatypeProperty ;
+    rdfs:domain syn:Observation ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:observationDataProperty .
+
+syn:bodySiteCode a owl:DatatypeProperty ;
+    rdfs:comment "A SNOMED Body Structures code describing what part of the body the images in the series were taken of." ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:instanceUid a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:modalityCode a owl:DatatypeProperty ;
+    rdfs:comment "A DICOM-DCM code describing the method used to take the images." ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-DCM> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:procedureCode a owl:DatatypeProperty ;
+    rdfs:comment "SNOMED-CT or other code for the service." ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:ClaimTransaction syn:ImagingStudy ) ] ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty,
+        syn:imagingStudyDataProperty .
+
+syn:seriesUid a owl:DatatypeProperty ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:sopCode a owl:DatatypeProperty ;
+    rdfs:comment "A DICOM-SOP code describing the Subject-Object Pair (SOP) that constitutes the image." ;
+    rdfs:domain syn:ImagingStudy ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-SOP> ;
+    rdfs:subPropertyOf syn:imagingStudyDataProperty .
+
+syn:udi a owl:DatatypeProperty ;
+    rdfs:domain syn:Device ;
+    rdfs:range <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI> ;
+    rdfs:subPropertyOf syn:deviceDataProperty .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-DCM> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-SOP> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC> a rdfs:Datatype .
+
+syn:reasonCode a owl:DatatypeProperty ;
+    rdfs:domain syn:CarePlan ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:carePlanDataProperty .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> a rdfs:Datatype .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> a rdfs:Datatype .
+
+syn:payerTransitionDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:claimTransactionType a owl:DatatypeProperty ;
+    rdfs:domain syn:ClaimTransaction ;
+    rdfs:range rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:claimTransactionDataProperty .
+
+syn:conditionDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:allergyDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:deviceDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:immunizationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:organizationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:procedureDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:supplyDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+xsd:date a rdfs:Datatype .
+
+syn:claimDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:observationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:carePlanDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:claimTransactionDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:providerDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:PayerTransition a owl:Class ;
+    rdfs:comment "Payer Transition data (i.e. changes in health insurance)." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:medicationDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:Condition a owl:Class ;
+    rdfs:comment "Patient conditions or diagnoses." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid> a rdfs:Datatype .
+
+syn:Allergy a owl:Class ;
+    rdfs:comment "Patient allergy data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange [ a rdfs:Datatype ;
+                    owl:unionOf ( <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> ) ] ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Device a owl:Class ;
+    rdfs:comment "Patient-affixed permanent and semi-permanent devices." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:code ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI> ;
+                        owl:onProperty syn:udi ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        syn:Synthea .
+
+syn:Immunization a owl:Class ;
+    rdfs:comment "Patient immunization data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Procedure a owl:Class ;
+    rdfs:comment "Patient procedure data including surgeries." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Supply a owl:Class ;
+    rdfs:comment "Supplies used in the provision of care." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:code a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Condition syn:Device syn:Encounter syn:Immunization syn:Medication syn:Observation syn:Procedure syn:Supply ) ] ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> ) ],
+        rdf:PlainLiteral ;
+    rdfs:subPropertyOf syn:allergyDataProperty,
+        syn:carePlanDataProperty,
+        syn:conditionDataProperty,
+        syn:deviceDataProperty,
+        syn:encounterDataProperty,
+        syn:immunizationDataProperty,
+        syn:medicationDataProperty,
+        syn:observationDataProperty,
+        syn:procedureDataProperty,
+        syn:supplyDataProperty .
+
+syn:encounterDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:Observation a owl:Class ;
+    rdfs:comment "Patient observations including vital signs and lab reports." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Class ;
+                        owl:unionOf ( [ a owl:Restriction ;
+                                    owl:hasValue "numeric" ;
+                                    owl:onProperty syn:code ] [ a owl:Restriction ;
+                                    owl:hasValue "text" ;
+                                    owl:onProperty syn:code ] ) ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC> ;
+                        owl:onProperty syn:code ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        syn:Synthea .
+
+syn:imagingStudyDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:CarePlan a owl:Class ;
+    rdfs:comment "Patient care plan data, including goals." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:code ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:reasonCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:reasonCode ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Claim a owl:Class ;
+    rdfs:comment "Patient claim data." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:Organization a owl:Class ;
+    rdfs:comment "Provider organizations including hospitals." ;
+    rdfs:subClassOf syn:Synthea .
+
+<https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> a rdfs:Datatype .
+
+syn:ClaimTransaction a owl:Class ;
+    rdfs:comment "Transactions per line item per claim." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( [ a owl:Restriction ;
+                        owl:hasValue "ADJUSTMENT" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "CHARGE" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "PAYMENT" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "TRANSFERIN" ;
+                        owl:onProperty syn:claimTransactionType ] [ a owl:Restriction ;
+                        owl:hasValue "TRANSFEROUT" ;
+                        owl:onProperty syn:claimTransactionType ] ) ],
+        syn:Synthea .
+
+syn:patientDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:payerDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:Medication a owl:Class ;
+    rdfs:comment "Patient medication data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Synthea a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( syn:Allergy syn:CarePlan syn:Claim syn:ClaimTransaction syn:Condition syn:Device syn:Encounter syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Organization syn:Patient syn:Payer syn:PayerTransition syn:Procedure syn:Provider syn:Supply ) ] .
+
+syn:syntheaDataProperty a owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+syn:ImagingStudy a owl:Class ;
+    rdfs:comment "Patient imaging metadata." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:bodySiteCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+                        owl:onProperty syn:instanceUid ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-DCM> ;
+                        owl:onProperty syn:modalityCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+                        owl:onProperty syn:procedureCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:UID> ;
+                        owl:onProperty syn:seriesUid ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] [ a owl:Restriction ;
+                        owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#dicom:DICOM-SOP> ;
+                        owl:onProperty syn:sopCode ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        syn:Synthea .
+
+syn:Provider a owl:Class ;
+    rdfs:comment "Clinicians that provide patient care." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:Encounter a owl:Class ;
+    rdfs:comment "Patient encounter data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT> ;
+            owl:onProperty syn:code ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        syn:Synthea .
+
+syn:Payer a owl:Class ;
+    rdfs:comment "Payer organization data." ;
+    rdfs:subClassOf syn:Synthea .
+
+syn:Patient a owl:Class ;
+    rdfs:comment "Patient demographic data." ;
+    rdfs:subClassOf syn:Synthea .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( syn:Allergy syn:CarePlan syn:Claim syn:ClaimTransaction syn:Condition syn:Device syn:Encounter syn:ImagingStudy syn:Immunization syn:Medication syn:Observation syn:Organization syn:Patient syn:Payer syn:PayerTransition syn:Procedure syn:Provider syn:Supply ) .
+
