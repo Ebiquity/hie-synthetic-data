@@ -1,7 +1,7 @@
 # hie-synthetic-data
 This repo contains:
 - A set of clincial terms for substance abuse and mental health, mapped into a knowledge graph. These terms are called `Part 2` data, in reference to 42 Code of Federal Regulations Part 2, which is intended to safeguard this kind of sensitive health information. More about HIPAA and Part 2 [here](https://www.hhs.gov/hipaa/for-professionals/special-topics/hipaa-part-2/index.html).
-- Scripts to generate synthetic claims data. The data is output in `ttl` format, and can then be linke to the Part 2 graph on SNOMED-CT terms.
+- Scripts to generate synthetic claims data. The data is output in `ttl` format, and can then be linked to the Part 2 graph on SNOMED-CT terms.
 
 ## HIPAA Part 2 Knowledge Graph
 We classified the NIH value sets to identify clinical terms associated with Substance Abuse and Mental Health as shdown in the table. The complete list of terms is available [here in Excel](https://github.com/Ebiquity/hie-synthetic-data/raw/refs/heads/main/HIPAA%20PART2%20NIH%20CODE%20SET.xlsx).
