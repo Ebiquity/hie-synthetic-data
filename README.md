@@ -4,7 +4,7 @@ This repo contains:
 - Scripts to generate synthetic claims data. The data is output in `ttl` format, and can then be linked to the Part 2 graph on SNOMED-CT terms.
 
 ## HIPAA Part 2 Knowledge Graph
-We classified the NIH value sets to identify clinical terms associated with Substance Abuse and Mental Health as shdown in the table. The complete list of terms is available [here in Excel](https://github.com/Ebiquity/hie-synthetic-data/raw/refs/heads/main/HIPAA%20PART2%20NIH%20CODE%20SET.xlsx).
+We classified the NIH value sets to identify clinical terms associated with Substance Abuse and Mental Health as shown in the table. The complete list of terms is available [here in Excel](https://github.com/Ebiquity/hie-synthetic-data/raw/refs/heads/main/HIPAA%20PART2%20NIH%20CODE%20SET.xlsx).
 
 
 | **Clinical Terminology** | **Diagnosis** | **Finding** | **History** | **Lab** | **Medication** | **Procedure** | **Total** |
