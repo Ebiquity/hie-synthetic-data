@@ -41,4 +41,4 @@ An example:
 ## Generating Ad Hoc Claims data in RDF Format
 In the `ad-hoc-claims` folder are shell and python scripts for generating data in [Synthea-RDF](https://github.com/leroykim/synthea-rdf/tree/main) format. 
 - Shell scripts for generating synthetic data for six hospitals
-- Python scripts to convert syntehtic data to RDF format
+- Python scripts to convert synthetic data to RDF format
