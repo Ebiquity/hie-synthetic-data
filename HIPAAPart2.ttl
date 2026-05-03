@@ -1,4 +1,4 @@
-@prefix ns1: <http://example.org/hippapart2_codes#> .
+@prefix ns1: <https://medicaidpolygraph.com/hipaapart2_codes#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -14,28 +14,28 @@ ns1:REPRESENTING_A a rdf:Property .
 ns1:hasAttribute a rdf:Property ;
     rdfs:comment "Relates a code to an attribute" .
 
-ns1:hippapart2 ns1:INCLUDES ns1:0575F,
-        <http://example.org/hippapart2_codes#1.02E+14>,
-        <http://example.org/hippapart2_codes#1.05E+14>,
-        <http://example.org/hippapart2_codes#1.06E+14>,
-        <http://example.org/hippapart2_codes#1.07E+16>,
-        <http://example.org/hippapart2_codes#1.08E+12>,
-        <http://example.org/hippapart2_codes#1.08E+15>,
-        <http://example.org/hippapart2_codes#1.08E+16>,
-        <http://example.org/hippapart2_codes#1.09E+15>,
-        <http://example.org/hippapart2_codes#1.15E+14>,
-        <http://example.org/hippapart2_codes#1.17E+14>,
-        <http://example.org/hippapart2_codes#1.33E+14>,
-        <http://example.org/hippapart2_codes#1.35E+14>,
-        <http://example.org/hippapart2_codes#1.36E+14>,
-        <http://example.org/hippapart2_codes#1.41E+14>,
-        <http://example.org/hippapart2_codes#1.42E+14>,
-        <http://example.org/hippapart2_codes#1.45E+14>,
-        <http://example.org/hippapart2_codes#1.46E+14>,
-        <http://example.org/hippapart2_codes#1.47E+12>,
-        <http://example.org/hippapart2_codes#1.53E+14>,
-        <http://example.org/hippapart2_codes#1.54E+14>,
-        <http://example.org/hippapart2_codes#1.85E+13>,
+ns1:hipaapart2 ns1:INCLUDES ns1:0575F,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.02E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.05E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.06E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.07E+16>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.08E+12>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.08E+15>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.08E+16>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.09E+15>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.15E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.17E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.33E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.35E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.36E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.41E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.42E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.45E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.46E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.47E+12>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.53E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.54E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#1.85E+13>,
         ns1:102000000000000.0,
         ns1:102915009,
         ns1:102915009.0,
@@ -1208,19 +1208,19 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:199261002.0,
         ns1:199262009,
         ns1:199262009.0,
-        <http://example.org/hippapart2_codes#2.11E+13>,
-        <http://example.org/hippapart2_codes#2.18E+13>,
-        <http://example.org/hippapart2_codes#2.26E+13>,
-        <http://example.org/hippapart2_codes#2.30E+13>,
-        <http://example.org/hippapart2_codes#2.37E+13>,
-        <http://example.org/hippapart2_codes#2.51E+11>,
-        <http://example.org/hippapart2_codes#2.61E+11>,
-        <http://example.org/hippapart2_codes#2.70E+14>,
-        <http://example.org/hippapart2_codes#2.71E+11>,
-        <http://example.org/hippapart2_codes#2.71E+13>,
-        <http://example.org/hippapart2_codes#2.81E+11>,
-        <http://example.org/hippapart2_codes#2.88E+14>,
-        <http://example.org/hippapart2_codes#2.89E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.11E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.18E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.26E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.30E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.37E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.51E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.61E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.70E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.71E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.71E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.81E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.88E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#2.89E+14>,
         ns1:20010003,
         ns1:20010003.0,
         ns1:202363,
@@ -2501,10 +2501,10 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:299683005.0,
         ns1:299684004,
         ns1:299684004.0,
-        <http://example.org/hippapart2_codes#3.11E+13>,
-        <http://example.org/hippapart2_codes#3.41E+13>,
-        <http://example.org/hippapart2_codes#3.73E+12>,
-        <http://example.org/hippapart2_codes#3.81E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#3.11E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#3.41E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#3.73E+12>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#3.81E+11>,
         ns1:300,
         ns1:300.01,
         ns1:300.02,
@@ -3358,13 +3358,13 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:39951001,
         ns1:39951001.0,
         ns1:39993,
-        <http://example.org/hippapart2_codes#4.00E+13>,
-        <http://example.org/hippapart2_codes#4.28E+14>,
-        <http://example.org/hippapart2_codes#4.29E+14>,
-        <http://example.org/hippapart2_codes#4.31E+14>,
-        <http://example.org/hippapart2_codes#4.34E+14>,
-        <http://example.org/hippapart2_codes#4.36E+14>,
-        <http://example.org/hippapart2_codes#4.68E+12>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.00E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.28E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.29E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.31E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.34E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.36E+14>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#4.68E+12>,
         ns1:40000000000000.0,
         ns1:40083003,
         ns1:40083003.0,
@@ -4299,10 +4299,10 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:59944-9,
         ns1:59960-5,
         ns1:59961-3,
-        <http://example.org/hippapart2_codes#6.22E+13>,
-        <http://example.org/hippapart2_codes#6.80E+13>,
-        <http://example.org/hippapart2_codes#6.81E+11>,
-        <http://example.org/hippapart2_codes#6.91E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#6.22E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#6.80E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#6.81E+11>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#6.91E+11>,
         ns1:600009,
         ns1:600009.0,
         ns1:60071-8,
@@ -4654,7 +4654,7 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:699449003.0,
         ns1:6995000,
         ns1:6995000.0,
-        <http://example.org/hippapart2_codes#7.76E+12>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#7.76E+12>,
         ns1:700079006,
         ns1:700079006.0,
         ns1:700187009,
@@ -5131,10 +5131,10 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:79842004.0,
         ns1:79866005,
         ns1:79866005.0,
-        <http://example.org/hippapart2_codes#8.06E+12>,
-        <http://example.org/hippapart2_codes#8.64E+13>,
-        <http://example.org/hippapart2_codes#8.94E+13>,
-        <http://example.org/hippapart2_codes#8.95E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#8.06E+12>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#8.64E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#8.94E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#8.95E+13>,
         ns1:8009008,
         ns1:8009008.0,
         ns1:80422002,
@@ -5399,10 +5399,10 @@ ns1:hippapart2 ns1:INCLUDES ns1:0575F,
         ns1:899001.0,
         ns1:89948007,
         ns1:89948007.0,
-        <http://example.org/hippapart2_codes#9.14E+13>,
-        <http://example.org/hippapart2_codes#9.15E+13>,
-        <http://example.org/hippapart2_codes#9.16E+13>,
-        <http://example.org/hippapart2_codes#9.49E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#9.14E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#9.15E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#9.16E+13>,
+        <https://medicaidpolygraph.com/hipaapart2_codes#9.49E+13>,
         ns1:90483007,
         ns1:90483007.0,
         ns1:90613007,
@@ -6506,28 +6506,28 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Procedure" ;
     ns1:hasAttribute "0575F" .
 
-<http://example.org/hippapart2_codes#1.02E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.02E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Paratesticular mass (finding)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Finding" ;
     ns1:hasAttribute "1.02E+14" .
 
-<http://example.org/hippapart2_codes#1.05E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.05E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Primary hyposomnia (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.05E+14" .
 
-<http://example.org/hippapart2_codes#1.06E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.06E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Organic mixed sleep disorder (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.06E+14" .
 
-<http://example.org/hippapart2_codes#1.07E+16> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.07E+16> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Alcohol dependence in pregnancy (disorder)",
         "Anxiety disorder in mother complicating childbirth (disorder)" ;
@@ -6536,14 +6536,14 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.07E+16" .
 
-<http://example.org/hippapart2_codes#1.08E+12> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.08E+12> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Opioid dependence, on agonist therapy (disorder)" ;
     ns1:RELATED_TO " Opioids" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.08E+12" .
 
-<http://example.org/hippapart2_codes#1.08E+15> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.08E+15> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Ascites due to alcoholic cirrhosis (disorder)",
         "Hepatic coma due to alcoholic liver failure (disorder)" ;
@@ -6551,7 +6551,7 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.08E+15" .
 
-<http://example.org/hippapart2_codes#1.08E+16> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.08E+16> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Alcohol dependence in childbirth (disorder)",
         "Depressive disorder in mother complicating childbirth (disorder)",
@@ -6564,28 +6564,28 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.08E+16" .
 
-<http://example.org/hippapart2_codes#1.09E+15> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.09E+15> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Hepatic ascites due to chronic alcoholic hepatitis (disorder)" ;
     ns1:RELATED_TO " Alcohol" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.09E+15" .
 
-<http://example.org/hippapart2_codes#1.15E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.15E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Psychosocial dysfunction due to chronic pain (finding)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Finding" ;
     ns1:hasAttribute "1.15E+14" .
 
-<http://example.org/hippapart2_codes#1.17E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.17E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Testicular microlithiasis (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.17E+14" .
 
-<http://example.org/hippapart2_codes#1.33E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.33E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Degenerative brain disorder caused by alcohol (disorder)",
         "Rapid cycling bipolar I disorder (disorder)",
@@ -6595,7 +6595,7 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.33E+14" .
 
-<http://example.org/hippapart2_codes#1.35E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.35E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Disorder of sleep-wake cycle caused by alcohol (disorder)",
         "Hypersomnia caused by alcohol (disorder)",
@@ -6604,14 +6604,14 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.35E+14" .
 
-<http://example.org/hippapart2_codes#1.36E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.36E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Cerebral degeneration due to alcoholism (disorder)" ;
     ns1:RELATED_TO " Alcohol" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.36E+14" .
 
-<http://example.org/hippapart2_codes#1.41E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.41E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Adult onset stuttering (finding)",
         "Childhood onset stuttering (finding)" ;
@@ -6619,7 +6619,7 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Finding" ;
     ns1:hasAttribute "1.41E+14" .
 
-<http://example.org/hippapart2_codes#1.42E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.42E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Delusions in Alzheimer's disease (disorder)",
         "Depressed mood in Alzheimer's disease (disorder)" ;
@@ -6627,7 +6627,7 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.42E+14" .
 
-<http://example.org/hippapart2_codes#1.45E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.45E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Intravenous cocaine abuse (disorder)",
         "Intravenous nondependent opioid abuse (disorder)",
@@ -6638,35 +6638,35 @@ ns1:0575F a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.45E+14" .
 
-<http://example.org/hippapart2_codes#1.46E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.46E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Episodic phencyclidine abuse (disorder)" ;
     ns1:RELATED_TO " Hallucinogens" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.46E+14" .
 
-<http://example.org/hippapart2_codes#1.47E+12> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.47E+12> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Drug abuse in remission (disorder)" ;
     ns1:RELATED_TO " Other Psychoactive Substance Use Disorder" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.47E+12" .
 
-<http://example.org/hippapart2_codes#1.53E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.53E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Psychosexual dysfunction associated with inhibited sexual excitement (finding)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Finding" ;
     ns1:hasAttribute "1.53E+14" .
 
-<http://example.org/hippapart2_codes#1.54E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.54E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Chronic pancreatitis due to chronic alcoholism (disorder)" ;
     ns1:RELATED_TO " Alcohol" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "1.54E+14" .
 
-<http://example.org/hippapart2_codes#1.85E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#1.85E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Borderline cognitive developmental delay (disorder)",
         "Psychological disorder during pregnancy (disorder)" ;
@@ -14899,84 +14899,84 @@ ns1:199262009.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "199262009.0" .
 
-<http://example.org/hippapart2_codes#2.11E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.11E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Mood disorder of manic type (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.11E+13" .
 
-<http://example.org/hippapart2_codes#2.18E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.18E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Psychotic disorder caused by phencyclidine (disorder)" ;
     ns1:RELATED_TO " Other Psychoactive Substance Use Disorder" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.18E+13" .
 
-<http://example.org/hippapart2_codes#2.26E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.26E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Psychosis in early childhood (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.26E+13" .
 
-<http://example.org/hippapart2_codes#2.30E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.30E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Recurrent severe manic episodes (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.30E+13" .
 
-<http://example.org/hippapart2_codes#2.37E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.37E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Severe manic bipolar I disorder (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.37E+13" .
 
-<http://example.org/hippapart2_codes#2.51E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.51E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Severe major depression, single episode (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.51E+11" .
 
-<http://example.org/hippapart2_codes#2.61E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.61E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Severe depressed bipolar I disorder (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.61E+11" .
 
-<http://example.org/hippapart2_codes#2.70E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.70E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Identity disorder of childhood (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.70E+14" .
 
-<http://example.org/hippapart2_codes#2.71E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.71E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Severe mixed bipolar I disorder (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.71E+11" .
 
-<http://example.org/hippapart2_codes#2.71E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.71E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Chronic abuse of laxatives (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.71E+13" .
 
-<http://example.org/hippapart2_codes#2.81E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.81E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Severe recurrent major depression (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "2.81E+11" .
 
-<http://example.org/hippapart2_codes#2.88E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.88E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Childhood onset fluency disorder (disorder)",
         "Fear of bridges (finding)",
@@ -14987,7 +14987,7 @@ ns1:199262009.0 a ns1:Code ;
         "Finding" ;
     ns1:hasAttribute "2.88E+14" .
 
-<http://example.org/hippapart2_codes#2.89E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#2.89E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "History of amphetamine abuse (situation)",
         "History of cannabis abuse (situation)",
@@ -23982,28 +23982,28 @@ ns1:299684004.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "299684004.0" .
 
-<http://example.org/hippapart2_codes#3.11E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#3.11E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Presenile dementia with delusions (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "3.11E+13" .
 
-<http://example.org/hippapart2_codes#3.41E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#3.41E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Nondependent amphetamine abuse (disorder)" ;
     ns1:RELATED_TO " Amphetamine" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "3.41E+13" .
 
-<http://example.org/hippapart2_codes#3.73E+12> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#3.73E+12> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Idiopathic hypersomnia (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "3.73E+12" .
 
-<http://example.org/hippapart2_codes#3.81E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#3.81E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Pain disorder with psychological factor (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
@@ -30038,14 +30038,14 @@ ns1:39993 a ns1:Code ;
     ns1:REPRESENTING_A "Medication" ;
     ns1:hasAttribute "39993" .
 
-<http://example.org/hippapart2_codes#4.00E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.00E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Pervasive developmental disorder of residual state (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "4.00E+13" .
 
-<http://example.org/hippapart2_codes#4.28E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.28E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Mild dementia (disorder)",
         "Severe dementia (disorder)" ;
@@ -30053,21 +30053,21 @@ ns1:39993 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "4.28E+14" .
 
-<http://example.org/hippapart2_codes#4.29E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.29E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Catha edulis abuse (disorder)" ;
     ns1:RELATED_TO " Amphetamine" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "4.29E+14" .
 
-<http://example.org/hippapart2_codes#4.31E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.31E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Moderate dementia (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "4.31E+14" .
 
-<http://example.org/hippapart2_codes#4.34E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.34E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Acute tic disorder (disorder)",
         "Epidermoid cyst of testis (disorder)" ;
@@ -30075,7 +30075,7 @@ ns1:39993 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "4.34E+14" .
 
-<http://example.org/hippapart2_codes#4.36E+14> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.36E+14> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Insomnia due to anxiety and fear (disorder)",
         "Sleeps in sitting position due to orthopnea (finding)" ;
@@ -30084,7 +30084,7 @@ ns1:39993 a ns1:Code ;
         "Finding" ;
     ns1:hasAttribute "4.36E+14" .
 
-<http://example.org/hippapart2_codes#4.68E+12> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#4.68E+12> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Sleep disturbance in infancy (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
@@ -36660,7 +36660,7 @@ ns1:59961-3 a ns1:Code ;
     ns1:REPRESENTING_A "Lab" ;
     ns1:hasAttribute "59961-3" .
 
-<http://example.org/hippapart2_codes#6.22E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#6.22E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Mild expressive language delay (disorder)",
         "Moderate expressive language delay (disorder)",
@@ -36669,21 +36669,21 @@ ns1:59961-3 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "6.22E+13" .
 
-<http://example.org/hippapart2_codes#6.80E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#6.80E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Caffeine user (finding)" ;
     ns1:RELATED_TO " Amphetamine" ;
     ns1:REPRESENTING_A "Finding" ;
     ns1:hasAttribute "6.80E+13" .
 
-<http://example.org/hippapart2_codes#6.81E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#6.81E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Sibling relationship problem (finding)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Finding" ;
     ns1:hasAttribute "6.81E+11" .
 
-<http://example.org/hippapart2_codes#6.91E+11> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#6.91E+11> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Erectile dysfunction due to type 1 diabetes mellitus (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
@@ -39149,7 +39149,7 @@ ns1:6995000.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "6995000.0" .
 
-<http://example.org/hippapart2_codes#7.76E+12> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#7.76E+12> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Psychotic disorder caused by amphetamine use (disorder)" ;
     ns1:RELATED_TO " Amphetamine" ;
@@ -42488,14 +42488,14 @@ ns1:79866005.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "79866005.0" .
 
-<http://example.org/hippapart2_codes#8.06E+12> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#8.06E+12> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Vasculopathic erectile dysfunction (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "8.06E+12" .
 
-<http://example.org/hippapart2_codes#8.64E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#8.64E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Inhalant dependence, continuous (disorder)",
         "Inhalant dependence, episodic (disorder)" ;
@@ -42503,7 +42503,7 @@ ns1:79866005.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "8.64E+13" .
 
-<http://example.org/hippapart2_codes#8.94E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#8.94E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Mild developmental articulation disorder (disorder)",
         "Moderate receptive language delay (disorder)",
@@ -42512,7 +42512,7 @@ ns1:79866005.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "8.94E+13" .
 
-<http://example.org/hippapart2_codes#8.95E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#8.95E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Mild receptive language delay (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
@@ -44424,14 +44424,14 @@ ns1:89948007.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "89948007.0" .
 
-<http://example.org/hippapart2_codes#9.14E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#9.14E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Drug-induced insomnia (disorder)" ;
     ns1:RELATED_TO " Other Psychoactive Substance Use Disorder" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "9.14E+13" .
 
-<http://example.org/hippapart2_codes#9.15E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#9.15E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Disorder of sleep-wake cycle caused by drug (disorder)",
         "Narcolepsy without cataplexy (disorder)" ;
@@ -44440,14 +44440,14 @@ ns1:89948007.0 a ns1:Code ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "9.15E+13" .
 
-<http://example.org/hippapart2_codes#9.16E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#9.16E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Parasomnia caused by drug (disorder)" ;
     ns1:RELATED_TO " Other Psychoactive Substance Use Disorder" ;
     ns1:REPRESENTING_A "Diagnosis" ;
     ns1:hasAttribute "9.16E+13" .
 
-<http://example.org/hippapart2_codes#9.49E+13> a ns1:Code ;
+<https://medicaidpolygraph.com/hipaapart2_codes#9.49E+13> a ns1:Code ;
     ns1:CODE_IS_A_SUBTYPE_OF "SNOMEDCT" ;
     ns1:DESCRIBES "Episodic mood disorder (disorder)" ;
     ns1:RELATED_TO " Mental Health Disorders" ;
