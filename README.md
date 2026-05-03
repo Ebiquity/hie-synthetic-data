@@ -1,7 +1,10 @@
 # hie-synthetic-data
 This repo contains:
-- A set of clincial terms for substance abuse and mental health, mapped into a knowledge graph. These terms are called `Part 2` data, in reference to 42 Code of Federal Regulations Part 2, which is intended to safeguard this kind of sensitive health information. More about HIPAA and Part 2 [here](https://www.hhs.gov/hipaa/for-professionals/special-topics/hipaa-part-2/index.html).
+- A set of clinical terms for substance abuse and mental health, mapped into a knowledge graph. These terms are called `Part 2` data, in reference to 42 Code of Federal Regulations Part 2, which is intended to safeguard this kind of sensitive health information. More about HIPAA and Part 2 [here](https://www.hhs.gov/hipaa/for-professionals/special-topics/hipaa-part-2/index.html).
+- A Medical Frailty knowledge graph (`MedicalFrailty.ttl`) containing value sets and codes (CPT, HCPCS, ICD-10-CM) used to identify medical frailty, sourced from NCQA and IPRO value sets.
 - Scripts to generate synthetic claims data. The data is output in `ttl` format, and can then be linked to the Part 2 graph on SNOMED-CT terms.
+
+All knowledge graph namespaces use `https://medicaidpolygraph.com` as the base URI.
 
 ## HIPAA Part 2 Knowledge Graph
 We classified the NIH value sets to identify clinical terms associated with Substance Abuse and Mental Health as shown in the table. The complete list of terms is available [here in Excel](https://github.com/Ebiquity/hie-synthetic-data/raw/refs/heads/main/HIPAA%20PART2%20NIH%20CODE%20SET.xlsx).
@@ -37,6 +40,24 @@ This results in the ability to link to claims that contain clinical terms:
 An example:
 
 ![Knowledge Graph Example](./images/graph3.png)
+
+## Medical Frailty Knowledge Graph
+The `MedicalFrailty.ttl` file contains a knowledge graph of medical frailty value sets and codes, generated from the following source spreadsheets:
+
+| Value Set | OID | Code System | Type | Steward | Codes |
+|-----------|-----|-------------|------|---------|-------|
+| Frailty Device | 2.16.840.1.113883.3.464.1003.118.11.1114 | HCPCS | Extensional | NCQA | 83 |
+| Frailty Encounter | 2.16.840.1.113883.3.464.1003.101.11.1279 | HCPCS | Extensional | NCQA | 21 |
+| Frailty Encounter | 2.16.840.1.113883.3.464.1003.101.12.1088 | CPT / HCPCS | Grouping | NCQA | 23 |
+| ICP Frailty | 2.16.840.1.113762.1.4.1290.108 | HCPCS / ICD-10-CM | Grouping | IPRO | 383 |
+| ICP Frailty (HCPCS) | 2.16.840.1.113762.1.4.1290.107 | HCPCS | Extensional | IPRO | 98 |
+
+The graph uses the namespace `mf:` (`https://medicaidpolygraph.com/medical_frailty#`) and models:
+- **Value Sets** with metadata (OID, steward, FHIR URI, version, purpose)
+- **Codes** with description, code system, version, OID, and links back to parent value sets
+- Codes appearing in multiple value sets are deduplicated with multiple `mf:belongsToValueSet` relationships
+
+Total: **391 unique codes**, **3,977 RDF triples**.
 
 ## Generating Ad Hoc Claims data in RDF Format
 In the `ad-hoc-claims` folder are shell and python scripts for generating data in [Synthea-RDF](https://github.com/leroykim/synthea-rdf/tree/main) format. 

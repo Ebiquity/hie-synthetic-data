@@ -1,0 +1,4447 @@
+@prefix mf: <https://medicaidpolygraph.com/medical_frailty#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- Properties ---
+
+mf:INCLUDES a rdf:Property ;
+    rdfs:comment "Relates a value set to its member codes" .
+
+mf:belongsToValueSet a rdf:Property ;
+    rdfs:comment "Relates a code to the value set it belongs to" .
+
+mf:hasCodeSystem a rdf:Property ;
+    rdfs:comment "The code system a code belongs to" .
+
+mf:hasCodeSystemVersion a rdf:Property ;
+    rdfs:comment "The version of the code system" .
+
+mf:hasCodeSystemOID a rdf:Property ;
+    rdfs:comment "The OID of the code system" .
+
+mf:hasTTY a rdf:Property ;
+    rdfs:comment "The term type (TTY) of the code" .
+
+mf:isMemberOf a rdf:Property ;
+    rdfs:comment "Relates a grouping value set to its member value sets" .
+
+# --- Classes ---
+
+mf:ValueSet a rdfs:Class ;
+    rdfs:comment "A set of medical codes used to identify medical frailty" .
+
+mf:Code a rdfs:Class ;
+    rdfs:comment "A medical code (CPT, HCPCS, ICD-10-CM) indicating frailty" .
+
+# --- Value Sets ---
+
+mf:FrailtyDevice a mf:ValueSet ;
+    rdfs:label "Frailty Device" ;
+    dcterms:identifier "2.16.840.1.113883.3.464.1003.118.11.1114" ;
+    mf:hasCodeSystem "HCPCS" ;
+    dcterms:type "Extensional" ;
+    dcterms:hasVersion "20210918" ;
+    dcterms:publisher "National Committee for Quality Assurance" ;
+    rdfs:seeAlso <http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1114> ;
+    mf:INCLUDES mf:E0100
+        , mf:E0105
+        , mf:E0130
+        , mf:E0135
+        , mf:E0140
+        , mf:E0141
+        , mf:E0143
+        , mf:E0144
+        , mf:E0147
+        , mf:E0148
+        , mf:E0149
+        , mf:E0163
+        , mf:E0165
+        , mf:E0167
+        , mf:E0168
+        , mf:E0170
+        , mf:E0171
+        , mf:E0250
+        , mf:E0251
+        , mf:E0255
+        , mf:E0256
+        , mf:E0260
+        , mf:E0261
+        , mf:E0265
+        , mf:E0266
+        , mf:E0270
+        , mf:E0290
+        , mf:E0291
+        , mf:E0292
+        , mf:E0293
+        , mf:E0294
+        , mf:E0295
+        , mf:E0296
+        , mf:E0297
+        , mf:E0301
+        , mf:E0302
+        , mf:E0303
+        , mf:E0304
+        , mf:E0424
+        , mf:E0425
+        , mf:E0430
+        , mf:E0431
+        , mf:E0433
+        , mf:E0434
+        , mf:E0435
+        , mf:E0439
+        , mf:E0440
+        , mf:E0441
+        , mf:E0442
+        , mf:E0443
+        , mf:E0444
+        , mf:E0462
+        , mf:E0465
+        , mf:E0466
+        , mf:E0470
+        , mf:E0471
+        , mf:E0472
+        , mf:E0561
+        , mf:E0562
+        , mf:E1130
+        , mf:E1140
+        , mf:E1150
+        , mf:E1160
+        , mf:E1161
+        , mf:E1170
+        , mf:E1171
+        , mf:E1172
+        , mf:E1180
+        , mf:E1190
+        , mf:E1195
+        , mf:E1200
+        , mf:E1220
+        , mf:E1240
+        , mf:E1250
+        , mf:E1260
+        , mf:E1270
+        , mf:E1280
+        , mf:E1285
+        , mf:E1290
+        , mf:E1295
+        , mf:E1296
+        , mf:E1297
+        , mf:E1298 .
+
+mf:FrailtyEncounter a mf:ValueSet ;
+    rdfs:label "Frailty Encounter" ;
+    dcterms:identifier "Value Set Name" ;
+    mf:hasCodeSystem "HCPCS" ;
+    dcterms:type "Extensional" ;
+    dcterms:hasVersion "20260107" ;
+    dcterms:publisher "National Committee for Quality Assurance" ;
+    rdfs:seeAlso <http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.11.1279> ;
+    rdfs:comment "Clinical Focus: The purpose of this value set is to represent concepts for encounters for nursing care services provided to frail patients." ;
+    rdfs:comment "Data Element Scope: This value set may use a model element related to Encounter." ;
+    rdfs:comment "Inclusion Criteria: Includes concepts that represent an encounter for nursing care and home care services provided to frail patients." ;
+    rdfs:comment "Exclusion Criteria: No exclusions." ;
+    mf:INCLUDES mf:G0162
+        , mf:G0299
+        , mf:G0300
+        , mf:G0493
+        , mf:G0494
+        , mf:S0271
+        , mf:S0311
+        , mf:S9123
+        , mf:S9124
+        , mf:T1000
+        , mf:T1001
+        , mf:T1002
+        , mf:T1003
+        , mf:T1004
+        , mf:T1005
+        , mf:T1019
+        , mf:T1020
+        , mf:T1021
+        , mf:T1022
+        , mf:T1030
+        , mf:T1031 .
+
+mf:FrailtyEncounter a mf:ValueSet ;
+    rdfs:label "Frailty Encounter" ;
+    dcterms:identifier "Value Set Name" ;
+    mf:hasCodeSystem "CPT HCPCS" ;
+    dcterms:type "Grouping" ;
+    dcterms:hasVersion "20210224" ;
+    dcterms:publisher "National Committee for Quality Assurance" ;
+    rdfs:seeAlso <http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088> ;
+    rdfs:comment "Clinical Focus: The purpose of this value set is to represent concepts for encounters for nursing care services provided to frail patients." ;
+    rdfs:comment "Data Element Scope: This value set may use a model element related to Encounter." ;
+    rdfs:comment "Inclusion Criteria: Includes concepts that represent an encounter for nursing care and home care services provided to frail patients." ;
+    rdfs:comment "Exclusion Criteria: No exclusions." ;
+    mf:INCLUDES mf:99504
+        , mf:99509
+        , mf:G0162
+        , mf:G0299
+        , mf:G0300
+        , mf:G0493
+        , mf:G0494
+        , mf:S0271
+        , mf:S0311
+        , mf:S9123
+        , mf:S9124
+        , mf:T1000
+        , mf:T1001
+        , mf:T1002
+        , mf:T1003
+        , mf:T1004
+        , mf:T1005
+        , mf:T1019
+        , mf:T1020
+        , mf:T1021
+        , mf:T1022
+        , mf:T1030
+        , mf:T1031 .
+
+mf:ICPFrailty a mf:ValueSet ;
+    rdfs:label "ICP Frailty" ;
+    dcterms:identifier "Value Set Name" ;
+    mf:hasCodeSystem "HCPCS ICD10CM" ;
+    dcterms:type "Grouping" ;
+    dcterms:hasVersion "20260213" ;
+    dcterms:publisher "IPRO" ;
+    rdfs:seeAlso <http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1290.108> ;
+    rdfs:comment "Clinical Focus: Identification of frailty" ;
+    rdfs:comment "Data Element Scope: Codes indicative of frailty" ;
+    rdfs:comment "Inclusion Criteria: Codes indicative of frailty" ;
+    rdfs:comment "Exclusion Criteria: N/A" ;
+    mf:INCLUDES mf:99504
+        , mf:99509
+        , mf:E0100
+        , mf:E0105
+        , mf:E0130
+        , mf:E0135
+        , mf:E0140
+        , mf:E0141
+        , mf:E0143
+        , mf:E0144
+        , mf:E0147
+        , mf:E0148
+        , mf:E0149
+        , mf:E0163
+        , mf:E0165
+        , mf:E0167
+        , mf:E0168
+        , mf:E0170
+        , mf:E0171
+        , mf:E0250
+        , mf:E0251
+        , mf:E0255
+        , mf:E0256
+        , mf:E0260
+        , mf:E0261
+        , mf:E0265
+        , mf:E0266
+        , mf:E0270
+        , mf:E0290
+        , mf:E0291
+        , mf:E0292
+        , mf:E0293
+        , mf:E0294
+        , mf:E0295
+        , mf:E0296
+        , mf:E0297
+        , mf:E0301
+        , mf:E0302
+        , mf:E0303
+        , mf:E0304
+        , mf:E0424
+        , mf:E0425
+        , mf:E0430
+        , mf:E0431
+        , mf:E0433
+        , mf:E0434
+        , mf:E0435
+        , mf:E0439
+        , mf:E0440
+        , mf:E0441
+        , mf:E0442
+        , mf:E0443
+        , mf:E0444
+        , mf:E0462
+        , mf:E0465
+        , mf:E0466
+        , mf:E0470
+        , mf:E0471
+        , mf:E0472
+        , mf:E0561
+        , mf:E0562
+        , mf:E1130
+        , mf:E1140
+        , mf:E1150
+        , mf:E1160
+        , mf:E1161
+        , mf:E1240
+        , mf:E1250
+        , mf:E1260
+        , mf:E1270
+        , mf:E1280
+        , mf:E1285
+        , mf:E1290
+        , mf:E1295
+        , mf:E1296
+        , mf:E1297
+        , mf:E1298
+        , mf:G0162
+        , mf:G0299
+        , mf:G0300
+        , mf:G0493
+        , mf:G0494
+        , mf:L89_000
+        , mf:L89_001
+        , mf:L89_002
+        , mf:L89_003
+        , mf:L89_004
+        , mf:L89_006
+        , mf:L89_009
+        , mf:L89_010
+        , mf:L89_011
+        , mf:L89_012
+        , mf:L89_013
+        , mf:L89_014
+        , mf:L89_016
+        , mf:L89_019
+        , mf:L89_020
+        , mf:L89_021
+        , mf:L89_022
+        , mf:L89_023
+        , mf:L89_024
+        , mf:L89_026
+        , mf:L89_029
+        , mf:L89_100
+        , mf:L89_101
+        , mf:L89_102
+        , mf:L89_103
+        , mf:L89_104
+        , mf:L89_106
+        , mf:L89_109
+        , mf:L89_110
+        , mf:L89_111
+        , mf:L89_112
+        , mf:L89_113
+        , mf:L89_114
+        , mf:L89_116
+        , mf:L89_119
+        , mf:L89_120
+        , mf:L89_121
+        , mf:L89_122
+        , mf:L89_123
+        , mf:L89_124
+        , mf:L89_126
+        , mf:L89_129
+        , mf:L89_130
+        , mf:L89_131
+        , mf:L89_132
+        , mf:L89_133
+        , mf:L89_134
+        , mf:L89_136
+        , mf:L89_139
+        , mf:L89_140
+        , mf:L89_141
+        , mf:L89_142
+        , mf:L89_143
+        , mf:L89_144
+        , mf:L89_146
+        , mf:L89_149
+        , mf:L89_150
+        , mf:L89_151
+        , mf:L89_152
+        , mf:L89_153
+        , mf:L89_154
+        , mf:L89_156
+        , mf:L89_159
+        , mf:L89_200
+        , mf:L89_201
+        , mf:L89_202
+        , mf:L89_203
+        , mf:L89_204
+        , mf:L89_206
+        , mf:L89_209
+        , mf:L89_210
+        , mf:L89_211
+        , mf:L89_212
+        , mf:L89_213
+        , mf:L89_214
+        , mf:L89_216
+        , mf:L89_219
+        , mf:L89_220
+        , mf:L89_221
+        , mf:L89_222
+        , mf:L89_223
+        , mf:L89_224
+        , mf:L89_226
+        , mf:L89_229
+        , mf:L89_300
+        , mf:L89_301
+        , mf:L89_302
+        , mf:L89_303
+        , mf:L89_304
+        , mf:L89_306
+        , mf:L89_309
+        , mf:L89_310
+        , mf:L89_311
+        , mf:L89_312
+        , mf:L89_313
+        , mf:L89_314
+        , mf:L89_316
+        , mf:L89_319
+        , mf:L89_320
+        , mf:L89_321
+        , mf:L89_322
+        , mf:L89_323
+        , mf:L89_324
+        , mf:L89_326
+        , mf:L89_329
+        , mf:L89_40
+        , mf:L89_41
+        , mf:L89_42
+        , mf:L89_43
+        , mf:L89_44
+        , mf:L89_45
+        , mf:L89_46
+        , mf:L89_500
+        , mf:L89_501
+        , mf:L89_502
+        , mf:L89_503
+        , mf:L89_504
+        , mf:L89_506
+        , mf:L89_509
+        , mf:L89_510
+        , mf:L89_511
+        , mf:L89_512
+        , mf:L89_513
+        , mf:L89_514
+        , mf:L89_516
+        , mf:L89_519
+        , mf:L89_520
+        , mf:L89_521
+        , mf:L89_522
+        , mf:L89_523
+        , mf:L89_524
+        , mf:L89_526
+        , mf:L89_529
+        , mf:L89_600
+        , mf:L89_601
+        , mf:L89_602
+        , mf:L89_603
+        , mf:L89_604
+        , mf:L89_606
+        , mf:L89_609
+        , mf:L89_610
+        , mf:L89_611
+        , mf:L89_612
+        , mf:L89_613
+        , mf:L89_614
+        , mf:L89_616
+        , mf:L89_619
+        , mf:L89_620
+        , mf:L89_621
+        , mf:L89_622
+        , mf:L89_623
+        , mf:L89_624
+        , mf:L89_626
+        , mf:L89_629
+        , mf:L89_810
+        , mf:L89_811
+        , mf:L89_812
+        , mf:L89_813
+        , mf:L89_814
+        , mf:L89_816
+        , mf:L89_819
+        , mf:L89_890
+        , mf:L89_891
+        , mf:L89_892
+        , mf:L89_893
+        , mf:L89_894
+        , mf:L89_896
+        , mf:L89_899
+        , mf:L89_90
+        , mf:L89_91
+        , mf:L89_92
+        , mf:L89_93
+        , mf:L89_94
+        , mf:L89_95
+        , mf:L89_96
+        , mf:M62_50
+        , mf:M62_81
+        , mf:M62_84
+        , mf:R26_0
+        , mf:R26_1
+        , mf:R26_2
+        , mf:R26_89
+        , mf:R26_9
+        , mf:R41_81
+        , mf:R53_1
+        , mf:R53_81
+        , mf:R53_83
+        , mf:R54
+        , mf:R62_7
+        , mf:R63_4
+        , mf:R63_6
+        , mf:R64
+        , mf:S0271
+        , mf:S0311
+        , mf:S9123
+        , mf:S9124
+        , mf:T1000
+        , mf:T1001
+        , mf:T1002
+        , mf:T1003
+        , mf:T1004
+        , mf:T1005
+        , mf:T1019
+        , mf:T1020
+        , mf:T1021
+        , mf:T1022
+        , mf:T1030
+        , mf:T1031
+        , mf:W01_0XXA
+        , mf:W01_0XXD
+        , mf:W01_0XXS
+        , mf:W01_10XA
+        , mf:W01_10XD
+        , mf:W01_10XS
+        , mf:W01_110A
+        , mf:W01_110D
+        , mf:W01_110S
+        , mf:W01_111A
+        , mf:W01_111D
+        , mf:W01_111S
+        , mf:W01_118A
+        , mf:W01_118D
+        , mf:W01_118S
+        , mf:W01_119A
+        , mf:W01_119D
+        , mf:W01_119S
+        , mf:W01_190A
+        , mf:W01_190D
+        , mf:W01_190S
+        , mf:W01_198A
+        , mf:W01_198D
+        , mf:W01_198S
+        , mf:W06_XXXA
+        , mf:W06_XXXD
+        , mf:W06_XXXS
+        , mf:W07_XXXA
+        , mf:W07_XXXD
+        , mf:W07_XXXS
+        , mf:W08_XXXA
+        , mf:W08_XXXD
+        , mf:W08_XXXS
+        , mf:W10_0XXA
+        , mf:W10_0XXD
+        , mf:W10_0XXS
+        , mf:W10_1XXA
+        , mf:W10_1XXD
+        , mf:W10_1XXS
+        , mf:W10_2XXA
+        , mf:W10_2XXD
+        , mf:W10_2XXS
+        , mf:W10_8XXA
+        , mf:W10_8XXD
+        , mf:W10_8XXS
+        , mf:W10_9XXA
+        , mf:W10_9XXD
+        , mf:W10_9XXS
+        , mf:W18_00XA
+        , mf:W18_00XD
+        , mf:W18_00XS
+        , mf:W18_02XA
+        , mf:W18_02XD
+        , mf:W18_02XS
+        , mf:W18_09XA
+        , mf:W18_09XD
+        , mf:W18_09XS
+        , mf:W18_11XA
+        , mf:W18_11XD
+        , mf:W18_11XS
+        , mf:W18_12XA
+        , mf:W18_12XD
+        , mf:W18_12XS
+        , mf:W18_2XXA
+        , mf:W18_2XXD
+        , mf:W18_2XXS
+        , mf:W18_30XA
+        , mf:W18_30XD
+        , mf:W18_30XS
+        , mf:W18_31XA
+        , mf:W18_31XD
+        , mf:W18_31XS
+        , mf:W18_39XA
+        , mf:W18_39XD
+        , mf:W18_39XS
+        , mf:W19_XXXA
+        , mf:W19_XXXD
+        , mf:W19_XXXS
+        , mf:Y92_199
+        , mf:Z59_3
+        , mf:Z73_6
+        , mf:Z74_01
+        , mf:Z74_09
+        , mf:Z74_1
+        , mf:Z74_2
+        , mf:Z74_3
+        , mf:Z74_8
+        , mf:Z74_9
+        , mf:Z91_81
+        , mf:Z99_11
+        , mf:Z99_3
+        , mf:Z99_81
+        , mf:Z99_89 .
+
+mf:ICPFrailtyHCPCS a mf:ValueSet ;
+    rdfs:label "ICP Frailty (HCPCS)" ;
+    dcterms:identifier "Value Set Name" ;
+    mf:hasCodeSystem "HCPCS" ;
+    dcterms:type "Extensional" ;
+    dcterms:hasVersion "20260213" ;
+    dcterms:publisher "IPRO" ;
+    rdfs:seeAlso <http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1290.107> ;
+    rdfs:comment "Clinical Focus: Identification of diagnosis of frailty" ;
+    rdfs:comment "Data Element Scope: Codes indicative of a diagnosis of frailty" ;
+    rdfs:comment "Inclusion Criteria: HCPCS codes indicative of a diagnosis of frailty" ;
+    rdfs:comment "Exclusion Criteria: non HCPCS codes" ;
+    mf:INCLUDES mf:99504
+        , mf:99509
+        , mf:E0100
+        , mf:E0105
+        , mf:E0130
+        , mf:E0135
+        , mf:E0140
+        , mf:E0141
+        , mf:E0143
+        , mf:E0144
+        , mf:E0147
+        , mf:E0148
+        , mf:E0149
+        , mf:E0163
+        , mf:E0165
+        , mf:E0167
+        , mf:E0168
+        , mf:E0170
+        , mf:E0171
+        , mf:E0250
+        , mf:E0251
+        , mf:E0255
+        , mf:E0256
+        , mf:E0260
+        , mf:E0261
+        , mf:E0265
+        , mf:E0266
+        , mf:E0270
+        , mf:E0290
+        , mf:E0291
+        , mf:E0292
+        , mf:E0293
+        , mf:E0294
+        , mf:E0295
+        , mf:E0296
+        , mf:E0297
+        , mf:E0301
+        , mf:E0302
+        , mf:E0303
+        , mf:E0304
+        , mf:E0424
+        , mf:E0425
+        , mf:E0430
+        , mf:E0431
+        , mf:E0433
+        , mf:E0434
+        , mf:E0435
+        , mf:E0439
+        , mf:E0440
+        , mf:E0441
+        , mf:E0442
+        , mf:E0443
+        , mf:E0444
+        , mf:E0462
+        , mf:E0465
+        , mf:E0466
+        , mf:E0470
+        , mf:E0471
+        , mf:E0472
+        , mf:E0561
+        , mf:E0562
+        , mf:E1130
+        , mf:E1140
+        , mf:E1150
+        , mf:E1160
+        , mf:E1161
+        , mf:E1240
+        , mf:E1250
+        , mf:E1260
+        , mf:E1270
+        , mf:E1280
+        , mf:E1285
+        , mf:E1290
+        , mf:E1295
+        , mf:E1296
+        , mf:E1297
+        , mf:E1298
+        , mf:G0162
+        , mf:G0299
+        , mf:G0300
+        , mf:G0493
+        , mf:G0494
+        , mf:S0271
+        , mf:S0311
+        , mf:S9123
+        , mf:S9124
+        , mf:T1000
+        , mf:T1001
+        , mf:T1002
+        , mf:T1003
+        , mf:T1004
+        , mf:T1005
+        , mf:T1019
+        , mf:T1020
+        , mf:T1021
+        , mf:T1022
+        , mf:T1030
+        , mf:T1031 .
+
+# --- Medical Frailty Codes ---
+
+mf:E0100 a mf:Code ;
+    rdfs:label "E0100" ;
+    rdfs:comment "Cane, includes canes of all materials, adjustable or fixed, with tip" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0105 a mf:Code ;
+    rdfs:label "E0105" ;
+    rdfs:comment "Cane, quad or three prong, includes canes of all materials, adjustable or fixed, with tips" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0130 a mf:Code ;
+    rdfs:label "E0130" ;
+    rdfs:comment "Walker, rigid (pickup), adjustable or fixed height" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0135 a mf:Code ;
+    rdfs:label "E0135" ;
+    rdfs:comment "Walker, folding (pickup), adjustable or fixed height" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0140 a mf:Code ;
+    rdfs:label "E0140" ;
+    rdfs:comment "Walker, with trunk support, adjustable or fixed height, any type" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0141 a mf:Code ;
+    rdfs:label "E0141" ;
+    rdfs:comment "Walker, rigid, wheeled, adjustable or fixed height" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0143 a mf:Code ;
+    rdfs:label "E0143" ;
+    rdfs:comment "Walker, folding, wheeled, adjustable or fixed height" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0144 a mf:Code ;
+    rdfs:label "E0144" ;
+    rdfs:comment "Walker, enclosed, four sided framed, rigid or folding, wheeled with posterior seat" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0147 a mf:Code ;
+    rdfs:label "E0147" ;
+    rdfs:comment "Walker, heavy duty, multiple braking system, variable wheel resistance" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0148 a mf:Code ;
+    rdfs:label "E0148" ;
+    rdfs:comment "Walker, heavy duty, without wheels, rigid or folding, any type, each" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0149 a mf:Code ;
+    rdfs:label "E0149" ;
+    rdfs:comment "Walker, heavy duty, wheeled, rigid or folding, any type" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0163 a mf:Code ;
+    rdfs:label "E0163" ;
+    rdfs:comment "Commode chair, mobile or stationary, with fixed arms" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0165 a mf:Code ;
+    rdfs:label "E0165" ;
+    rdfs:comment "Commode chair, mobile or stationary, with detachable arms" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0167 a mf:Code ;
+    rdfs:label "E0167" ;
+    rdfs:comment "Pail or pan for use with commode chair, replacement only" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0168 a mf:Code ;
+    rdfs:label "E0168" ;
+    rdfs:comment "Commode chair, extra wide and/or heavy duty, stationary or mobile, with or without arms, any type, each" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0170 a mf:Code ;
+    rdfs:label "E0170" ;
+    rdfs:comment "Commode chair with integrated seat lift mechanism, electric, any type" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0171 a mf:Code ;
+    rdfs:label "E0171" ;
+    rdfs:comment "Commode chair with integrated seat lift mechanism, non-electric, any type" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0250 a mf:Code ;
+    rdfs:label "E0250" ;
+    rdfs:comment "Hospital bed, fixed height, with any type side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0251 a mf:Code ;
+    rdfs:label "E0251" ;
+    rdfs:comment "Hospital bed, fixed height, with any type side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0255 a mf:Code ;
+    rdfs:label "E0255" ;
+    rdfs:comment "Hospital bed, variable height, hi-lo, with any type side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0256 a mf:Code ;
+    rdfs:label "E0256" ;
+    rdfs:comment "Hospital bed, variable height, hi-lo, with any type side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0260 a mf:Code ;
+    rdfs:label "E0260" ;
+    rdfs:comment "Hospital bed, semi-electric (head and foot adjustment), with any type side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0261 a mf:Code ;
+    rdfs:label "E0261" ;
+    rdfs:comment "Hospital bed, semi-electric (head and foot adjustment), with any type side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0265 a mf:Code ;
+    rdfs:label "E0265" ;
+    rdfs:comment "Hospital bed, total electric (head, foot and height adjustments), with any type side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0266 a mf:Code ;
+    rdfs:label "E0266" ;
+    rdfs:comment "Hospital bed, total electric (head, foot and height adjustments), with any type side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0270 a mf:Code ;
+    rdfs:label "E0270" ;
+    rdfs:comment "Hospital bed, institutional type includes: oscillating, circulating and stryker frame, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0290 a mf:Code ;
+    rdfs:label "E0290" ;
+    rdfs:comment "Hospital bed, fixed height, without side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0291 a mf:Code ;
+    rdfs:label "E0291" ;
+    rdfs:comment "Hospital bed, fixed height, without side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0292 a mf:Code ;
+    rdfs:label "E0292" ;
+    rdfs:comment "Hospital bed, variable height, hi-lo, without side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0293 a mf:Code ;
+    rdfs:label "E0293" ;
+    rdfs:comment "Hospital bed, variable height, hi-lo, without side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0294 a mf:Code ;
+    rdfs:label "E0294" ;
+    rdfs:comment "Hospital bed, semi-electric (head and foot adjustment), without side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0295 a mf:Code ;
+    rdfs:label "E0295" ;
+    rdfs:comment "Hospital bed, semi-electric (head and foot adjustment), without side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0296 a mf:Code ;
+    rdfs:label "E0296" ;
+    rdfs:comment "Hospital bed, total electric (head, foot and height adjustments), without side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0297 a mf:Code ;
+    rdfs:label "E0297" ;
+    rdfs:comment "Hospital bed, total electric (head, foot and height adjustments), without side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0301 a mf:Code ;
+    rdfs:label "E0301" ;
+    rdfs:comment "Hospital bed, heavy duty, extra wide, with weight capacity greater than 350 pounds, but less than or equal to 600 pounds, with any type side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0302 a mf:Code ;
+    rdfs:label "E0302" ;
+    rdfs:comment "Hospital bed, extra heavy duty, extra wide, with weight capacity greater than 600 pounds, with any type side rails, without mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0303 a mf:Code ;
+    rdfs:label "E0303" ;
+    rdfs:comment "Hospital bed, heavy duty, extra wide, with weight capacity greater than 350 pounds, but less than or equal to 600 pounds, with any type side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0304 a mf:Code ;
+    rdfs:label "E0304" ;
+    rdfs:comment "Hospital bed, extra heavy duty, extra wide, with weight capacity greater than 600 pounds, with any type side rails, with mattress" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0424 a mf:Code ;
+    rdfs:label "E0424" ;
+    rdfs:comment "Stationary compressed gaseous oxygen system, rental; includes container, contents, regulator, flowmeter, humidifier, nebulizer, cannula or mask, and tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0425 a mf:Code ;
+    rdfs:label "E0425" ;
+    rdfs:comment "Stationary compressed gas system, purchase; includes regulator, flowmeter, humidifier, nebulizer, cannula or mask, and tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0430 a mf:Code ;
+    rdfs:label "E0430" ;
+    rdfs:comment "Portable gaseous oxygen system, purchase; includes regulator, flowmeter, humidifier, cannula or mask, and tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0431 a mf:Code ;
+    rdfs:label "E0431" ;
+    rdfs:comment "Portable gaseous oxygen system, rental; includes portable container, regulator, flowmeter, humidifier, cannula or mask, and tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0433 a mf:Code ;
+    rdfs:label "E0433" ;
+    rdfs:comment "Portable liquid oxygen system, rental; home liquefier used to fill portable liquid oxygen containers, includes portable containers, regulator, flowmeter, humidifier, cannula or mask and tubing, with or without supply reservoir and contents gauge" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0434 a mf:Code ;
+    rdfs:label "E0434" ;
+    rdfs:comment "Portable liquid oxygen system, rental; includes portable container, supply reservoir, humidifier, flowmeter, refill adaptor, contents gauge, cannula or mask, and tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0435 a mf:Code ;
+    rdfs:label "E0435" ;
+    rdfs:comment "Portable liquid oxygen system, purchase; includes portable container, supply reservoir, flowmeter, humidifier, contents gauge, cannula or mask, tubing and refill adaptor" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0439 a mf:Code ;
+    rdfs:label "E0439" ;
+    rdfs:comment "Stationary liquid oxygen system, rental; includes container, contents, regulator, flowmeter, humidifier, nebulizer, cannula or mask, & tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0440 a mf:Code ;
+    rdfs:label "E0440" ;
+    rdfs:comment "Stationary liquid oxygen system, purchase; includes use of reservoir, contents indicator, regulator, flowmeter, humidifier, nebulizer, cannula or mask, and tubing" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0441 a mf:Code ;
+    rdfs:label "E0441" ;
+    rdfs:comment "Stationary oxygen contents, gaseous, 1 month's supply = 1 unit" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0442 a mf:Code ;
+    rdfs:label "E0442" ;
+    rdfs:comment "Stationary oxygen contents, liquid, 1 month's supply = 1 unit" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0443 a mf:Code ;
+    rdfs:label "E0443" ;
+    rdfs:comment "Portable oxygen contents, gaseous, 1 month's supply = 1 unit" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0444 a mf:Code ;
+    rdfs:label "E0444" ;
+    rdfs:comment "Portable oxygen contents, liquid, 1 month's supply = 1 unit" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0462 a mf:Code ;
+    rdfs:label "E0462" ;
+    rdfs:comment "Rocking bed with or without side rails" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0465 a mf:Code ;
+    rdfs:label "E0465" ;
+    rdfs:comment "Home ventilator, any type, used with invasive interface, (e.g., tracheostomy tube)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0466 a mf:Code ;
+    rdfs:label "E0466" ;
+    rdfs:comment "Home ventilator, any type, used with non-invasive interface, (e.g., mask, chest shell)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0470 a mf:Code ;
+    rdfs:label "E0470" ;
+    rdfs:comment "Respiratory assist device, bi-level pressure capability, without backup rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0471 a mf:Code ;
+    rdfs:label "E0471" ;
+    rdfs:comment "Respiratory assist device, bi-level pressure capability, with back-up rate feature, used with noninvasive interface, e.g., nasal or facial mask (intermittent assist device with continuous positive airway pressure device)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0472 a mf:Code ;
+    rdfs:label "E0472" ;
+    rdfs:comment "Respiratory assist device, bi-level pressure capability, with backup rate feature, used with invasive interface, e.g., tracheostomy tube (intermittent assist device with continuous positive airway pressure device)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0561 a mf:Code ;
+    rdfs:label "E0561" ;
+    rdfs:comment "Humidifier, non-heated, used with positive airway pressure device" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E0562 a mf:Code ;
+    rdfs:label "E0562" ;
+    rdfs:comment "Humidifier, heated, used with positive airway pressure device" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1130 a mf:Code ;
+    rdfs:label "E1130" ;
+    rdfs:comment "Standard wheelchair, fixed full length arms, fixed or swing away detachable footrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1140 a mf:Code ;
+    rdfs:label "E1140" ;
+    rdfs:comment "Wheelchair, detachable arms, desk or full length, swing away detachable footrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1150 a mf:Code ;
+    rdfs:label "E1150" ;
+    rdfs:comment "Wheelchair, detachable arms, desk or full length swing away detachable elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1160 a mf:Code ;
+    rdfs:label "E1160" ;
+    rdfs:comment "Wheelchair, fixed full length arms, swing away detachable elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1161 a mf:Code ;
+    rdfs:label "E1161" ;
+    rdfs:comment "Manual adult size wheelchair, includes tilt in space" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1170 a mf:Code ;
+    rdfs:label "E1170" ;
+    rdfs:comment "Amputee wheelchair, fixed full length arms, swing away detachable elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1171 a mf:Code ;
+    rdfs:label "E1171" ;
+    rdfs:comment "Amputee wheelchair, fixed full length arms, without footrests or legrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1172 a mf:Code ;
+    rdfs:label "E1172" ;
+    rdfs:comment "Amputee wheelchair, detachable arms (desk or full length) without footrests or legrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1180 a mf:Code ;
+    rdfs:label "E1180" ;
+    rdfs:comment "Amputee wheelchair, detachable arms (desk or full length) swing away detachable footrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1190 a mf:Code ;
+    rdfs:label "E1190" ;
+    rdfs:comment "Amputee wheelchair, detachable arms (desk or full length) swing away detachable elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1195 a mf:Code ;
+    rdfs:label "E1195" ;
+    rdfs:comment "Heavy duty wheelchair, fixed full length arms, swing away detachable elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1200 a mf:Code ;
+    rdfs:label "E1200" ;
+    rdfs:comment "Amputee wheelchair, fixed full length arms, swing away detachable footrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1220 a mf:Code ;
+    rdfs:label "E1220" ;
+    rdfs:comment "Wheelchair; specially sized or constructed, (indicate brand name, model number, if any) and justification" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice .
+
+mf:E1240 a mf:Code ;
+    rdfs:label "E1240" ;
+    rdfs:comment "Lightweight wheelchair, detachable arms, (desk or full length) swing away detachable, elevating legrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1250 a mf:Code ;
+    rdfs:label "E1250" ;
+    rdfs:comment "Lightweight wheelchair, fixed full length arms, swing away detachable footrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1260 a mf:Code ;
+    rdfs:label "E1260" ;
+    rdfs:comment "Lightweight wheelchair, detachable arms (desk or full length) swing away detachable footrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1270 a mf:Code ;
+    rdfs:label "E1270" ;
+    rdfs:comment "Lightweight wheelchair, fixed full length arms, swing away detachable elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1280 a mf:Code ;
+    rdfs:label "E1280" ;
+    rdfs:comment "Heavy duty wheelchair, detachable arms (desk or full length) elevating legrests" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1285 a mf:Code ;
+    rdfs:label "E1285" ;
+    rdfs:comment "Heavy duty wheelchair, fixed full length arms, swing away detachable footrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1290 a mf:Code ;
+    rdfs:label "E1290" ;
+    rdfs:comment "Heavy duty wheelchair, detachable arms (desk or full length) swing away detachable footrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1295 a mf:Code ;
+    rdfs:label "E1295" ;
+    rdfs:comment "Heavy duty wheelchair, fixed full length arms, elevating legrest" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1296 a mf:Code ;
+    rdfs:label "E1296" ;
+    rdfs:comment "Special wheelchair seat height from floor" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1297 a mf:Code ;
+    rdfs:label "E1297" ;
+    rdfs:comment "Special wheelchair seat depth, by upholstery" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:E1298 a mf:Code ;
+    rdfs:label "E1298" ;
+    rdfs:comment "Special wheelchair seat depth and/or width, by construction" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyDevice ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:G0162 a mf:Code ;
+    rdfs:label "G0162" ;
+    rdfs:comment "Skilled services by a registered nurse (rn) for management and evaluation of the plan of care; each 15 minutes (the patient's underlying condition or complication requires an rn to ensure that essential non-skilled care achieves its purpose in the home health or hospice setting)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:G0299 a mf:Code ;
+    rdfs:label "G0299" ;
+    rdfs:comment "Direct skilled nursing services of a registered nurse (rn) in the home health or hospice setting, each 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:G0300 a mf:Code ;
+    rdfs:label "G0300" ;
+    rdfs:comment "Direct skilled nursing services of a licensed practical nurse (lpn) in the home health or hospice setting, each 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:G0493 a mf:Code ;
+    rdfs:label "G0493" ;
+    rdfs:comment "Skilled services of a registered nurse (rn) for the observation and assessment of the patient's condition, each 15 minutes (the change in the patient's condition requires skilled nursing personnel to identify and evaluate the patient's need for possible modification of treatment in the home health or hospice setting)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:G0494 a mf:Code ;
+    rdfs:label "G0494" ;
+    rdfs:comment "Skilled services of a licensed practical nurse (lpn) for the observation and assessment of the patient's condition, each 15 minutes (the change in the patient's condition requires skilled nursing personnel to identify and evaluate the patient's need for possible modification of treatment in the home health or hospice setting)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:S0271 a mf:Code ;
+    rdfs:label "S0271" ;
+    rdfs:comment "Physician management of patient home care, hospice monthly case rate (per 30 days)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:S0311 a mf:Code ;
+    rdfs:label "S0311" ;
+    rdfs:comment "Comprehensive management and care coordination for advanced illness, per calendar month" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:S9123 a mf:Code ;
+    rdfs:label "S9123" ;
+    rdfs:comment "Nursing care, in the home; by registered nurse, per hour (use for general nursing care only, not to be used when cpt codes 99500-99602 can be used)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:S9124 a mf:Code ;
+    rdfs:label "S9124" ;
+    rdfs:comment "Nursing care, in the home; by licensed practical nurse, per hour" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1000 a mf:Code ;
+    rdfs:label "T1000" ;
+    rdfs:comment "Private duty / independent nursing service(s) - licensed, up to 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1001 a mf:Code ;
+    rdfs:label "T1001" ;
+    rdfs:comment "Nursing assessment / evaluation" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1002 a mf:Code ;
+    rdfs:label "T1002" ;
+    rdfs:comment "Rn services, up to 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1003 a mf:Code ;
+    rdfs:label "T1003" ;
+    rdfs:comment "Lpn/lvn services, up to 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1004 a mf:Code ;
+    rdfs:label "T1004" ;
+    rdfs:comment "Services of a qualified nursing aide, up to 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1005 a mf:Code ;
+    rdfs:label "T1005" ;
+    rdfs:comment "Respite care services, up to 15 minutes" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1019 a mf:Code ;
+    rdfs:label "T1019" ;
+    rdfs:comment "Personal care services, per 15 minutes, not for an inpatient or resident of a hospital, nursing facility, icf/mr or imd, part of the individualized plan of treatment (code may not be used to identify services provided by home health aide or certified nurse assistant)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1020 a mf:Code ;
+    rdfs:label "T1020" ;
+    rdfs:comment "Personal care services, per diem, not for an inpatient or resident of a hospital, nursing facility, icf/mr or imd, part of the individualized plan of treatment (code may not be used to identify services provided by home health aide or certified nurse assistant)" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1021 a mf:Code ;
+    rdfs:label "T1021" ;
+    rdfs:comment "Home health aide or certified nurse assistant, per visit" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1022 a mf:Code ;
+    rdfs:label "T1022" ;
+    rdfs:comment "Contracted home health agency services, all services provided under contract, per day" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1030 a mf:Code ;
+    rdfs:label "T1030" ;
+    rdfs:comment "Nursing care, in the home, by registered nurse, per diem" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:T1031 a mf:Code ;
+    rdfs:label "T1031" ;
+    rdfs:comment "Nursing care, in the home, by licensed practical nurse, per diem" ;
+    mf:hasCodeSystem "HCPCS Level II" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.285" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:99504 a mf:Code ;
+    rdfs:label "99504" ;
+    rdfs:comment "Home visit for mechanical ventilation care" ;
+    mf:hasCodeSystem "CPT" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.12" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:99509 a mf:Code ;
+    rdfs:label "99509" ;
+    rdfs:comment "Home visit for assistance with activities of daily living and personal care" ;
+    mf:hasCodeSystem "CPT" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.12" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:FrailtyEncounter ;
+    mf:belongsToValueSet mf:ICPFrailty ;
+    mf:belongsToValueSet mf:ICPFrailtyHCPCS .
+
+mf:L89_000 a mf:Code ;
+    rdfs:label "L89.000" ;
+    rdfs:comment "Pressure ulcer of unspecified elbow, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_001 a mf:Code ;
+    rdfs:label "L89.001" ;
+    rdfs:comment "Pressure ulcer of unspecified elbow, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_002 a mf:Code ;
+    rdfs:label "L89.002" ;
+    rdfs:comment "Pressure ulcer of unspecified elbow, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_003 a mf:Code ;
+    rdfs:label "L89.003" ;
+    rdfs:comment "Pressure ulcer of unspecified elbow, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_004 a mf:Code ;
+    rdfs:label "L89.004" ;
+    rdfs:comment "Pressure ulcer of unspecified elbow, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_006 a mf:Code ;
+    rdfs:label "L89.006" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified elbow" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_009 a mf:Code ;
+    rdfs:label "L89.009" ;
+    rdfs:comment "Pressure ulcer of unspecified elbow, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_010 a mf:Code ;
+    rdfs:label "L89.010" ;
+    rdfs:comment "Pressure ulcer of right elbow, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_011 a mf:Code ;
+    rdfs:label "L89.011" ;
+    rdfs:comment "Pressure ulcer of right elbow, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_012 a mf:Code ;
+    rdfs:label "L89.012" ;
+    rdfs:comment "Pressure ulcer of right elbow, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_013 a mf:Code ;
+    rdfs:label "L89.013" ;
+    rdfs:comment "Pressure ulcer of right elbow, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_014 a mf:Code ;
+    rdfs:label "L89.014" ;
+    rdfs:comment "Pressure ulcer of right elbow, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_016 a mf:Code ;
+    rdfs:label "L89.016" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right elbow" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_019 a mf:Code ;
+    rdfs:label "L89.019" ;
+    rdfs:comment "Pressure ulcer of right elbow, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_020 a mf:Code ;
+    rdfs:label "L89.020" ;
+    rdfs:comment "Pressure ulcer of left elbow, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_021 a mf:Code ;
+    rdfs:label "L89.021" ;
+    rdfs:comment "Pressure ulcer of left elbow, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_022 a mf:Code ;
+    rdfs:label "L89.022" ;
+    rdfs:comment "Pressure ulcer of left elbow, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_023 a mf:Code ;
+    rdfs:label "L89.023" ;
+    rdfs:comment "Pressure ulcer of left elbow, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_024 a mf:Code ;
+    rdfs:label "L89.024" ;
+    rdfs:comment "Pressure ulcer of left elbow, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_026 a mf:Code ;
+    rdfs:label "L89.026" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left elbow" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_029 a mf:Code ;
+    rdfs:label "L89.029" ;
+    rdfs:comment "Pressure ulcer of left elbow, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_100 a mf:Code ;
+    rdfs:label "L89.100" ;
+    rdfs:comment "Pressure ulcer of unspecified part of back, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_101 a mf:Code ;
+    rdfs:label "L89.101" ;
+    rdfs:comment "Pressure ulcer of unspecified part of back, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_102 a mf:Code ;
+    rdfs:label "L89.102" ;
+    rdfs:comment "Pressure ulcer of unspecified part of back, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_103 a mf:Code ;
+    rdfs:label "L89.103" ;
+    rdfs:comment "Pressure ulcer of unspecified part of back, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_104 a mf:Code ;
+    rdfs:label "L89.104" ;
+    rdfs:comment "Pressure ulcer of unspecified part of back, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_106 a mf:Code ;
+    rdfs:label "L89.106" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified part of back" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_109 a mf:Code ;
+    rdfs:label "L89.109" ;
+    rdfs:comment "Pressure ulcer of unspecified part of back, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_110 a mf:Code ;
+    rdfs:label "L89.110" ;
+    rdfs:comment "Pressure ulcer of right upper back, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_111 a mf:Code ;
+    rdfs:label "L89.111" ;
+    rdfs:comment "Pressure ulcer of right upper back, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_112 a mf:Code ;
+    rdfs:label "L89.112" ;
+    rdfs:comment "Pressure ulcer of right upper back, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_113 a mf:Code ;
+    rdfs:label "L89.113" ;
+    rdfs:comment "Pressure ulcer of right upper back, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_114 a mf:Code ;
+    rdfs:label "L89.114" ;
+    rdfs:comment "Pressure ulcer of right upper back, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_116 a mf:Code ;
+    rdfs:label "L89.116" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right upper back" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_119 a mf:Code ;
+    rdfs:label "L89.119" ;
+    rdfs:comment "Pressure ulcer of right upper back, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_120 a mf:Code ;
+    rdfs:label "L89.120" ;
+    rdfs:comment "Pressure ulcer of left upper back, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_121 a mf:Code ;
+    rdfs:label "L89.121" ;
+    rdfs:comment "Pressure ulcer of left upper back, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_122 a mf:Code ;
+    rdfs:label "L89.122" ;
+    rdfs:comment "Pressure ulcer of left upper back, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_123 a mf:Code ;
+    rdfs:label "L89.123" ;
+    rdfs:comment "Pressure ulcer of left upper back, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_124 a mf:Code ;
+    rdfs:label "L89.124" ;
+    rdfs:comment "Pressure ulcer of left upper back, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_126 a mf:Code ;
+    rdfs:label "L89.126" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left upper back" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_129 a mf:Code ;
+    rdfs:label "L89.129" ;
+    rdfs:comment "Pressure ulcer of left upper back, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_130 a mf:Code ;
+    rdfs:label "L89.130" ;
+    rdfs:comment "Pressure ulcer of right lower back, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_131 a mf:Code ;
+    rdfs:label "L89.131" ;
+    rdfs:comment "Pressure ulcer of right lower back, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_132 a mf:Code ;
+    rdfs:label "L89.132" ;
+    rdfs:comment "Pressure ulcer of right lower back, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_133 a mf:Code ;
+    rdfs:label "L89.133" ;
+    rdfs:comment "Pressure ulcer of right lower back, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_134 a mf:Code ;
+    rdfs:label "L89.134" ;
+    rdfs:comment "Pressure ulcer of right lower back, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_136 a mf:Code ;
+    rdfs:label "L89.136" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right lower back" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_139 a mf:Code ;
+    rdfs:label "L89.139" ;
+    rdfs:comment "Pressure ulcer of right lower back, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_140 a mf:Code ;
+    rdfs:label "L89.140" ;
+    rdfs:comment "Pressure ulcer of left lower back, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_141 a mf:Code ;
+    rdfs:label "L89.141" ;
+    rdfs:comment "Pressure ulcer of left lower back, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_142 a mf:Code ;
+    rdfs:label "L89.142" ;
+    rdfs:comment "Pressure ulcer of left lower back, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_143 a mf:Code ;
+    rdfs:label "L89.143" ;
+    rdfs:comment "Pressure ulcer of left lower back, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_144 a mf:Code ;
+    rdfs:label "L89.144" ;
+    rdfs:comment "Pressure ulcer of left lower back, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_146 a mf:Code ;
+    rdfs:label "L89.146" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left lower back" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_149 a mf:Code ;
+    rdfs:label "L89.149" ;
+    rdfs:comment "Pressure ulcer of left lower back, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_150 a mf:Code ;
+    rdfs:label "L89.150" ;
+    rdfs:comment "Pressure ulcer of sacral region, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_151 a mf:Code ;
+    rdfs:label "L89.151" ;
+    rdfs:comment "Pressure ulcer of sacral region, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_152 a mf:Code ;
+    rdfs:label "L89.152" ;
+    rdfs:comment "Pressure ulcer of sacral region, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_153 a mf:Code ;
+    rdfs:label "L89.153" ;
+    rdfs:comment "Pressure ulcer of sacral region, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_154 a mf:Code ;
+    rdfs:label "L89.154" ;
+    rdfs:comment "Pressure ulcer of sacral region, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_156 a mf:Code ;
+    rdfs:label "L89.156" ;
+    rdfs:comment "Pressure-induced deep tissue damage of sacral region" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_159 a mf:Code ;
+    rdfs:label "L89.159" ;
+    rdfs:comment "Pressure ulcer of sacral region, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_200 a mf:Code ;
+    rdfs:label "L89.200" ;
+    rdfs:comment "Pressure ulcer of unspecified hip, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_201 a mf:Code ;
+    rdfs:label "L89.201" ;
+    rdfs:comment "Pressure ulcer of unspecified hip, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_202 a mf:Code ;
+    rdfs:label "L89.202" ;
+    rdfs:comment "Pressure ulcer of unspecified hip, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_203 a mf:Code ;
+    rdfs:label "L89.203" ;
+    rdfs:comment "Pressure ulcer of unspecified hip, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_204 a mf:Code ;
+    rdfs:label "L89.204" ;
+    rdfs:comment "Pressure ulcer of unspecified hip, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_206 a mf:Code ;
+    rdfs:label "L89.206" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified hip" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_209 a mf:Code ;
+    rdfs:label "L89.209" ;
+    rdfs:comment "Pressure ulcer of unspecified hip, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_210 a mf:Code ;
+    rdfs:label "L89.210" ;
+    rdfs:comment "Pressure ulcer of right hip, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_211 a mf:Code ;
+    rdfs:label "L89.211" ;
+    rdfs:comment "Pressure ulcer of right hip, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_212 a mf:Code ;
+    rdfs:label "L89.212" ;
+    rdfs:comment "Pressure ulcer of right hip, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_213 a mf:Code ;
+    rdfs:label "L89.213" ;
+    rdfs:comment "Pressure ulcer of right hip, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_214 a mf:Code ;
+    rdfs:label "L89.214" ;
+    rdfs:comment "Pressure ulcer of right hip, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_216 a mf:Code ;
+    rdfs:label "L89.216" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right hip" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_219 a mf:Code ;
+    rdfs:label "L89.219" ;
+    rdfs:comment "Pressure ulcer of right hip, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_220 a mf:Code ;
+    rdfs:label "L89.220" ;
+    rdfs:comment "Pressure ulcer of left hip, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_221 a mf:Code ;
+    rdfs:label "L89.221" ;
+    rdfs:comment "Pressure ulcer of left hip, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_222 a mf:Code ;
+    rdfs:label "L89.222" ;
+    rdfs:comment "Pressure ulcer of left hip, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_223 a mf:Code ;
+    rdfs:label "L89.223" ;
+    rdfs:comment "Pressure ulcer of left hip, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_224 a mf:Code ;
+    rdfs:label "L89.224" ;
+    rdfs:comment "Pressure ulcer of left hip, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_226 a mf:Code ;
+    rdfs:label "L89.226" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left hip" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_229 a mf:Code ;
+    rdfs:label "L89.229" ;
+    rdfs:comment "Pressure ulcer of left hip, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_300 a mf:Code ;
+    rdfs:label "L89.300" ;
+    rdfs:comment "Pressure ulcer of unspecified buttock, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_301 a mf:Code ;
+    rdfs:label "L89.301" ;
+    rdfs:comment "Pressure ulcer of unspecified buttock, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_302 a mf:Code ;
+    rdfs:label "L89.302" ;
+    rdfs:comment "Pressure ulcer of unspecified buttock, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_303 a mf:Code ;
+    rdfs:label "L89.303" ;
+    rdfs:comment "Pressure ulcer of unspecified buttock, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_304 a mf:Code ;
+    rdfs:label "L89.304" ;
+    rdfs:comment "Pressure ulcer of unspecified buttock, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_306 a mf:Code ;
+    rdfs:label "L89.306" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified buttock" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_309 a mf:Code ;
+    rdfs:label "L89.309" ;
+    rdfs:comment "Pressure ulcer of unspecified buttock, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_310 a mf:Code ;
+    rdfs:label "L89.310" ;
+    rdfs:comment "Pressure ulcer of right buttock, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_311 a mf:Code ;
+    rdfs:label "L89.311" ;
+    rdfs:comment "Pressure ulcer of right buttock, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_312 a mf:Code ;
+    rdfs:label "L89.312" ;
+    rdfs:comment "Pressure ulcer of right buttock, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_313 a mf:Code ;
+    rdfs:label "L89.313" ;
+    rdfs:comment "Pressure ulcer of right buttock, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_314 a mf:Code ;
+    rdfs:label "L89.314" ;
+    rdfs:comment "Pressure ulcer of right buttock, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_316 a mf:Code ;
+    rdfs:label "L89.316" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right buttock" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_319 a mf:Code ;
+    rdfs:label "L89.319" ;
+    rdfs:comment "Pressure ulcer of right buttock, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_320 a mf:Code ;
+    rdfs:label "L89.320" ;
+    rdfs:comment "Pressure ulcer of left buttock, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_321 a mf:Code ;
+    rdfs:label "L89.321" ;
+    rdfs:comment "Pressure ulcer of left buttock, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_322 a mf:Code ;
+    rdfs:label "L89.322" ;
+    rdfs:comment "Pressure ulcer of left buttock, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_323 a mf:Code ;
+    rdfs:label "L89.323" ;
+    rdfs:comment "Pressure ulcer of left buttock, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_324 a mf:Code ;
+    rdfs:label "L89.324" ;
+    rdfs:comment "Pressure ulcer of left buttock, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_326 a mf:Code ;
+    rdfs:label "L89.326" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left buttock" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_329 a mf:Code ;
+    rdfs:label "L89.329" ;
+    rdfs:comment "Pressure ulcer of left buttock, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_40 a mf:Code ;
+    rdfs:label "L89.40" ;
+    rdfs:comment "Pressure ulcer of contiguous site of back, buttock and hip, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_41 a mf:Code ;
+    rdfs:label "L89.41" ;
+    rdfs:comment "Pressure ulcer of contiguous site of back, buttock and hip, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_42 a mf:Code ;
+    rdfs:label "L89.42" ;
+    rdfs:comment "Pressure ulcer of contiguous site of back, buttock and hip, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_43 a mf:Code ;
+    rdfs:label "L89.43" ;
+    rdfs:comment "Pressure ulcer of contiguous site of back, buttock and hip, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_44 a mf:Code ;
+    rdfs:label "L89.44" ;
+    rdfs:comment "Pressure ulcer of contiguous site of back, buttock and hip, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_45 a mf:Code ;
+    rdfs:label "L89.45" ;
+    rdfs:comment "Pressure ulcer of contiguous site of back, buttock and hip, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_46 a mf:Code ;
+    rdfs:label "L89.46" ;
+    rdfs:comment "Pressure-induced deep tissue damage of contiguous site of back, buttock and hip" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_500 a mf:Code ;
+    rdfs:label "L89.500" ;
+    rdfs:comment "Pressure ulcer of unspecified ankle, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_501 a mf:Code ;
+    rdfs:label "L89.501" ;
+    rdfs:comment "Pressure ulcer of unspecified ankle, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_502 a mf:Code ;
+    rdfs:label "L89.502" ;
+    rdfs:comment "Pressure ulcer of unspecified ankle, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_503 a mf:Code ;
+    rdfs:label "L89.503" ;
+    rdfs:comment "Pressure ulcer of unspecified ankle, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_504 a mf:Code ;
+    rdfs:label "L89.504" ;
+    rdfs:comment "Pressure ulcer of unspecified ankle, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_506 a mf:Code ;
+    rdfs:label "L89.506" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified ankle" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_509 a mf:Code ;
+    rdfs:label "L89.509" ;
+    rdfs:comment "Pressure ulcer of unspecified ankle, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_510 a mf:Code ;
+    rdfs:label "L89.510" ;
+    rdfs:comment "Pressure ulcer of right ankle, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_511 a mf:Code ;
+    rdfs:label "L89.511" ;
+    rdfs:comment "Pressure ulcer of right ankle, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_512 a mf:Code ;
+    rdfs:label "L89.512" ;
+    rdfs:comment "Pressure ulcer of right ankle, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_513 a mf:Code ;
+    rdfs:label "L89.513" ;
+    rdfs:comment "Pressure ulcer of right ankle, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_514 a mf:Code ;
+    rdfs:label "L89.514" ;
+    rdfs:comment "Pressure ulcer of right ankle, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_516 a mf:Code ;
+    rdfs:label "L89.516" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right ankle" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_519 a mf:Code ;
+    rdfs:label "L89.519" ;
+    rdfs:comment "Pressure ulcer of right ankle, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_520 a mf:Code ;
+    rdfs:label "L89.520" ;
+    rdfs:comment "Pressure ulcer of left ankle, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_521 a mf:Code ;
+    rdfs:label "L89.521" ;
+    rdfs:comment "Pressure ulcer of left ankle, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_522 a mf:Code ;
+    rdfs:label "L89.522" ;
+    rdfs:comment "Pressure ulcer of left ankle, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_523 a mf:Code ;
+    rdfs:label "L89.523" ;
+    rdfs:comment "Pressure ulcer of left ankle, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_524 a mf:Code ;
+    rdfs:label "L89.524" ;
+    rdfs:comment "Pressure ulcer of left ankle, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_526 a mf:Code ;
+    rdfs:label "L89.526" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left ankle" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_529 a mf:Code ;
+    rdfs:label "L89.529" ;
+    rdfs:comment "Pressure ulcer of left ankle, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_600 a mf:Code ;
+    rdfs:label "L89.600" ;
+    rdfs:comment "Pressure ulcer of unspecified heel, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_601 a mf:Code ;
+    rdfs:label "L89.601" ;
+    rdfs:comment "Pressure ulcer of unspecified heel, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_602 a mf:Code ;
+    rdfs:label "L89.602" ;
+    rdfs:comment "Pressure ulcer of unspecified heel, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_603 a mf:Code ;
+    rdfs:label "L89.603" ;
+    rdfs:comment "Pressure ulcer of unspecified heel, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_604 a mf:Code ;
+    rdfs:label "L89.604" ;
+    rdfs:comment "Pressure ulcer of unspecified heel, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_606 a mf:Code ;
+    rdfs:label "L89.606" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified heel" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_609 a mf:Code ;
+    rdfs:label "L89.609" ;
+    rdfs:comment "Pressure ulcer of unspecified heel, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_610 a mf:Code ;
+    rdfs:label "L89.610" ;
+    rdfs:comment "Pressure ulcer of right heel, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_611 a mf:Code ;
+    rdfs:label "L89.611" ;
+    rdfs:comment "Pressure ulcer of right heel, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_612 a mf:Code ;
+    rdfs:label "L89.612" ;
+    rdfs:comment "Pressure ulcer of right heel, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_613 a mf:Code ;
+    rdfs:label "L89.613" ;
+    rdfs:comment "Pressure ulcer of right heel, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_614 a mf:Code ;
+    rdfs:label "L89.614" ;
+    rdfs:comment "Pressure ulcer of right heel, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_616 a mf:Code ;
+    rdfs:label "L89.616" ;
+    rdfs:comment "Pressure-induced deep tissue damage of right heel" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_619 a mf:Code ;
+    rdfs:label "L89.619" ;
+    rdfs:comment "Pressure ulcer of right heel, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_620 a mf:Code ;
+    rdfs:label "L89.620" ;
+    rdfs:comment "Pressure ulcer of left heel, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_621 a mf:Code ;
+    rdfs:label "L89.621" ;
+    rdfs:comment "Pressure ulcer of left heel, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_622 a mf:Code ;
+    rdfs:label "L89.622" ;
+    rdfs:comment "Pressure ulcer of left heel, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_623 a mf:Code ;
+    rdfs:label "L89.623" ;
+    rdfs:comment "Pressure ulcer of left heel, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_624 a mf:Code ;
+    rdfs:label "L89.624" ;
+    rdfs:comment "Pressure ulcer of left heel, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_626 a mf:Code ;
+    rdfs:label "L89.626" ;
+    rdfs:comment "Pressure-induced deep tissue damage of left heel" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_629 a mf:Code ;
+    rdfs:label "L89.629" ;
+    rdfs:comment "Pressure ulcer of left heel, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_810 a mf:Code ;
+    rdfs:label "L89.810" ;
+    rdfs:comment "Pressure ulcer of head, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_811 a mf:Code ;
+    rdfs:label "L89.811" ;
+    rdfs:comment "Pressure ulcer of head, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_812 a mf:Code ;
+    rdfs:label "L89.812" ;
+    rdfs:comment "Pressure ulcer of head, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_813 a mf:Code ;
+    rdfs:label "L89.813" ;
+    rdfs:comment "Pressure ulcer of head, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_814 a mf:Code ;
+    rdfs:label "L89.814" ;
+    rdfs:comment "Pressure ulcer of head, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_816 a mf:Code ;
+    rdfs:label "L89.816" ;
+    rdfs:comment "Pressure-induced deep tissue damage of head" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_819 a mf:Code ;
+    rdfs:label "L89.819" ;
+    rdfs:comment "Pressure ulcer of head, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_890 a mf:Code ;
+    rdfs:label "L89.890" ;
+    rdfs:comment "Pressure ulcer of other site, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_891 a mf:Code ;
+    rdfs:label "L89.891" ;
+    rdfs:comment "Pressure ulcer of other site, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_892 a mf:Code ;
+    rdfs:label "L89.892" ;
+    rdfs:comment "Pressure ulcer of other site, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_893 a mf:Code ;
+    rdfs:label "L89.893" ;
+    rdfs:comment "Pressure ulcer of other site, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_894 a mf:Code ;
+    rdfs:label "L89.894" ;
+    rdfs:comment "Pressure ulcer of other site, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_896 a mf:Code ;
+    rdfs:label "L89.896" ;
+    rdfs:comment "Pressure-induced deep tissue damage of other site" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_899 a mf:Code ;
+    rdfs:label "L89.899" ;
+    rdfs:comment "Pressure ulcer of other site, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_90 a mf:Code ;
+    rdfs:label "L89.90" ;
+    rdfs:comment "Pressure ulcer of unspecified site, unspecified stage" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_91 a mf:Code ;
+    rdfs:label "L89.91" ;
+    rdfs:comment "Pressure ulcer of unspecified site, stage 1" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_92 a mf:Code ;
+    rdfs:label "L89.92" ;
+    rdfs:comment "Pressure ulcer of unspecified site, stage 2" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_93 a mf:Code ;
+    rdfs:label "L89.93" ;
+    rdfs:comment "Pressure ulcer of unspecified site, stage 3" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_94 a mf:Code ;
+    rdfs:label "L89.94" ;
+    rdfs:comment "Pressure ulcer of unspecified site, stage 4" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_95 a mf:Code ;
+    rdfs:label "L89.95" ;
+    rdfs:comment "Pressure ulcer of unspecified site, unstageable" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:L89_96 a mf:Code ;
+    rdfs:label "L89.96" ;
+    rdfs:comment "Pressure-induced deep tissue damage of unspecified site" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:M62_50 a mf:Code ;
+    rdfs:label "M62.50" ;
+    rdfs:comment "Muscle wasting and atrophy, not elsewhere classified, unspecified site" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:M62_81 a mf:Code ;
+    rdfs:label "M62.81" ;
+    rdfs:comment "Muscle weakness (generalized)" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:M62_84 a mf:Code ;
+    rdfs:label "M62.84" ;
+    rdfs:comment "Sarcopenia" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R26_0 a mf:Code ;
+    rdfs:label "R26.0" ;
+    rdfs:comment "Ataxic gait" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R26_1 a mf:Code ;
+    rdfs:label "R26.1" ;
+    rdfs:comment "Paralytic gait" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R26_2 a mf:Code ;
+    rdfs:label "R26.2" ;
+    rdfs:comment "Difficulty in walking, not elsewhere classified" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R26_89 a mf:Code ;
+    rdfs:label "R26.89" ;
+    rdfs:comment "Other abnormalities of gait and mobility" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R26_9 a mf:Code ;
+    rdfs:label "R26.9" ;
+    rdfs:comment "Unspecified abnormalities of gait and mobility" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R41_81 a mf:Code ;
+    rdfs:label "R41.81" ;
+    rdfs:comment "Age-related cognitive decline" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R53_1 a mf:Code ;
+    rdfs:label "R53.1" ;
+    rdfs:comment "Weakness" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R53_81 a mf:Code ;
+    rdfs:label "R53.81" ;
+    rdfs:comment "Other malaise" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R53_83 a mf:Code ;
+    rdfs:label "R53.83" ;
+    rdfs:comment "Other fatigue" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R54 a mf:Code ;
+    rdfs:label "R54" ;
+    rdfs:comment "Age-related physical debility" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R62_7 a mf:Code ;
+    rdfs:label "R62.7" ;
+    rdfs:comment "Adult failure to thrive" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R63_4 a mf:Code ;
+    rdfs:label "R63.4" ;
+    rdfs:comment "Abnormal weight loss" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R63_6 a mf:Code ;
+    rdfs:label "R63.6" ;
+    rdfs:comment "Underweight" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:R64 a mf:Code ;
+    rdfs:label "R64" ;
+    rdfs:comment "Cachexia" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_0XXA a mf:Code ;
+    rdfs:label "W01.0XXA" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling without subsequent striking against object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_0XXD a mf:Code ;
+    rdfs:label "W01.0XXD" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling without subsequent striking against object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_0XXS a mf:Code ;
+    rdfs:label "W01.0XXS" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling without subsequent striking against object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_10XA a mf:Code ;
+    rdfs:label "W01.10XA" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against unspecified object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_10XD a mf:Code ;
+    rdfs:label "W01.10XD" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against unspecified object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_10XS a mf:Code ;
+    rdfs:label "W01.10XS" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against unspecified object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_110A a mf:Code ;
+    rdfs:label "W01.110A" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against sharp glass, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_110D a mf:Code ;
+    rdfs:label "W01.110D" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against sharp glass, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_110S a mf:Code ;
+    rdfs:label "W01.110S" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against sharp glass, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_111A a mf:Code ;
+    rdfs:label "W01.111A" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against power tool or machine, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_111D a mf:Code ;
+    rdfs:label "W01.111D" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against power tool or machine, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_111S a mf:Code ;
+    rdfs:label "W01.111S" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against power tool or machine, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_118A a mf:Code ;
+    rdfs:label "W01.118A" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against other sharp object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_118D a mf:Code ;
+    rdfs:label "W01.118D" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against other sharp object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_118S a mf:Code ;
+    rdfs:label "W01.118S" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against other sharp object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_119A a mf:Code ;
+    rdfs:label "W01.119A" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against unspecified sharp object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_119D a mf:Code ;
+    rdfs:label "W01.119D" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against unspecified sharp object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_119S a mf:Code ;
+    rdfs:label "W01.119S" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against unspecified sharp object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_190A a mf:Code ;
+    rdfs:label "W01.190A" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against furniture, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_190D a mf:Code ;
+    rdfs:label "W01.190D" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against furniture, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_190S a mf:Code ;
+    rdfs:label "W01.190S" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against furniture, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_198A a mf:Code ;
+    rdfs:label "W01.198A" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against other object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_198D a mf:Code ;
+    rdfs:label "W01.198D" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against other object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W01_198S a mf:Code ;
+    rdfs:label "W01.198S" ;
+    rdfs:comment "Fall on same level from slipping, tripping and stumbling with subsequent striking against other object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W06_XXXA a mf:Code ;
+    rdfs:label "W06.XXXA" ;
+    rdfs:comment "Fall from bed, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W06_XXXD a mf:Code ;
+    rdfs:label "W06.XXXD" ;
+    rdfs:comment "Fall from bed, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W06_XXXS a mf:Code ;
+    rdfs:label "W06.XXXS" ;
+    rdfs:comment "Fall from bed, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W07_XXXA a mf:Code ;
+    rdfs:label "W07.XXXA" ;
+    rdfs:comment "Fall from chair, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W07_XXXD a mf:Code ;
+    rdfs:label "W07.XXXD" ;
+    rdfs:comment "Fall from chair, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W07_XXXS a mf:Code ;
+    rdfs:label "W07.XXXS" ;
+    rdfs:comment "Fall from chair, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W08_XXXA a mf:Code ;
+    rdfs:label "W08.XXXA" ;
+    rdfs:comment "Fall from other furniture, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W08_XXXD a mf:Code ;
+    rdfs:label "W08.XXXD" ;
+    rdfs:comment "Fall from other furniture, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W08_XXXS a mf:Code ;
+    rdfs:label "W08.XXXS" ;
+    rdfs:comment "Fall from other furniture, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_0XXA a mf:Code ;
+    rdfs:label "W10.0XXA" ;
+    rdfs:comment "Fall (on)(from) escalator, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_0XXD a mf:Code ;
+    rdfs:label "W10.0XXD" ;
+    rdfs:comment "Fall (on)(from) escalator, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_0XXS a mf:Code ;
+    rdfs:label "W10.0XXS" ;
+    rdfs:comment "Fall (on)(from) escalator, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_1XXA a mf:Code ;
+    rdfs:label "W10.1XXA" ;
+    rdfs:comment "Fall (on)(from) sidewalk curb, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_1XXD a mf:Code ;
+    rdfs:label "W10.1XXD" ;
+    rdfs:comment "Fall (on)(from) sidewalk curb, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_1XXS a mf:Code ;
+    rdfs:label "W10.1XXS" ;
+    rdfs:comment "Fall (on)(from) sidewalk curb, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_2XXA a mf:Code ;
+    rdfs:label "W10.2XXA" ;
+    rdfs:comment "Fall (on)(from) incline, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_2XXD a mf:Code ;
+    rdfs:label "W10.2XXD" ;
+    rdfs:comment "Fall (on)(from) incline, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_2XXS a mf:Code ;
+    rdfs:label "W10.2XXS" ;
+    rdfs:comment "Fall (on)(from) incline, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_8XXA a mf:Code ;
+    rdfs:label "W10.8XXA" ;
+    rdfs:comment "Fall (on) (from) other stairs and steps, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_8XXD a mf:Code ;
+    rdfs:label "W10.8XXD" ;
+    rdfs:comment "Fall (on) (from) other stairs and steps, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_8XXS a mf:Code ;
+    rdfs:label "W10.8XXS" ;
+    rdfs:comment "Fall (on) (from) other stairs and steps, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_9XXA a mf:Code ;
+    rdfs:label "W10.9XXA" ;
+    rdfs:comment "Fall (on) (from) unspecified stairs and steps, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_9XXD a mf:Code ;
+    rdfs:label "W10.9XXD" ;
+    rdfs:comment "Fall (on) (from) unspecified stairs and steps, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W10_9XXS a mf:Code ;
+    rdfs:label "W10.9XXS" ;
+    rdfs:comment "Fall (on) (from) unspecified stairs and steps, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_00XA a mf:Code ;
+    rdfs:label "W18.00XA" ;
+    rdfs:comment "Striking against unspecified object with subsequent fall, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_00XD a mf:Code ;
+    rdfs:label "W18.00XD" ;
+    rdfs:comment "Striking against unspecified object with subsequent fall, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_00XS a mf:Code ;
+    rdfs:label "W18.00XS" ;
+    rdfs:comment "Striking against unspecified object with subsequent fall, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_02XA a mf:Code ;
+    rdfs:label "W18.02XA" ;
+    rdfs:comment "Striking against glass with subsequent fall, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_02XD a mf:Code ;
+    rdfs:label "W18.02XD" ;
+    rdfs:comment "Striking against glass with subsequent fall, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_02XS a mf:Code ;
+    rdfs:label "W18.02XS" ;
+    rdfs:comment "Striking against glass with subsequent fall, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_09XA a mf:Code ;
+    rdfs:label "W18.09XA" ;
+    rdfs:comment "Striking against other object with subsequent fall, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_09XD a mf:Code ;
+    rdfs:label "W18.09XD" ;
+    rdfs:comment "Striking against other object with subsequent fall, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_09XS a mf:Code ;
+    rdfs:label "W18.09XS" ;
+    rdfs:comment "Striking against other object with subsequent fall, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_11XA a mf:Code ;
+    rdfs:label "W18.11XA" ;
+    rdfs:comment "Fall from or off toilet without subsequent striking against object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_11XD a mf:Code ;
+    rdfs:label "W18.11XD" ;
+    rdfs:comment "Fall from or off toilet without subsequent striking against object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_11XS a mf:Code ;
+    rdfs:label "W18.11XS" ;
+    rdfs:comment "Fall from or off toilet without subsequent striking against object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_12XA a mf:Code ;
+    rdfs:label "W18.12XA" ;
+    rdfs:comment "Fall from or off toilet with subsequent striking against object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_12XD a mf:Code ;
+    rdfs:label "W18.12XD" ;
+    rdfs:comment "Fall from or off toilet with subsequent striking against object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_12XS a mf:Code ;
+    rdfs:label "W18.12XS" ;
+    rdfs:comment "Fall from or off toilet with subsequent striking against object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_2XXA a mf:Code ;
+    rdfs:label "W18.2XXA" ;
+    rdfs:comment "Fall in (into) shower or empty bathtub, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_2XXD a mf:Code ;
+    rdfs:label "W18.2XXD" ;
+    rdfs:comment "Fall in (into) shower or empty bathtub, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_2XXS a mf:Code ;
+    rdfs:label "W18.2XXS" ;
+    rdfs:comment "Fall in (into) shower or empty bathtub, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_30XA a mf:Code ;
+    rdfs:label "W18.30XA" ;
+    rdfs:comment "Fall on same level, unspecified, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_30XD a mf:Code ;
+    rdfs:label "W18.30XD" ;
+    rdfs:comment "Fall on same level, unspecified, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_30XS a mf:Code ;
+    rdfs:label "W18.30XS" ;
+    rdfs:comment "Fall on same level, unspecified, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_31XA a mf:Code ;
+    rdfs:label "W18.31XA" ;
+    rdfs:comment "Fall on same level due to stepping on an object, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_31XD a mf:Code ;
+    rdfs:label "W18.31XD" ;
+    rdfs:comment "Fall on same level due to stepping on an object, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_31XS a mf:Code ;
+    rdfs:label "W18.31XS" ;
+    rdfs:comment "Fall on same level due to stepping on an object, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_39XA a mf:Code ;
+    rdfs:label "W18.39XA" ;
+    rdfs:comment "Other fall on same level, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_39XD a mf:Code ;
+    rdfs:label "W18.39XD" ;
+    rdfs:comment "Other fall on same level, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W18_39XS a mf:Code ;
+    rdfs:label "W18.39XS" ;
+    rdfs:comment "Other fall on same level, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W19_XXXA a mf:Code ;
+    rdfs:label "W19.XXXA" ;
+    rdfs:comment "Unspecified fall, initial encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W19_XXXD a mf:Code ;
+    rdfs:label "W19.XXXD" ;
+    rdfs:comment "Unspecified fall, subsequent encounter" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:W19_XXXS a mf:Code ;
+    rdfs:label "W19.XXXS" ;
+    rdfs:comment "Unspecified fall, sequela" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Y92_199 a mf:Code ;
+    rdfs:label "Y92.199" ;
+    rdfs:comment "Unspecified place in other specified residential institution as the place of occurrence of the external cause" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z59_3 a mf:Code ;
+    rdfs:label "Z59.3" ;
+    rdfs:comment "Problems related to living in residential institution" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z73_6 a mf:Code ;
+    rdfs:label "Z73.6" ;
+    rdfs:comment "Limitation of activities due to disability" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_01 a mf:Code ;
+    rdfs:label "Z74.01" ;
+    rdfs:comment "Bed confinement status" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_09 a mf:Code ;
+    rdfs:label "Z74.09" ;
+    rdfs:comment "Other reduced mobility" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_1 a mf:Code ;
+    rdfs:label "Z74.1" ;
+    rdfs:comment "Need for assistance with personal care" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_2 a mf:Code ;
+    rdfs:label "Z74.2" ;
+    rdfs:comment "Need for assistance at home and no other household member able to render care" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_3 a mf:Code ;
+    rdfs:label "Z74.3" ;
+    rdfs:comment "Need for continuous supervision" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_8 a mf:Code ;
+    rdfs:label "Z74.8" ;
+    rdfs:comment "Other problems related to care provider dependency" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z74_9 a mf:Code ;
+    rdfs:label "Z74.9" ;
+    rdfs:comment "Problem related to care provider dependency, unspecified" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z91_81 a mf:Code ;
+    rdfs:label "Z91.81" ;
+    rdfs:comment "History of falling" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z99_11 a mf:Code ;
+    rdfs:label "Z99.11" ;
+    rdfs:comment "Dependence on respirator [ventilator] status" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z99_3 a mf:Code ;
+    rdfs:label "Z99.3" ;
+    rdfs:comment "Dependence on wheelchair" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z99_81 a mf:Code ;
+    rdfs:label "Z99.81" ;
+    rdfs:comment "Dependence on supplemental oxygen" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
+
+mf:Z99_89 a mf:Code ;
+    rdfs:label "Z99.89" ;
+    rdfs:comment "Dependence on other enabling machines and devices" ;
+    mf:hasCodeSystem "ICD10CM" ;
+    mf:hasCodeSystemVersion "2026" ;
+    mf:hasCodeSystemOID "2.16.840.1.113883.6.90" ;
+    mf:hasTTY "PT" ;
+    mf:belongsToValueSet mf:ICPFrailty .
